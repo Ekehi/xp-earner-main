@@ -107,26 +107,19 @@ function App() {
                         src="200.png"
                         className='circle-outer top-glow animate-pulse delay-[10000ms]'
                     />
-
-
                 </div>
 
-                <div className=" flex-grow h-56 mt-4 w-full mx-2 bg-transparent rounded-md relative">
-                    <div className="relative flex h-fit w-fit mx-2 bottom-0 bg-cover bg-ad-section rounded-xl">
-                        <div className="container my-auto p-4 flex justify-between gap-2 h-48 w-full rounded-xl bg-white/20 backdrop-contrast-50">
+                <div className=" flex-grow h-40 mt-32 mt- w-full mx-2 bg-transparent rounded-md relative">
+                    <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
+                        <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
                             
-                                <h1 class="text-base font-extrabold text-white leading-tight mb-4">
-                                    50K USDT <span class="text-pink-300">Give</span><span class="text-purple-300">Away</span><span class="text-blue-300">50K USDT</span>
+                                <h1 class="text-base wl-ful font-extrabold text-yellow-500 leading-none mb-2 text-start">
+                                    10K USDT <span class="text-white">GiveAway</span>
                                 </h1>
-                                <p class="text-sm font-mono text-white leading-tight mb-8">
-                                    * Invite at least 5 Friends. <br/>
+                                <p class="text-sm font-mono text-white/80 leading-tight mb-2">
+                                    * Invite at least 10 Friends. <br/>
                                     * Check in at least 10 consecutive days.
                                 </p>
-                                <a href="#" class="inline-block bg-white text-pink-500 hover:text-pink-600 font-medium px-3 py-[4px] rounded-xl shadow-lg hover:shadow-xl transition duration-200">
-                                   Join
-                                </a>
-                            
-
                         </div>
                     </div>
                 </div>
