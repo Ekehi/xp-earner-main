@@ -1,0 +1,44 @@
+{
+  "name": "xp-earner",
+  "version": "1.0.0",
+  "description": "full-stack application that allows users to explore and choose from a set of features, each associated with specific tasks. Users can complete these tasks to earn XP",
+  "main": "index.js",
+  "scripts": {
+    "build:server": "cd server && npm i",
+    "build:client": "cd client && npm i",
+    "build": "npm i && npm-run-all --parallel build:server build:client",
+    "start:server": "cd server && npm run start",
+    "start:client": "cd client && npm run start",
+    "start": "npm-run-all --parallel start:server start:client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adosh74/xp-earner.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "React",
+    "MongoDB"
+  ],
+  "author": "Mohamed Shebl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adosh74/xp-earner/issues"
+  },
+  "homepage": "https://github.com/Adosh74/xp-earner#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.1.1"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
