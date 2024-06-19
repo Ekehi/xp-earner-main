@@ -28,15 +28,15 @@ const AppHeader = () => {
             });
     };
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="#0f172a" variant="slate">
             <Navbar.Brand
                 onClick={() => {
                     navigate('/');
                 }}
             >
-                XP-EARNER
+                EKEHI
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto"></Nav>
                 <Nav>
@@ -67,7 +67,7 @@ const AppHeader = () => {
                         </Link>
                     )}
                 </Nav>
-            </Navbar.Collapse>
+            </Navbar.Collapse> */}
         </Navbar>
     );
 };
