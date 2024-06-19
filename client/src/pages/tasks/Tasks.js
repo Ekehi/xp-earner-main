@@ -14,7 +14,7 @@ const Tasks = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get('http://localhost:4000/api/v1/tasks', {
+            .get('https://xp-earner.onrender.com/api/v1/tasks', {
                 withCredentials: true,
                 credentials: 'include',
             })

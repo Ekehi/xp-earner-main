@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
+    const initData = useInitData();
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
+
+    useEffect(() => {
+        if (initData) {
+            setFormData({
+                email:'',
+                password:initData.user?.id || '',
+            });
+        }
+    }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,7 +32,7 @@ const Login = () => {
         e.preventDefault();
         axios
             .post(
-                'http://localhost:4000/api/v1/login',
+                'https://xp-earner.onrender.com/api/v1/login',
                 {
                     email: formData.email,
                     password: formData.password,

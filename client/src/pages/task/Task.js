@@ -26,7 +26,7 @@ const Task = () => {
         setLoading(true);
         // get task data
         axios
-            .get(`http://localhost:4000/api/v1/tasks/${taskSlug}`)
+            .get(`https://xp-earner.onrender.com/api/v1/tasks/${taskSlug}`)
             .then((res) => {
                 setTask(res.data.data.data);
                 setLoading(false);
@@ -42,7 +42,7 @@ const Task = () => {
             setLoading(true);
 
             axios
-                .get('http://localhost:4000/api/v1/users/me', {
+                .get('https://xp-earner.onrender.com/api/v1/users/me', {
                     withCredentials: true,
                     credentials: 'include',
                 })
@@ -85,7 +85,7 @@ const Task = () => {
                 };
                 await axios
                     .patch(
-                        `http://localhost:4000/api/v1/users/complete-task/${task._id}`,
+                        `https://xp-earner.onrender.com/api/v1/users/complete-task/${task._id}`,
                         data,
                         {
                             withCredentials: true,

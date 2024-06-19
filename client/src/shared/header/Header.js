@@ -13,7 +13,7 @@ const AppHeader = () => {
 
     const handleLogout = () => {
         axios
-            .get('http://localhost:4000/api/v1/logout', {
+            .get('https://xp-earner.onrender.com/api/v1/logout', {
                 withCredentials: true,
                 credentials: 'include',
             })

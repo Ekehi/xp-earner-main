@@ -11,7 +11,7 @@ const Profile = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get('http://localhost:4000/api/v1/users/me', {
+            .get('https://xp-earner.onrender.com/api/v1/users/me', {
                 withCredentials: true,
                 credentials: 'include',
             })
@@ -92,7 +92,7 @@ const Profile = () => {
                     {/* Displaying Avatar/Profile Image */}
                     {user.avatar && (
                         <img
-                            src={`http://localhost:4000/${user.avatar}`}
+                            src={`https://tasks.ekehi.network/${user.avatar}`}
                             alt="Profile Avatar"
                             className="mb-3"
                             style={{ maxWidth: '100%' }}
