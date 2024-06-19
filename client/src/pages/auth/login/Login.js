@@ -20,7 +20,7 @@ const Login = () => {
         e.preventDefault();
         axios
             .post(
-                'http://localhost:4000/api/v1/login',
+                'https://xp-earner.onrender.com/api/v1/login',
                 {
                     email: formData.email,
                     password: formData.password,
