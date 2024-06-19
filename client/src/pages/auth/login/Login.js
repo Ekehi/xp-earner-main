@@ -7,8 +7,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
+        email: 'test',
+        password: 'test',
     });
 
     const handleChange = (e) => {
