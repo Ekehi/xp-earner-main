@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
+    const initData = useInitData();
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        email: 'test',
-        password: 'test',
+        email: '',
+        password: '',
     });
+
+    useEffect(() => {
+        if (initData) {
+            setFormData({
+                email:'',
+                password:initData.user?.id || '',
+            });
+        }
+    }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
