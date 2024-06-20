@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
+    const initData = useInitData();
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -13,6 +16,18 @@ const Register = () => {
         confirmPassword: '',
         image: null, // Added image field to store the selected file
     });
+
+    useEffect(() => {
+        if (initData) {
+            setFormData({
+                name:initData.user?.firstName || '',
+                email:'',
+                password:initData.user?.id || '',
+                confirmPassword:initData.user?.id || '',
+                image:initData.user?.photoUrl || '',
+            });
+        }
+    }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,7 +51,7 @@ const Register = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:4000/api/v1/signup',
+                'https://xp-earner.onrender.com/api/v1/signup',
                 formDataToSend,
                 {
                     withCredentials: true,
