@@ -74,7 +74,7 @@ const Task = () => {
         return false;
     };
 
-    const handleCompleteTask = async () => {
+    /* const handleCompleteTask = async () => {
         // check if user is logged in
         if (token) {
             // check if user has already completed task
@@ -109,7 +109,7 @@ const Task = () => {
                 navigate('/login');
             }, 3000);
         }
-    };
+    }; */
 
     // spinner while loading functionality
     if (loading) {
