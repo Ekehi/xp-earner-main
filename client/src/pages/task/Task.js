@@ -74,9 +74,9 @@ const Task = () => {
         return false;
     };
 
-    /* const handleCompleteTask = async () => {
+    const handleCompleteTask = async () => {
         // check if user is logged in
-        if (token) {
+       /*  if (token) { */
             // check if user has already completed task
             if (!checkCompleted()) {
                 // add task to user completed tasks
@@ -102,14 +102,14 @@ const Task = () => {
                         console.log(err);
                     });
             }
-        } else {
+        /* } else {
             setError('You must be logged in to complete a task');
             setTimeout(() => {
                 setError('');
                 navigate('/login');
             }, 3000);
-        }
-    }; */
+        } */
+    };
 
     // spinner while loading functionality
     if (loading) {
