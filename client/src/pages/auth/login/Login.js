@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useInitData } from '@tma.js/sdk-react';
+//import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
-    const initData = useInitData();
+    //const initData = useInitData();
 
     const navigate = useNavigate();
 
@@ -14,14 +14,14 @@ const Login = () => {
         password: '',
     });
 
-    useEffect(() => {
-        if (initData) {
-            setFormData({
-                email:'',
-                password:initData.user?.id || '',
-            });
-        }
-    }, [initData]);
+    // useEffect(() => {
+    //     if (initData) {
+    //         setFormData({
+    //             email:'',
+    //             password:initData.user?.id || '',
+    //         });
+    //     }
+    // }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -44,6 +44,7 @@ const Login = () => {
             )
             .then((res) => {
                 console.log(res);
+                sessionStorage.setItem("dateUserToken", res.token);
                 // redirect to home page
                 navigate('/');
                 alert('User logged in successfully');
