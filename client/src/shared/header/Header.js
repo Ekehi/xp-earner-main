@@ -34,7 +34,7 @@ const AppHeader = () => {
                     navigate('/');
                 }}
             >
-                <img src="../public/logo.png" className="mr-2 sm:h-9" alt="Ekehi" />
+                <img src="/public/logo.png" className="mr-2 sm:h-9" alt="Ekehi" />
             </Navbar.Brand>
             {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
