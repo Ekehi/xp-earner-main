@@ -18,7 +18,6 @@ const AppHeader = () => {
             })
             .then((res) => {
                 console.log(res);
-                Cookies.set('JWT', 'loggedout'); // Ensure the cookie is set to 'loggedout'
                 navigate('/');
                 alert('Logged out successfully');
             })
