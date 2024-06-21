@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const Login = () => {
     //const initData = useInitData();
+    const [user, setUser] = useState({});
 
     const navigate = useNavigate();
 
