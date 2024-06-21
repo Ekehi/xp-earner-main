@@ -16,7 +16,7 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element: <Tasks />,
             },
-            /* {
+            {
                 element: <AuthGuard />,
                 children: [
                     {
@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
                         element: <Register />,
                     },
                 ],
-            }, */
+            },
             {
                 path: '/profile',
                 element: <Profile />,
