@@ -52,7 +52,7 @@ const Tasks = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Complete Tasks to Earn XP</h2>
+            <h2>Complete Tasks to Earn Ekehi Points</h2>
             <div className="row">
                 {tasks &&
                     tasks.length > 0 &&
@@ -63,7 +63,7 @@ const Tasks = () => {
                                     <Card.Title>{task.name}</Card.Title>
                                     <Card.Text>{task.description}</Card.Text>
                                     <Card.Text>
-                                        XP Points: {task.xp_points}
+                                        Ekehi Points: {task.xp_points}
                                     </Card.Text>
                                     <Button
                                         onClick={() => {

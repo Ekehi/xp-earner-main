@@ -138,7 +138,7 @@ const Task = () => {
                     <Card.Body>{task.description}</Card.Body>
                     <br />
 
-                    <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
+                    <Card.Subtitle>Ekehi Points: {task.xp_points}</Card.Subtitle>
                     <br />
 
                     {!checkCompleted() && (
