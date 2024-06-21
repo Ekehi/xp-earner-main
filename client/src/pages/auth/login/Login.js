@@ -44,7 +44,7 @@ const Login = () => {
             )
             .then((res) => {
                 console.log(res);
-                sessionStorage.setItem("dateUserToken", res.token);
+                setUser(res.data.data.data);
                 // redirect to home page
                 navigate('/');
                 alert('User logged in successfully');
