@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { isLogged } from '../../services/auth';
+import { isLogged } from '../../services/context';
 
 const AppHeader = () => {
     const isUser = isLogged();
