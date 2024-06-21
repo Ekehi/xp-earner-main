@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { tokenData } from '../../services/auth';
+import { tokenData } from '../../services/context';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Task = () => {
@@ -14,17 +14,11 @@ const Task = () => {
 
     const navigate = useNavigate();
 
-    // token data
-    const token = tokenData();
-
-    // task slug from url
     const { taskSlug } = useParams();
-
-    // get task id from url
 
     useEffect(() => {
         setLoading(true);
-        // get task data
+
         axios
             .get(`https://xp-earner.onrender.com/api/v1/tasks/${taskSlug}`)
             .then((res) => {
@@ -37,7 +31,7 @@ const Task = () => {
                 console.log(err);
             });
 
-        // get user data if exists
+        const token = tokenData();
         if (token) {
             setLoading(true);
 
@@ -56,51 +50,40 @@ const Task = () => {
                     console.log(err);
                 });
         }
-    }, [clickComplete]);
+    }, [taskSlug, clickComplete]);
 
-    // check if user has already completed task
     const checkCompleted = () => {
-        // check if user has completed task
         if (user) {
-            const completedTasks = user.completed_tasks;
-            let completed = false;
-            completedTasks.forEach((completedTask) => {
-                if (completedTask.task_id._id === task._id) {
-                    completed = true;
-                }
-            });
-            return completed;
+            const completedTasks = user.completed_tasks || [];
+            return completedTasks.some(
+                (completedTask) => completedTask.task_id._id === task._id
+            );
         }
         return false;
     };
 
     const handleCompleteTask = async () => {
-        // check if user is logged in
+        const token = tokenData();
         if (token) {
-            // check if user has already completed task
             if (!checkCompleted()) {
-                // add task to user completed tasks
                 const data = {
                     task_id: task._id,
                 };
-                await axios
-                    .patch(
+                try {
+                    await axios.patch(
                         `https://xp-earner.onrender.com/api/v1/users/complete-task/${task._id}`,
                         data,
                         {
                             withCredentials: true,
                             credentials: 'include',
-                        },
-                    )
-                    .then((res) => {
-                        alert('Task Completed Successfully 🎉');
-                        console.log(res);
-                        setClickComplete(!clickComplete);
-                    })
-                    .catch((err) => {
-                        setError(err.response.data.message);
-                        console.log(err);
-                    });
+                        }
+                    );
+                    alert('Task Completed Successfully 🎉');
+                    setClickComplete(!clickComplete);
+                } catch (err) {
+                    setError(err.response.data.message);
+                    console.log(err);
+                }
             }
         } else {
             setError('You must be logged in to complete a task');
@@ -111,7 +94,6 @@ const Task = () => {
         }
     };
 
-    // spinner while loading functionality
     if (loading) {
         return (
             <div className="container mt-5">
@@ -120,15 +102,14 @@ const Task = () => {
         );
     }
 
-    // error handling functionality
     if (error) {
         return (
             <div className="container mt-5">
                 <h2>{error}</h2>
             </div>
         );
-        //
     }
+
     return (
         <div className="container mt-5">
             <h2>Task Details</h2>
@@ -137,16 +118,13 @@ const Task = () => {
                     <Card.Title>{task.name}</Card.Title>
                     <Card.Body>{task.description}</Card.Body>
                     <br />
-
                     <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
                     <br />
-
-                    {!checkCompleted() && (
+                    {!checkCompleted() ? (
                         <Button variant="success" onClick={handleCompleteTask}>
                             Complete Task
                         </Button>
-                    )}
-                    {checkCompleted() && (
+                    ) : (
                         <Button variant="success" disabled>
                             Task Completed
                         </Button>
