@@ -43,7 +43,7 @@ const Login = () => {
                 },
             )
             .then((res) => {
-                const token = response.data.token;
+                const token = res.data.token;
                 // Set the token in sessionStorage
                 sessionStorage.setItem('JWT', token);
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
