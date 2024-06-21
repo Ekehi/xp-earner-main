@@ -76,7 +76,7 @@ const Task = () => {
 
     const handleCompleteTask = async () => {
         // check if user is logged in
-       /*  if (token) { */
+        if (token) {
             // check if user has already completed task
             if (!checkCompleted()) {
                 // add task to user completed tasks
@@ -102,13 +102,13 @@ const Task = () => {
                         console.log(err);
                     });
             }
-        /* } else {
+        } else {
             setError('You must be logged in to complete a task');
             setTimeout(() => {
                 setError('');
                 navigate('/login');
             }, 3000);
-        } */
+        }
     };
 
     // spinner while loading functionality
@@ -138,7 +138,7 @@ const Task = () => {
                     <Card.Body>{task.description}</Card.Body>
                     <br />
 
-                    <Card.Subtitle>Ekehi Points: {task.xp_points}</Card.Subtitle>
+                    <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
                     <br />
 
                     {!checkCompleted() && (
