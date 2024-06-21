@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const Login = () => {
     //const initData = useInitData();
-    const [user, setUser] = useState({});
 
     const navigate = useNavigate();
 
@@ -45,7 +44,6 @@ const Login = () => {
             )
             .then((res) => {
                 console.log(res);
-                setUser(res.data.data.data);
                 // redirect to home page
                 navigate('/');
                 alert('User logged in successfully');
