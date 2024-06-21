@@ -55,7 +55,7 @@ const Profile = () => {
                             <Card.Title>User Information</Card.Title>
                             <Card.Text>Name: {user.name}</Card.Text>
                             <Card.Text>Email: {user.email}</Card.Text>
-                            <Card.Text>XP Points: {user.xp_points}</Card.Text>
+                            <Card.Text>Ekehi Points: {user.xp_points}</Card.Text>
                         </Card.Body>
                     </Card>
 
@@ -79,7 +79,7 @@ const Profile = () => {
                                                 {task.task_id.description}
                                             </Card.Text>
                                             <Card.Text>
-                                                XP Points:{' '}
+                                                Ekehi Points:{' '}
                                                 {task.task_id.xp_points}
                                             </Card.Text>
                                         </Card.Body>

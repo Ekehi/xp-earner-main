@@ -28,7 +28,7 @@ const AppHeader = () => {
             });
     };
     return (
-        <Navbar collapseOnSelect expand="lg" bg="#0f172a" variant="slate">
+        <Navbar collapseOnSelect expand="lg" className='bg-slate-900 ' variant="slate">
             <Navbar.Brand
                 onClick={() => {
                     navigate('/');
