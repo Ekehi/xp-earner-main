@@ -61,7 +61,10 @@ const Register = () => {
                     },
                 },
             );
-
+            const token = response.data.token;
+            // Set the token in sessionStorage
+            sessionStorage.setItem('JWT', token);
+            console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
             console.log(response);
             navigate('/');
             alert('User registered successfully');
