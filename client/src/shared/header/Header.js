@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons'; // Import the user icon
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { isLogged } from '../../services/auth';
 
@@ -36,7 +36,7 @@ const AppHeader = () => {
             >
                 <img src="/public/logo.png" className="mr-2 sm:h-9" alt="Ekehi" />
             </Navbar.Brand>
-            {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto"></Nav>
                 <Nav>
@@ -67,7 +67,7 @@ const AppHeader = () => {
                         </Link>
                     )}
                 </Nav>
-            </Navbar.Collapse> */}
+            </Navbar.Collapse>
         </Navbar>
     );
 };
