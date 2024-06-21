@@ -43,6 +43,10 @@ const Login = () => {
                 },
             )
             .then((res) => {
+                const token = response.data.token;
+                // Set the token in sessionStorage
+                sessionStorage.setItem('JWT', token);
+                console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);
                 // redirect to home page
                 navigate('/');
