@@ -43,8 +43,11 @@ const Login = () => {
                 },
             )
             .then((res) => {
+                const token = res.data.token;
+                // Set the token in sessionStorage
+                sessionStorage.setItem('JWT', token);
+                console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);
-                sessionStorage.setItem("dateUserToken", res.token);
                 // redirect to home page
                 navigate('/');
                 alert('User logged in successfully');
