@@ -142,7 +142,7 @@ const Task = () => {
                     <Card.Title>{task.name}</Card.Title>
                     <Card.Body>{task.description}</Card.Body>
                     <br />
-                    <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
+                    <Card.Subtitle>Reward: {task.xp_points} points</Card.Subtitle>
                     <br />
                     <ul>
                         {task.links && task.links.map((link, index) => 
@@ -161,7 +161,7 @@ const Task = () => {
                         </Button>
                     ) : (
                         <Button variant="success" disabled>
-                            Task Completed
+                            Reward Claimed
                         </Button>
                     )}
                 </Card.Body>
