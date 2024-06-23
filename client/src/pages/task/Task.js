@@ -13,18 +13,8 @@ const Task = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
     const { taskSlug } = useParams();
-    const [linkStatus, setLinkStatus] = useState(Array(task.links.length).fill(false));
+    const [linkStatus, setLinkStatus] = useState([]);
     const [allLinkVisited, setAllLinkVisited] = useState(false);
-
-    const handleLinkClick = (index) => {
-        const newLinkStatus = [...linkStatus];
-        newLinkStatus[index] = true;
-        setLinkStatus(newLinkStatus);
-
-        if (newLinkStatus.every(status => status)) {
-            setAllLinkVisited(true);
-        }
-    };
 
     useEffect(() => {
         setLoading(true);
@@ -61,6 +51,22 @@ const Task = () => {
                 });
         }
     }, [taskSlug, clickComplete]);
+
+    useEffect(() => {
+        if (task && task.links) {
+            setLinkStatus(Array(task.links.length).fill(false));
+        }
+    }, [task]);
+
+    const handleLinkClick = (index) => {
+        const newLinkStatus = [...linkStatus];
+        newLinkStatus[index] = true;
+        setLinkStatus(newLinkStatus);
+
+        if (newLinkStatus.every(status => status)) {
+            setAllLinkVisited(true);
+        }
+    };
 
     const checkCompleted = () => {
         if (user) {
