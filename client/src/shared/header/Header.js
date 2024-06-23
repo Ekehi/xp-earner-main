@@ -20,6 +20,7 @@ const AppHeader = () => {
             .then((res) => {
                 console.log(res);
                 sessionStorage.removeItem('JWT');
+                window.Telegram.WebApp.close();
                 navigate('/');
                 toast.success('Logged Out');
             })

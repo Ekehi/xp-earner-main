@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 const Login = () => {
     //const initData = useInitData();
 
+    const viewPortHeight = window.Telegram.WebApp.viewportHeight;
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -47,6 +49,7 @@ const Login = () => {
                 const token = res.data.token;
                 // Set the token in sessionStorage
                 sessionStorage.setItem('JWT', token);
+                window.Telegram.WebApp.expand();
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);
                 // redirect to home page
@@ -62,7 +65,7 @@ const Login = () => {
     return (
         <div
             className="container mt-5"
-            style={{ backgroundColor: '#f0f0f0', padding: '20px' }}
+            style={{ backgroundColor: '#f0f0f0', padding: '20px', height: viewPortHeight }}
         >
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
