@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { isLogged } from '../../services/context';
+import toast from 'react-hot-toast';
 
 const AppHeader = () => {
     const isUser = isLogged();
@@ -18,7 +19,9 @@ const AppHeader = () => {
             })
             .then((res) => {
                 console.log(res);
+                sessionStorage.removeItem('JWT');
                 navigate('/');
+                toast.error('Logged Out')
                 alert('Logged out successfully');
             })
             .catch((err) => {
