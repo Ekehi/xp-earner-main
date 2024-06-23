@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { tokenData } from '../../services/context';
 import { useParams, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Task = () => {
     const [task, setTask] = useState(null);
@@ -94,7 +95,6 @@ const Task = () => {
                             credentials: 'include',
                         }
                     );
-                    alert('Task Completed Successfully 🎉');
                     setClickComplete(!clickComplete);
                 } catch (err) {
                     setError(err.response.data.message);
@@ -109,6 +109,15 @@ const Task = () => {
             }, 3000);
         }
     };
+
+    toast.promise(
+        handleCompleteTask(),
+        {
+            loading: 'loading...',
+            success: 'Task Completed 🎉',
+            error: 'Could not complete Task'
+        }
+    );
 
     if (loading) {
         return (
