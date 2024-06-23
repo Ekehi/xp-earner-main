@@ -6,7 +6,7 @@ import { tokenData } from '../../services/context';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Task = () => {
-    const [task, setTask] = useState({});
+    const [task, setTask] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [clickComplete, setClickComplete] = useState(false);
@@ -126,6 +126,14 @@ const Task = () => {
         );
     }
 
+    if (!task) {
+        return (
+            <div className="container mt-5">
+                <h2>Task not found</h2>
+            </div>
+        );
+    }
+
     return (
         <div className="container mt-5">
             <h2>Task Details</h2>
@@ -137,7 +145,7 @@ const Task = () => {
                     <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
                     <br />
                     <ul>
-                        {task.links.map((link, index) => 
+                        {task.links && task.links.map((link, index) => 
                         (
                             <li key={index}>
                                 <a href={link} target='_blank' rel='noopener noreferrer' onClick={() => handleLinkClick(index)}>
