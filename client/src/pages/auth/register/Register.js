@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
@@ -61,16 +62,12 @@ const Register = () => {
                     },
                 },
             );
-            const token = response.data.token;
-            // Set the token in sessionStorage
-            sessionStorage.setItem('JWT', token);
-            console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
             console.log(response);
-            navigate('/');
-            alert('User registered successfully');
+            navigate('/login');
+            toast.success('User registered successfully');
         } catch (error) {
             console.error(error);
-            alert(error.response.data.message);
+            toast.error(error.response.data.message);
         }
     };
 

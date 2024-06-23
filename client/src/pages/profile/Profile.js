@@ -55,7 +55,7 @@ const Profile = () => {
                             <Card.Title>User Information</Card.Title>
                             <Card.Text>Name: {user.name}</Card.Text>
                             <Card.Text>Email: {user.email}</Card.Text>
-                            <Card.Text>XP Points: {user.xp_points}</Card.Text>
+                            <Card.Text>Points: {user.xp_points}</Card.Text>
                         </Card.Body>
                     </Card>
 

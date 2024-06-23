@@ -51,11 +51,11 @@ const Login = () => {
                 console.log(res);
                 // redirect to home page
                 navigate('/');
-                toast.success('Logged In')
+                toast.success('Login Successful');
             })
             .catch((err) => {
                 console.log(err);
-                alert(err.response.data.message);
+                toast.error(err.response.data.message);
             });
     };
 

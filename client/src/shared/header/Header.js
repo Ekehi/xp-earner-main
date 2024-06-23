@@ -21,11 +21,11 @@ const AppHeader = () => {
                 console.log(res);
                 sessionStorage.removeItem('JWT');
                 navigate('/');
-                toast.error('Logged Out');
+                toast.success('Logged Out');
             })
             .catch((err) => {
                 console.log(err);
-                alert(err.response.data.message);
+                toast.error(err.response.data.message);
             });
     };
 
