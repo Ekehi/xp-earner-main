@@ -11,10 +11,20 @@ const Task = () => {
     const [loading, setLoading] = useState(false);
     const [clickComplete, setClickComplete] = useState(false);
     const [user, setUser] = useState(null);
-
     const navigate = useNavigate();
-
     const { taskSlug } = useParams();
+    const [linkStatus, setLinkStatus] = useState(Array(task.links.length).fill(false));
+    const [allLinkVisited, setAllLinkVisited] = useState(false);
+
+    const handleLinkClick = (index) => {
+        const newLinkStatus = [...linkStatus];
+        newLinkStatus[index] = true;
+        setLinkStatus(newLinkStatus);
+
+        if (newLinkStatus.every(status => status)) {
+            setAllLinkVisited(true);
+        }
+    };
 
     useEffect(() => {
         setLoading(true);
@@ -120,9 +130,20 @@ const Task = () => {
                     <br />
                     <Card.Subtitle>XP Points: {task.xp_points}</Card.Subtitle>
                     <br />
+                    <ul>
+                        {task.links.map((link, index) => 
+                        (
+                            <li key={index}>
+                                <a href={link} target='_blank' rel='noopener noreferrer' onClick={() => handleLinkClick(index)}>
+                                    Visit Link {index + 1}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <br />
                     {!checkCompleted() ? (
-                        <Button variant="success" onClick={handleCompleteTask}>
-                            Complete Task
+                        <Button variant="success" onClick={handleCompleteTask} disabled={!allLinkVisited}>
+                            {allLinkVisited ? 'Complete Task' : 'Claim Reward'}
                         </Button>
                     ) : (
                         <Button variant="success" disabled>
