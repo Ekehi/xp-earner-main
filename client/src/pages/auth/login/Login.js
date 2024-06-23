@@ -52,7 +52,6 @@ const Login = () => {
                 // redirect to home page
                 navigate('/');
                 toast.success('Logged In');
-                alert('User logged in successfully');
             })
             .catch((err) => {
                 console.log(err);

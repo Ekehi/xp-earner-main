@@ -22,7 +22,6 @@ const AppHeader = () => {
                 sessionStorage.removeItem('JWT');
                 navigate('/');
                 toast.error('Logged Out')
-                alert('Logged out successfully');
             })
             .catch((err) => {
                 console.log(err);
