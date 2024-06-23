@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import toast, {Toaster} from 'react-hot-toast';
+import toast from 'react-hot-toast';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
@@ -51,7 +51,7 @@ const Login = () => {
                 console.log(res);
                 // redirect to home page
                 navigate('/');
-                toast.success('Logged In');
+                toast.success('Logged In')
             })
             .catch((err) => {
                 console.log(err);

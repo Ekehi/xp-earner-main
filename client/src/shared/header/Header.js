@@ -21,7 +21,7 @@ const AppHeader = () => {
                 console.log(res);
                 sessionStorage.removeItem('JWT');
                 navigate('/');
-                toast.error('Logged Out')
+                toast.error('Logged Out');
             })
             .catch((err) => {
                 console.log(err);
