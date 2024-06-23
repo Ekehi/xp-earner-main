@@ -54,6 +54,7 @@ const Login = () => {
                 console.log(res);
                 // redirect to home page
                 navigate('/');
+                window.Telegram.WebApp.close();
                 toast.success('Login Successful');
             })
             .catch((err) => {

@@ -4,13 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-//import { isLogged } from '../../services/context';
+import { isLogged } from '../../services/context';
 import toast from 'react-hot-toast';
 
 const AppHeader = () => {
+    const isUser = isLogged();
     const navigate = useNavigate();
-    const token = sessionStorage.getItem('JWT');
-    const isUser = !!token;
 
     const handleLogout = () => {
         axios
