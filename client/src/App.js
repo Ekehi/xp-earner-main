@@ -7,18 +7,18 @@ import { AuthContext } from './services/authContext';
 
 function App() {
     return (
+        <AuthContext>
         <div className="App d-flex flex-column" style={{ minHeight: '100vh' }}>
             <SDKProvider>
-            <AuthContext>
             <AppHeader />
             <div className="flex-grow-1">
                 <Outlet />
                 <Toaster />
             </div>
             <AppFooter />
-            </AuthContext>
             </SDKProvider>
         </div>
+        </AuthContext>
     );
 }
 
