@@ -92,9 +92,10 @@ const Task = () => {
                         `https://xp-earner.onrender.com/api/v1/users/complete-task/${task._id}`,
                         data,
                         {
-                            withCredentials: true,
-                            credentials: 'include',
-                        }
+                            headers: {
+                                Authorization: `Bearer ${authState.token}`,
+                            }
+                        },
                     );
                     setClickComplete(!clickComplete);
                 } catch (err) {
