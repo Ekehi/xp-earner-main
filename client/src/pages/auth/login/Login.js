@@ -3,14 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../services/authContext';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
     //const initData = useInitData();
-
     const viewPortHeight = window.Telegram.WebApp.viewportHeight;
-
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         email: '',
@@ -47,8 +47,8 @@ const Login = () => {
             )
             .then((res) => {
                 const token = res.data.token;
-                // Set the token in sessionStorage
-                sessionStorage.setItem('JWT', token);
+                login(token);
+                //sessionStorage.setItem('JWT', token);
                 window.Telegram.WebApp.expand();
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);

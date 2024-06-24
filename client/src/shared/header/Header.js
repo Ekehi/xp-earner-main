@@ -4,12 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { isLogged } from '../../services/context';
+//import { isLogged } from '../../services/context';
+import { AuthContext } from '../../services/authContext';
 import toast from 'react-hot-toast';
 
 const AppHeader = () => {
-    const isUser = isLogged();
+    const { authState, logout } = useContext(AuthContext);
     const navigate = useNavigate();
+    const isUser = authState.isAuthenticated;
 
     const handleLogout = () => {
         axios
@@ -19,7 +21,8 @@ const AppHeader = () => {
             })
             .then((res) => {
                 console.log(res);
-                sessionStorage.removeItem('JWT');
+                //sessionStorage.removeItem('JWT');
+                logout();
                 window.Telegram.WebApp.close();
                 navigate('/');
                 toast.success('Logged Out');
