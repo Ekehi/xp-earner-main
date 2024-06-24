@@ -168,7 +168,7 @@ const Task = () => {
                     <br />
                     {!checkCompleted() ? (
                         <Button variant="success" onClick={handleClickComplete} disabled={!allLinkVisited}>
-                            {allLinkVisited ? 'Complete Task' : 'Claim Reward'}
+                            {allLinkVisited ? 'Claim Reward' : 'Complete Task'}
                         </Button>
                     ) : (
                         <Button variant="success" disabled>
