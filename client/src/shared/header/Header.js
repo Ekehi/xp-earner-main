@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { useContext } from 'react';
 //import { isLogged } from '../../services/context';
 import { AuthContext } from '../../services/authContext';
 import toast from 'react-hot-toast';
