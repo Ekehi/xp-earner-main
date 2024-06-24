@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 const AppHeader = () => {
     const { authState, logout } = useContext(AuthContext);
     const navigate = useNavigate();
-    const isUser = authState.isAuthenticated;
+    const isUser = authState.token;
 
     const handleLogout = () => {
         axios
