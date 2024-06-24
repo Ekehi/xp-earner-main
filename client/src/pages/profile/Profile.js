@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import { AuthContext } from '../../services/authContext';
 
 const Profile = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const { authState } = useContext(AuthContext);
 
     useEffect(() => {
         setLoading(true);
         axios
             .get('https://xp-earner.onrender.com/api/v1/users/me', {
-                withCredentials: true,
-                credentials: 'include',
+                headers: {
+                    Authorization: `Bearer ${authState.token}`,
+                },
             })
             .then((res) => {
                 console.log(res);
@@ -25,7 +28,7 @@ const Profile = () => {
                 console.log(err);
                 setError(err.response.data.message);
             });
-    }, []);
+    }, [authState.token]);
 
     // spinner while loading functionality
     if (loading) {
