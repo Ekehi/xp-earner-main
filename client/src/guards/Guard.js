@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { isLogged } from '../services/auth';
+import { isLogged } from '../services/context';
 
 const AuthGuard = () => {
     if (!isLogged()) {

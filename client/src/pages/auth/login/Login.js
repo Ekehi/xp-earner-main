@@ -52,9 +52,9 @@ const Login = () => {
                 window.Telegram.WebApp.expand();
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);
+                window.Telegram.WebApp.expand();
                 // redirect to home page
                 navigate('/');
-                window.Telegram.WebApp.close();
                 toast.success('Login Successful');
             })
             .catch((err) => {
