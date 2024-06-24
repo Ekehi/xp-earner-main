@@ -110,14 +110,16 @@ const Task = () => {
         }
     };
 
-    toast.promise(
-        handleCompleteTask(),
-        {
-            loading: 'loading...',
-            success: 'Task Completed 🎉',
-            error: 'Could not complete Task'
-        }
-    );
+    const handleClickComplete = () => {
+        toast.promise(
+            handleCompleteTask(),
+            {
+                loading: 'loading...',
+                success: 'Task Completed 🎉',
+                error: 'Could not complete Task'
+            }
+        );
+    };
 
     if (loading) {
         return (
@@ -165,7 +167,7 @@ const Task = () => {
                     </ul>
                     <br />
                     {!checkCompleted() ? (
-                        <Button variant="success" onClick={handleCompleteTask} disabled={!allLinkVisited}>
+                        <Button variant="success" onClick={handleClickComplete} disabled={!allLinkVisited}>
                             {allLinkVisited ? 'Complete Task' : 'Claim Reward'}
                         </Button>
                     ) : (
