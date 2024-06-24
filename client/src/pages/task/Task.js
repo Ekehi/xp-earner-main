@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { tokenData } from '../../services/context';
+//import { tokenData } from '../../services/context';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../services/authContext';
 
 const Task = () => {
     const [task, setTask] = useState(null);
@@ -12,6 +13,7 @@ const Task = () => {
     const [loading, setLoading] = useState(false);
     const [clickComplete, setClickComplete] = useState(false);
     const [user, setUser] = useState(null);
+    const { authState } = useContext(AuthContext);
     const navigate = useNavigate();
     const { taskSlug } = useParams();
     const [linkStatus, setLinkStatus] = useState([]);
@@ -32,14 +34,14 @@ const Task = () => {
                 console.log(err);
             });
 
-        const token = tokenData();
-        if (token) {
+        if (authState.token) {
             setLoading(true);
 
             axios
                 .get('https://xp-earner.onrender.com/api/v1/users/me', {
-                    withCredentials: true,
-                    credentials: 'include',
+                    headers: {
+                        Authorization: `Bearer ${authState.token}`,
+                    },
                 })
                 .then((res) => {
                     setUser(res.data.data.data);
@@ -51,7 +53,7 @@ const Task = () => {
                     console.log(err);
                 });
         }
-    }, [taskSlug, clickComplete]);
+    }, [taskSlug, clickComplete, authState.token]);
 
     useEffect(() => {
         if (task && task.links) {
@@ -80,8 +82,7 @@ const Task = () => {
     };
 
     const handleCompleteTask = async () => {
-        const token = tokenData();
-        if (token) {
+        if (authState.token) {
             if (!checkCompleted()) {
                 const data = {
                     task_id: task._id,
