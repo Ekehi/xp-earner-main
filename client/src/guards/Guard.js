@@ -1,12 +1,12 @@
+// src/guards/Guard.js
+import { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { isLogged } from '../services/context';
+import { AuthContext } from '../services/authContext';
 
 const AuthGuard = () => {
-    if (!isLogged()) {
-        return <Outlet />;
-    } else {
-        return <Navigate to="/profile" />;
-    }
+    const { authState } = useContext(AuthContext);
+
+    return authState.isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default AuthGuard;
