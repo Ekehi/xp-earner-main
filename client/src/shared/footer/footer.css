@@ -31,11 +31,11 @@
     transition: .3s;
 }
 
-.nav-item.is-active {
+.nav-item .is-active {
     color: #6ba7a8;
 }
 
-.nav-item.is-active::before {
+.nav-item .is-active::before {
     content: "";
     position: absolute;
     top: 0;
