@@ -16,8 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    width: 33vw;
+    gap: 1vw;
+    width: 30vw;
     margin: 0 5px;
     padding: 20px;
     color: rgba(225, 225, 225, 0.2);
