@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { AuthContext } from '../../services/authContext';
+import { useInitData } from '@tma.js/sdk-react';
 
 const Profile = () => {
     const [user, setUser] = useState({});
@@ -14,7 +15,7 @@ const Profile = () => {
     useEffect(() => {
         try {
         if (window.Telegram?.WebApp) {
-            const initData = window.Telegram.WebApp.initDataUnsafe;
+            const initData = useInitData();
             console.log("datainit: ", initData);
             if (initData && initData.user) {
             setUserData(initData.user);
