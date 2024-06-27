@@ -7,28 +7,11 @@ import { useInitData } from '@tma.js/sdk-react';
 
 const Profile = () => {
     const [user, setUser] = useState({});
-    const [userData, setUserData] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { authState } = useContext(AuthContext);
-
-    useEffect(() => {
-        try {
-        if (window.Telegram?.WebApp) {
-            const initData = useInitData();
-            console.log("datainit: ", initData);
-            if (initData && initData.user) {
-            setUserData(initData.user);
-        } else {
-            setError('data not available');
-        }
-        } else {
-            setError('telegram web not availabe');
-        }
-        }  catch (err) {
-            setError('error ${err.message}');
-        }
-    }, []);
+    const initData = useInitData();
+    const userData = initData.user;
 
     useEffect(() => {
         setLoading(true);
@@ -113,9 +96,9 @@ const Profile = () => {
                 </Col>
                 <Col lg={4}>
                     {/* Displaying Avatar/Profile Image */}
-                    {userData.photo_url && (
+                    {userData.photoUrl && (
                         <img
-                            src={userData.photo_url}
+                            src={userData.photoUrl}
                             alt="Profile Avatar"
                             className="mb-3"
                             style={{ maxWidth: '150px', height: '150px', borderRadius: '50%' }}
