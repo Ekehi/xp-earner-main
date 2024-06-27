@@ -1,6 +1,6 @@
 .nav {
     position: relative;
-    width: 100vw;
+    width: 390px;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -16,8 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
-    width: 30vw;
+    gap: 5px;
+    width: 50px;
     margin: 0 5px;
     padding: 20px;
     color: rgba(225, 225, 225, 0.2);

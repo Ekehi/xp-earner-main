@@ -34,6 +34,9 @@ const AppFooter = () => {
 
     return (
         <nav className="nav">
+        <div className="nav-indicator-wrapper" ref={indicatorRef}>
+            <span className="nav-indicator"></span>
+        </div>
             {[{path: '', name: 'Home', icon: <BsHouse />}, {path:'register', name: 'Task', icon: <BsListTask />}, {path:'login', name: 'ICO', icon: <BsInfo />},].map((item, index) => (
             <Link 
             to={`/${item.path.toLowerCase()}`}
@@ -46,9 +49,6 @@ const AppFooter = () => {
             <span>{item.name}</span>
             </Link>
             ))}
-            <div className="nav-indicator-wrapper" ref={indicatorRef}>
-                <span className="nav-indicator"></span>
-            </div>
         </nav>
     );
 };
