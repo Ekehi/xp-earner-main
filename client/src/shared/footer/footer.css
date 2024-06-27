@@ -1,11 +1,11 @@
 .nav {
     position: relative;
-    width: 390px;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
-    background-color: aqua;
-    border: 1px solid #252525;
+    background-color: #1d1a1d;
+    border: 1px solid #252325;
     border-radius: 30px;
     overflow: hidden;
 }
@@ -26,7 +26,7 @@
 }
 
 .nav-item.is-active {
-    color: aquamarine;
+    color: #6ba7a8;
 }
 
 .nav-item.is-active::before {
@@ -61,6 +61,6 @@
 .nav-indicator {
     width: 30px;
     height: 5px;
-    background-color: #252525;
+    background-color: #6ba7a8;
     border-radius: 10px;
 }
