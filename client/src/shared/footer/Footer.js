@@ -34,9 +34,9 @@ const AppFooter = () => {
 
     return (
         <nav className="nav">
-            {[{name: 'Home', icon: <BsHouse />}, {name: 'Task', icon: <BsListTask />}, {name: 'ICO', icon: <BsInfo />},].map((item, index) => (
+            {[{path: '', name: 'Home', icon: <BsHouse />}, {path:'register', name: 'Task', icon: <BsListTask />}, {path:'login', name: 'ICO', icon: <BsInfo />},].map((item, index) => (
             <Link 
-            to={`${item.paths.toLowerCase()}`}
+            to={`/${item.path.toLowerCase()}`}
             key={index}
             className={`nav-item ${activeIndex === index ? 'is-active' : ''}`}
             onClick={() => setActiveIndex(index)}
