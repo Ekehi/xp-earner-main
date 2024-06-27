@@ -12,11 +12,20 @@ const Profile = () => {
     const { authState } = useContext(AuthContext);
 
     useEffect(() => {
+        try {
         if (window.Telegram?.WebApp) {
             const initData = window.Telegram.WebApp.initDataUnsafe;
+            console.log("datainit: ", initData);
             if (initData && initData.user) {
             setUserData(initData.user);
+        } else {
+            setError('data not available');
         }
+        } else {
+            setError('telegram web not availabe');
+        }
+        }  catch (err) {
+            setError('error ${err.message}');
         }
     }, []);
 
