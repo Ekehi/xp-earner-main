@@ -43,7 +43,7 @@
     width: 120%;
     height: 120%;
     transform: translate(-10%, -10%);
-    background: radial-gradient(#252525, transparent);
+    background: radial-gradient(#6ba7a8, transparent);
     filter: blur(10px);
     opacity: .2;
 }
