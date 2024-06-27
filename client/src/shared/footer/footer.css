@@ -1,9 +1,3 @@
-.navMain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .nav {
     position: relative;
     width: 100vw;
@@ -23,7 +17,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 50px;
+    width: 33vw;
     margin: 0 5px;
     padding: 20px;
     color: rgba(225, 225, 225, 0.2);
@@ -31,11 +25,11 @@
     transition: .3s;
 }
 
-.nav-item .is-active {
+.nav-item.is-active {
     color: #6ba7a8;
 }
 
-.nav-item .is-active::before {
+.nav-item.is-active::before {
     content: "";
     position: absolute;
     top: 0;
