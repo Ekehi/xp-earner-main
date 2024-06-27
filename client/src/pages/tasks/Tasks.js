@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
-import { BsArrowRightShort } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs';
 const { useNavigate } = require('react-router-dom');
 
 const Tasks = () => {
@@ -80,7 +80,7 @@ const Tasks = () => {
                                         }}
                                         variant="primary"
                                     >
-                                       Go <BsArrowRightShort />
+                                       <BsArrowRight />
                                     </Button>
                                     </div>
                                     </div>

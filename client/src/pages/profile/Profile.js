@@ -6,9 +6,17 @@ import { AuthContext } from '../../services/authContext';
 
 const Profile = () => {
     const [user, setUser] = useState({});
+    const [userData, setUserData] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { authState } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (window.Telegram?.WebApp) {
+            const initData = window.Telegram.WebApp.initDataUnsafe;
+            setUserData(initData.user);
+        }
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -93,9 +101,9 @@ const Profile = () => {
                 </Col>
                 <Col lg={4}>
                     {/* Displaying Avatar/Profile Image */}
-                    {user.avatar && (
+                    {userData.photo_url && (
                         <img
-                            src={`https://tasks.ekehi.network/${user.avatar}`}
+                            src={userData.photo_url}
                             alt="Profile Avatar"
                             className="mb-3"
                             style={{ maxWidth: '100%' }}
