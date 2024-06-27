@@ -13,9 +13,6 @@ const Tasks = () => {
     useEffect (() => {
         if (window.Telegram?.WebApp) {
             window.Telegram.WebApp.expand();
-            window.Telegram.WebApp.requestViewPort(
-                { full_screen: true}
-            );
         }
     }, []);
 
