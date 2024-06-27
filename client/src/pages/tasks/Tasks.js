@@ -2,6 +2,13 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
+import { web_app } from '@tma.js/sdk-react';
+
+useEffect (() => {
+    web_app.expand();
+}, []);
+
+
 const { useNavigate } = require('react-router-dom');
 
 const Tasks = () => {
