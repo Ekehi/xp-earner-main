@@ -65,11 +65,13 @@ const Tasks = () => {
                         <div key={task.id} className="col-lg-4 mb-3">
                             <Card>
                                 <Card.Body>
+                                    <div className='cardLeft'>
                                     <Card.Title>{task.name}</Card.Title>
-                                    <Card.Text>{task.description}</Card.Text>
                                     <Card.Text>
-                                        XP Points: {task.xp_points}
+                                        Reward: {task.xp_points} Points
                                     </Card.Text>
+                                    </div>
+                                    <div className='cardRight'>
                                     <Button
                                         onClick={() => {
                                             navigate(`/task/${task.slug}`);
@@ -78,6 +80,7 @@ const Tasks = () => {
                                     >
                                         View Task
                                     </Button>
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </div>
