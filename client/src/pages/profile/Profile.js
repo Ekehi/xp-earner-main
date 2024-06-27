@@ -14,7 +14,9 @@ const Profile = () => {
     useEffect(() => {
         if (window.Telegram?.WebApp) {
             const initData = window.Telegram.WebApp.initDataUnsafe;
+            if (initData && initData.user) {
             setUserData(initData.user);
+        }
         }
     }, []);
 
@@ -106,7 +108,7 @@ const Profile = () => {
                             src={userData.photo_url}
                             alt="Profile Avatar"
                             className="mb-3"
-                            style={{ maxWidth: '100%' }}
+                            style={{ maxWidth: '150px', height: '150px', borderRadius: '50%' }}
                         />
                     )}
                 </Col>
