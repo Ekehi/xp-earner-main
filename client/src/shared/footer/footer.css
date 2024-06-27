@@ -1,3 +1,9 @@
+.navMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav {
     position: relative;
     width: 100vw;

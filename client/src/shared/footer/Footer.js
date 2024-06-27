@@ -33,6 +33,7 @@ const AppFooter = () => {
 
 
     return (
+        <div className='navMain'>
         <nav className="nav">
             {[{path: '', name: 'Home', icon: <BsHouse />}, {path:'register', name: 'Task', icon: <BsListTask />}, {path:'login', name: 'ICO', icon: <BsInfo />},].map((item, index) => (
             <Link 
@@ -46,10 +47,11 @@ const AppFooter = () => {
             <span>{item.name}</span>
             </Link>
             ))}
-            <div className="nav-indicator-wrapper">
-                <span className="nav-indicator" ref={indicatorRef}></span>
+            <div className="nav-indicator-wrapper" ref={indicatorRef}>
+                <span className="nav-indicator"></span>
             </div>
         </nav>
+        </div>
     );
 };
 
