@@ -5,3 +5,8 @@
 .cardRight {
     max-width: 30%;
 }
+
+.cardBody {
+    display: flex;
+    justify-content: space-between;
+}

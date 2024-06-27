@@ -65,6 +65,7 @@ const Tasks = () => {
                         <div key={task.id} className="col-lg-4 mb-3">
                             <Card>
                                 <Card.Body>
+                                    <div className='cardBody'>
                                     <div className='cardLeft'>
                                     <Card.Title>{task.name}</Card.Title>
                                     <Card.Text>
@@ -80,6 +81,7 @@ const Tasks = () => {
                                     >
                                         View Task
                                     </Button>
+                                    </div>
                                     </div>
                                 </Card.Body>
                             </Card>
