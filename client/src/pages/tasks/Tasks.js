@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
-import { web_app } from '@tma.js/sdk-react';
 const { useNavigate } = require('react-router-dom');
 
 const Tasks = () => {
@@ -12,7 +11,9 @@ const Tasks = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect (() => {
-        web_app.expand();
+        if (window.Telegram?.WebApp) {
+            window.Telegram.WebApp.expand();
+        }
     }, []);
 
     useEffect(() => {
