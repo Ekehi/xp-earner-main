@@ -8,7 +8,6 @@ import { AuthContext } from '../../../services/authContext';
 
 const Login = () => {
     //const initData = useInitData();
-    const viewPortHeight = window.Telegram.WebApp.viewportHeight;
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
@@ -66,7 +65,7 @@ const Login = () => {
     return (
         <div
             className="container mt-5"
-            style={{ backgroundColor: '#f0f0f0', padding: '20px', height: viewPortHeight }}
+            style={{ backgroundColor: '#f0f0f0', padding: '20px' }}
         >
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
