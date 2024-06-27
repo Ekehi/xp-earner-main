@@ -36,7 +36,7 @@ const AppFooter = () => {
         <nav className="nav">
             {[{name: 'Home', icon: <BsHouse />}, {name: 'Task', icon: <BsListTask />}, {name: 'ICO', icon: <BsInfo />},].map((item, index) => (
             <Link 
-            to={`/${item.name.toLowerCase()}`}
+            to={`${item.paths.toLowerCase()}`}
             key={index}
             className={`nav-item ${activeIndex === index ? 'is-active' : ''}`}
             onClick={() => setActiveIndex(index)}
