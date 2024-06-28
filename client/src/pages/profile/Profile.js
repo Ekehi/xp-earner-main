@@ -52,7 +52,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5" style={{ backgroundColor: '#f0f0f0', padding: '20px' }}>
             <h2>Profile</h2>
             <Row>
                 <Col lg={8}>

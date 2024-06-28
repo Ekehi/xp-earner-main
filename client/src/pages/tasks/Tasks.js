@@ -57,7 +57,7 @@ const Tasks = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5" style={{ backgroundColor: '#f0f0f0', padding: '20px' }}>
             <h2>Complete Tasks to Earn XP</h2>
             <div className="row">
                 {tasks &&

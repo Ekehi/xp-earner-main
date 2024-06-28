@@ -13,7 +13,7 @@ function App() {
             <div className="App d-flex flex-column">
                 <SDKProvider>
                     <AppHeader />
-                    <div className="flex-grow-1">
+                    <div className="flex-grow-1" style={{ minHeight: "100vh" }}>
                         <Outlet />
                         <Toaster />
                     </div>
