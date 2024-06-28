@@ -29,6 +29,9 @@ const AppFooter = () => {
         handleIndicator(activeIndex);
 
         window.addEventListener('resize', () => handleIndicator(activeIndex));
+        return () => {
+            window.addEventListener('resize', () => handleIndicator(activeIndex));
+        };
     }, [activeIndex]);
 
 

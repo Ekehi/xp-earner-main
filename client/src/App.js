@@ -10,7 +10,7 @@ import './Style.css';
 function App() {
     return (
         <AuthProvider>
-            <div className="App d-flex flex-column" style={{ minHeight: '100vh' }}>
+            <div className="App d-flex flex-column">
                 <SDKProvider>
                     <AppHeader />
                     <div className="flex-grow-1">
