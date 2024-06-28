@@ -2,16 +2,25 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
+<<<<<<< HEAD
 
 
+=======
+import { BsArrowRight } from 'react-icons/bs';
+>>>>>>> 49c59a9b05ef5f51da38bec32c2594d70f25d8bb
 const { useNavigate } = require('react-router-dom');
 
 const Tasks = () => {
     const navigate = useNavigate();
-
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+
+    useEffect (() => {
+        if (window.Telegram?.WebApp) {
+            window.Telegram.WebApp.expand();
+        }
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -62,19 +71,24 @@ const Tasks = () => {
                         <div key={task.id} className="col-lg-4 mb-3">
                             <Card>
                                 <Card.Body>
+                                    <div className='cardBody'>
+                                    <div className='cardLeft'>
                                     <Card.Title>{task.name}</Card.Title>
-                                    <Card.Text>{task.description}</Card.Text>
                                     <Card.Text>
-                                        XP Points: {task.xp_points}
+                                        Reward: {task.xp_points} Points
                                     </Card.Text>
+                                    </div>
+                                    <div className='cardRight'>
                                     <Button
                                         onClick={() => {
                                             navigate(`/task/${task.slug}`);
                                         }}
                                         variant="primary"
                                     >
-                                        View Task
+                                       <BsArrowRight />
                                     </Button>
+                                    </div>
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </div>

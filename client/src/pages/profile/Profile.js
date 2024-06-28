@@ -1,21 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "tailwindcss/tailwind.css"
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+<<<<<<< HEAD
 import HomeTab from "../components/homeTab";
+=======
+import { AuthContext } from '../../services/authContext';
+import { useInitData } from '@tma.js/sdk-react';
+>>>>>>> 49c59a9b05ef5f51da38bec32c2594d70f25d8bb
 
 const Profile = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const { authState } = useContext(AuthContext);
+    const initData = useInitData();
+    const userData = initData.user;
 
     useEffect(() => {
         setLoading(true);
         axios
             .get('https://xp-earner.onrender.com/api/v1/users/me', {
-                withCredentials: true,
-                credentials: 'include',
+                headers: {
+                    Authorization: `Bearer ${authState.token}`,
+                },
             })
             .then((res) => {
                 console.log(res);
@@ -27,7 +36,7 @@ const Profile = () => {
                 console.log(err);
                 setError(err.response.data.message);
             });
-    }, []);
+    }, [authState.token]);
 
     // spinner while loading functionality
     if (loading) {
@@ -96,12 +105,12 @@ const Profile = () => {
                 </Col>
                 <Col lg={4}>
                     {/* Displaying Avatar/Profile Image */}
-                    {user.avatar && (
+                    {userData.photoUrl && (
                         <img
-                            src={`https://tasks.ekehi.network/${user.avatar}`}
+                            src={userData.photoUrl}
                             alt="Profile Avatar"
                             className="mb-3"
-                            style={{ maxWidth: '100%' }}
+                            style={{ maxWidth: '150px', height: '150px', borderRadius: '50%' }}
                         />
                     )}
                 </Col>

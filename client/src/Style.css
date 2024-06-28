@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardLeft {
+    max-width: 70%;
+}
+
+.cardRight {
+    max-width: 30%;
+}
+
+.cardBody {
+    display: flex;
+    justify-content: space-between;
+}

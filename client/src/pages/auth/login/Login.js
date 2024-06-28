@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../services/authContext';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
     //const initData = useInitData();
-
-    const viewPortHeight = window.Telegram.WebApp.viewportHeight;
-
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         email: '',
@@ -47,14 +46,14 @@ const Login = () => {
             )
             .then((res) => {
                 const token = res.data.token;
-                // Set the token in sessionStorage
-                sessionStorage.setItem('JWT', token);
+                login(token);
+                //sessionStorage.setItem('JWT', token);
                 window.Telegram.WebApp.expand();
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 console.log(res);
+                window.Telegram.WebApp.expand();
                 // redirect to home page
                 navigate('/');
-                window.Telegram.WebApp.close();
                 toast.success('Login Successful');
             })
             .catch((err) => {
@@ -66,7 +65,7 @@ const Login = () => {
     return (
         <div
             className="container mt-5"
-            style={{ backgroundColor: '#f0f0f0', padding: '20px', height: viewPortHeight }}
+            style={{ backgroundColor: '#f0f0f0', padding: '20px' }}
         >
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>

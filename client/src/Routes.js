@@ -1,3 +1,4 @@
+// src/routes.js
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from './App';
 import Login from './pages/auth/login/Login';
@@ -17,25 +18,25 @@ export const routes = createBrowserRouter([
                 element: <Tasks />,
             },
             {
+                path: '/login',
+                element: <Login />,
+            },
+            {
+                path: '/register',
+                element: <Register />,
+            },
+            {
                 element: <AuthGuard />,
                 children: [
                     {
-                        path: '/login',
-                        element: <Login />,
+                        path: '/profile',
+                        element: <Profile />,
                     },
                     {
-                        path: '/register',
-                        element: <Register />,
+                        path: '/task/:taskSlug',
+                        element: <Task />,
                     },
                 ],
-            },
-            {
-                path: '/profile',
-                element: <Profile />,
-            },
-            {
-                path: '/task/:taskSlug',
-                element: <Task />,
             },
             {
                 path: '*',
