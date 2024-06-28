@@ -55,7 +55,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175);
     display: flex;
     justify-content: center;
 }
@@ -65,5 +64,6 @@
     width: 30px;
     height: 5px;
     background-color: #6ba7a8;
+    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175), left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175);
     border-radius: 10px;
 }

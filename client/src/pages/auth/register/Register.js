@@ -74,7 +74,6 @@ const Register = () => {
     return (
         <div
             className="container mt-5"
-            style={{ backgroundColor: '#f0f0f0', padding: '20px' }}
         >
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
