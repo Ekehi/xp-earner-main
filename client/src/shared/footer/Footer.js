@@ -30,7 +30,7 @@ const AppFooter = () => {
 
         window.addEventListener('resize', () => handleIndicator(activeIndex));
         return () => {
-            window.addEventListener('resize', () => handleIndicator(activeIndex));
+            window.removeEventListener('resize', () => handleIndicator(activeIndex));
         };
     }, [activeIndex]);
 
