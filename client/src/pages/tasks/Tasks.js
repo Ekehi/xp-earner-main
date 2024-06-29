@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button } from 'react-bootstrap';
-<<<<<<< HEAD
-
-
-=======
+import 'bootstrap/dist/css/bootstrap.min.css';import { Card, Button } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
->>>>>>> 49c59a9b05ef5f51da38bec32c2594d70f25d8bb
+
 const { useNavigate } = require('react-router-dom');
 
 const Tasks = () => {

@@ -3,12 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "tailwindcss/tailwind.css"
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-<<<<<<< HEAD
-import HomeTab from "../components/homeTab";
-=======
 import { AuthContext } from '../../services/authContext';
 import { useInitData } from '@tma.js/sdk-react';
->>>>>>> 49c59a9b05ef5f51da38bec32c2594d70f25d8bb
 
 const Profile = () => {
     const [user, setUser] = useState({});
