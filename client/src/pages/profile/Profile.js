@@ -106,8 +106,6 @@ const Profile = () => {
                     )}
                 </Col>
             </Row>
-<<<<<<< HEAD
-        
         </div>
     );
 };
