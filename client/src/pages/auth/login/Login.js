@@ -65,7 +65,6 @@ const Login = () => {
     return (
         <div
             className="container mt-5"
-            style={{ backgroundColor: '#f0f0f0', padding: '20px' }}
         >
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>

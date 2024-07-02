@@ -58,7 +58,12 @@ const Profile = () => {
     }
 
     return (
+
         <div className="w-full mt-5">
+
+        <div className="container mt-5" style={{ backgroundColor: '#f0f0f0', padding: '20px' }}>
+            <h2>Profile</h2>
+
             <Row>
                 <Col lg={8}>
                     <Card>
@@ -90,7 +95,7 @@ const Profile = () => {
                                                 {task.task_id.description}
                                             </Card.Text>
                                             <Card.Text>
-                                                XP Points:{' '}
+                                                Points:{' '}
                                                 {task.task_id.xp_points}
                                             </Card.Text>
                                         </Card.Body>
