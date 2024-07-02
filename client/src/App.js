@@ -11,8 +11,11 @@ function App() {
     return (
         <AuthProvider>
             <div className="App d-flex flex-row w-screen h-screen">
+            <div className="App d-flex flex-column"  style={{ padding: '20px' }}>
                 <SDKProvider>
                     <div className="flex-grow-1 h-screen w-screen">
+                    <AppHeader />
+                    <div className="flex-grow-1" style={{ maxHeight: "100vh" }}>
                         <Outlet />
                         <Toaster />
                     </div>

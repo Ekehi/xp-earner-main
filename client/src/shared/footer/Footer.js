@@ -29,6 +29,9 @@ const AppFooter = () => {
         handleIndicator(activeIndex);
 
         window.addEventListener('resize', () => handleIndicator(activeIndex));
+        return () => {
+            window.removeEventListener('resize', () => handleIndicator(activeIndex));
+        };
     }, [activeIndex]);
 
     return (
@@ -51,7 +54,7 @@ const AppFooter = () => {
                     <span>{item.name}</span>
                 </Link>
             ))}
-            <div className="nav-indicator-wrapper" ref={indicatorRef}>
+            <div className="nav-indicator-wrapper" ref={indicatorRef.current}>
                 <span className="nav-indicator"></span>
             </div>
         </nav>
