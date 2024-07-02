@@ -111,7 +111,7 @@ const Profile = () => {
                     )}
                 </Col>
             </Row>
-            <HomeTab/>
+        
         </div>
     );
 };

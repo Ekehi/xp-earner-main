@@ -31,20 +31,25 @@ const AppFooter = () => {
         window.addEventListener('resize', () => handleIndicator(activeIndex));
     }, [activeIndex]);
 
-
     return (
         <nav className="nav">
-            {[{path: '', name: 'Home', icon: <BsHouse />}, {path:'register', name: 'Task', icon: <BsListTask />}, {path:'login', name: 'ICO', icon: <BsInfo />},].map((item, index) => (
-            <Link 
-            to={`/${item.path.toLowerCase()}`}
-            key={index}
-            className={`nav-item ${activeIndex === index ? 'is-active' : ''}`}
-            onClick={() => setActiveIndex(index)}
-            ref={el => navItemsRef.current[index] = el}
-            >
-            <i>{item.icon}</i>
-            <span>{item.name}</span>
-            </Link>
+            {[
+                { path: '', name: 'Home', icon: <BsHouse /> },
+                { path: 'register', name: 'Task', icon: <BsListTask /> },
+                { path: 'login', name: 'ICO', icon: <BsInfo /> },
+            ].map((item, index) => (
+                <Link
+                    to={`/${item.path.toLowerCase()}`}
+                    key={index}
+                    className={`nav-item ${
+                        activeIndex === index ? 'is-active' : ''
+                    }`}
+                    onClick={() => setActiveIndex(index)}
+                    ref={(el) => (navItemsRef.current[index] = el)}
+                >
+                    <i>{item.icon}</i>
+                    <span>{item.name}</span>
+                </Link>
             ))}
             <div className="nav-indicator-wrapper" ref={indicatorRef}>
                 <span className="nav-indicator"></span>

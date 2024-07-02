@@ -32,9 +32,15 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const tempEmail = localStorage.getItem('tempEmail');
+  const tempPassword = localStorage.getItem('tempPassword');
+
         axios
             .post(
                 'https://xp-earner.onrender.com/api/v1/login',
+
+                { email: tempEmail, password: tempPassword },
                 {
                     email: formData.email,
                     password: formData.password,

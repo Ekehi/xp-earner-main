@@ -37,7 +37,7 @@ const AppHeader = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand onClick={() => navigate('/')}>
-                <img src="/logo.png" className="mr-2 sm:h-9" alt="Ekehi" />
+                <h1>Ekehi</h1>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

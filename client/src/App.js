@@ -1,5 +1,5 @@
 // src/App.js
-import AppFooter from './shared/footer/Footer';
+
 import AppHeader from './shared/header/Header';
 import { Outlet } from 'react-router-dom';
 import { SDKProvider } from '@tma.js/sdk-react';
@@ -10,14 +10,12 @@ import './Style.css';
 function App() {
     return (
         <AuthProvider>
-            <div className="App d-flex flex-column" style={{ minHeight: '100vh' }}>
+            <div className="App d-flex flex-row w-screen h-screen">
                 <SDKProvider>
-                    <AppHeader />
-                    <div className="flex-grow-1">
+                    <div className="flex-grow-1 h-screen w-screen">
                         <Outlet />
                         <Toaster />
                     </div>
-                    <AppFooter />
                 </SDKProvider>
             </div>
         </AuthProvider>
