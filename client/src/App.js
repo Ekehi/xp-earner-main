@@ -10,10 +10,9 @@ import './Style.css';
 function App() {
     return (
         <AuthProvider>
-            <div className="App d-flex flex-row w-screen h-screen">
+            <div className="App d-flex flex-row w-fit bg-black">
                 <SDKProvider>
-                    <div className="flex-grow-1 h-screen w-screen">
-        
+                    <div className="h-screen flex-grow w-screen">
                         <Outlet />
                         <Toaster />
                     </div>
