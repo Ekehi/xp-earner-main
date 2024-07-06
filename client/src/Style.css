@@ -48,3 +48,8 @@ body::-webkit-scrollbar {
 .text{
     text-decoration: none;
 }
+
+.text:focus{
+    text-decoration: none;
+    color: in;
+}
