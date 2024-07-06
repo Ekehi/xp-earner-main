@@ -80,7 +80,7 @@ function App() {
                 <div className="relative flex self-center m-auto w-full">
                     <svg
                         aria-hidden="true"
-                        class="inline container m-auto w-50 h-50  text-black animate-spin dark:text-gray-600 fill-yellow-500"
+                        class="inline container m-auto w-20 h-20  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ function App() {
         );
     }
     return (
-        <container className="container relative flex flex-row w-fit h-fit">
+        <container className="container bg-black relative flex flex-row w-full h-fit">
             <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
@@ -121,38 +121,36 @@ function App() {
                 </div>
             </AuthProvider>
 
-            <div className="absolute bottom-0.5 bg-yellow-500 w-3/4 h-1/2 ">
-                <nav className="relative+  justify-between box-border bottom-0 flex flex-row bg-white solid w-fit rounded-md h-fit  ">
-                    {[
-                        { path: '', name: 'Home', icon: <BsHouse /> },
-                        {
-                            path: 'register',
-                            name: 'Task',
-                            icon: <BsListTask />,
-                        },
-                        { path: 'login', name: 'Presale', icon: <BsDiamond /> },
-                    ].map((item, index) => (
-                        <Link
-                            to={`/${item.path.toLowerCase()}`}
-                            key={index}
-                            className={`relative flex flex-col bg-slate-500 text-yellow-500 justify-center h-1  items-center gap-1  p-5 transition ${
-                                activeIndex === index ? 'is-active' : ''
+
+            <nav className="absolute justify-between  box-border bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
+                {[
+                    { path: '', name: 'Home', icon: <BsHouse /> },
+                    {
+                        path: 'register',
+                        name: 'Task',
+                        icon: <BsListTask />,
+                    },
+                    { path: 'login', name: 'Presale', icon: <BsDiamond /> },
+                ].map((item, index) => (
+                    <Link
+                        to={`/${item.path.toLowerCase()}`}
+                        key={index}
+                        className={`relative flex flex-col bg-transparent text-yellow-500 justify-center h-1  items-center gap-1  p-4 transition ${activeIndex === index ? 'is-active' : ''
                             }`}
-                            onClick={() => setActiveIndex(index)}
-                            ref={(el) => (navItemsRef.current[index] = el)}
-                        >
-                            <i>{item.icon}</i>
-                            <span>{item.name}</span>
-                        </Link>
-                    ))}
-                    <div
-                        className="nav-indicator-wrapper"
-                        ref={indicatorRef.current}
+                        onClick={() => setActiveIndex(index)}
+                        ref={(el) => (navItemsRef.current[index] = el)}
                     >
-                        <span className="nav-indicator"></span>
-                    </div>
-                </nav>
-            </div>
+                        <i>{item.icon}</i>
+                        <span className='font-'>{item.name}</span>
+                    </Link>
+                ))}
+                <div
+                    className="nav-indicator-wrapper"
+                    ref={indicatorRef.current}
+                >
+                    <span className="nav-indicator"></span>
+                </div>
+            </nav>
         </container>
     );
 }

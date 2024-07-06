@@ -1,10 +1,11 @@
 body,
 html   
 {
-    overflow-x:scroll;
+    overflow:hidden;
     width: fit-content;
-    height: 100%;
+    height: fit-content;
     margin: 0;
+    padding:0;
     background: rgb(255, 255, 255);
 }
 
@@ -42,4 +43,8 @@ body::-webkit-scrollbar {
 .cardBody {
     display: flex;
     justify-content: space-between;
+}
+
+.text{
+    font-size: xx-small;
 }
