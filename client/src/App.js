@@ -122,7 +122,7 @@ function App() {
             </AuthProvider>
 
 
-            <nav className="absolute justify-between  box-border bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
+            <nav className="absolute justify-between pb-2 box-border  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
                 {[
                     { path: '', name: 'Home', icon: <BsHouse /> },
                     {
@@ -135,13 +135,13 @@ function App() {
                     <Link
                         to={`/${item.path.toLowerCase()}`}
                         key={index}
-                        className={`relative flex flex-col bg-transparent text-yellow-500 justify-center h-1  items-center gap-1  p-4 transition ${activeIndex === index ? 'is-active' : ''
+                        className={`relative flex flex-col bg-transparent text-yellow-500 justify-center h-1  items-center gap-  p-4 transition ${activeIndex === index ? 'text-yellow-500' : 'text-yellow-800'
                             }`}
                         onClick={() => setActiveIndex(index)}
                         ref={(el) => (navItemsRef.current[index] = el)}
                     >
                         <i>{item.icon}</i>
-                        <span className='font-'>{item.name}</span>
+                        <span className='font-mono text-xs'>{item.name}</span>
                     </Link>
                 ))}
                 <div
