@@ -111,7 +111,7 @@ function App() {
         );
     }
     return (
-        ok
+        <div className="container bg-black relative initial flex-row w-full h-full">
             {/* <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
