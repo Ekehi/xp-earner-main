@@ -21,6 +21,8 @@ function App() {
     const indicatorRef = useRef(null);
     const navItemsRef = useRef([]);
 
+    
+
     useEffect(() => {
         if (window.Telegram?.WebApp) {
             window.Telegram.WebApp.expand();
@@ -109,8 +111,8 @@ function App() {
         );
     }
     return (
-        <container className="container bg-black relative flex flex-row w-full h-fit">
-            <AuthProvider>
+        ok
+            {/* <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
                         <div className="h-screen flex-grow w-screen">
@@ -119,7 +121,11 @@ function App() {
                         </div>
                     </SDKProvider>
                 </div>
-            </AuthProvider>
+            </AuthProvider> */}
+
+            <div className="w-full h-2 bg-yellow-500 rounded-full relative">
+                    <div className="progress-gradient h-2 rounded-full w-1/2" ></div>
+                  </div>
 
 
             <nav className="absolute justify-between pb-2 box-border  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
@@ -151,7 +157,7 @@ function App() {
                     <span className="nav-indicator"></span>
                 </div>
             </nav>
-        </container>
+        </div>
     );
 }
 
