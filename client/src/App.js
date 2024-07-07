@@ -1,6 +1,7 @@
 // src/App.js
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import { BsHouse, BsListTask, BsDiamond } from 'react-icons/bs';
@@ -10,6 +11,7 @@ import { SDKProvider } from '@tma.js/sdk-react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
 import './Style.css';
+import '@telegram-apps/telegram-ui/dist/styles.css';
 
 const { useNavigate } = require('react-router-dom');
 function App() {
@@ -21,7 +23,7 @@ function App() {
     const indicatorRef = useRef(null);
     const navItemsRef = useRef([]);
 
-    
+
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
@@ -111,8 +113,9 @@ function App() {
         );
     }
     return (
-        <div className="container bg-black relative initial flex-row w-full h-full">
-            {/* <AuthProvider>
+        <AppRoot>
+            <div className="bg-black flex justify-center">
+                {/* <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
                         <div className="h-screen flex-grow w-screen">
@@ -123,41 +126,47 @@ function App() {
                 </div>
             </AuthProvider> */}
 
-            <div className="w-full h-2 bg-yellow-500 rounded-full relative">
-                    <div className="progress-gradient h-2 rounded-full w-1/2" ></div>
-                  </div>
+                <Avatar
+                    size={96}
+                    src="https://avatars.githubusercontent.com/u/84640980?v=4"
+                />
 
-
-            <nav className="absolute justify-between pb-2 box-border  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
-                {[
-                    { path: '', name: 'Home', icon: <BsHouse /> },
-                    {
-                        path: 'register',
-                        name: 'Task',
-                        icon: <BsListTask />,
-                    },
-                    { path: 'login', name: 'Presale', icon: <BsDiamond /> },
-                ].map((item, index) => (
-                    <Link
-                        to={`/${item.path.toLowerCase()}`}
-                        key={index}
-                        className={`relative flex flex-col text bg-transparent no-underline text-yellow-500 justify-center h-1  items-center gap-  p-4 transition ${activeIndex === index ? 'text-yellow-500' : 'text-yellow-800'
-                            }`}
-                        onClick={() => setActiveIndex(index)}
-                        ref={(el) => (navItemsRef.current[index] = el)}
-                    >
-                        <i>{item.icon}</i>
-                        <span className='font-mono text-xs no-underline text'>{item.name}</span>
-                    </Link>
-                ))}
-                <div
-                    className="nav-indicator-wrapper"
-                    ref={indicatorRef.current}
-                >
-                    <span className="nav-indicator"></span>
+                <div className="w-1/2 h-2 bg-yellow-500 rounded-full relative mt-9 ">
+                    <div className="progress-gradient h-2 rounded-full w-full" ></div>
                 </div>
-            </nav>
-        </div>
+
+
+                <nav className="absolute  justify-between pb-2 box-border  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
+                    {[
+                        { path: '', name: 'Home', icon: <BsHouse /> },
+                        {
+                            path: 'register',
+                            name: 'Task',
+                            icon: <BsListTask />,
+                        },
+                        { path: 'login', name: 'Presale', icon: <BsDiamond /> },
+                    ].map((item, index) => (
+                        <Link
+                            to={`/${item.path.toLowerCase()}`}
+                            key={index}
+                            className={`relative flex flex-col text bg-transparent no-underline text-yellow-500 justify-center h-1  items-center gap-  p-4 transition ${activeIndex === index ? 'text-yellow-500' : 'text-yellow-800'
+                                }`}
+                            onClick={() => setActiveIndex(index)}
+                            ref={(el) => (navItemsRef.current[index] = el)}
+                        >
+                            <i>{item.icon}</i>
+                            <span className='font-mono text-xs no-underline text'>{item.name}</span>
+                        </Link>
+                    ))}
+                    <div
+                        className="nav-indicator-wrapper"
+                        ref={indicatorRef.current}
+                    >
+                        <span className="nav-indicator"></span>
+                    </div>
+                </nav>
+            </div>
+        </AppRoot>
     );
 }
 
