@@ -1,7 +1,7 @@
 // src/App.js
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
+import { AppRoot, Progress, Placeholder } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import { BsHouse, BsListTask, BsDiamond } from 'react-icons/bs';
@@ -114,7 +114,7 @@ function App() {
     }
     return (
         <AppRoot>
-            <div className="bg-black flex justify-center">
+            <div className="bg-black flexvf  justify-center">
                 {/* <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
@@ -125,14 +125,26 @@ function App() {
                     </SDKProvider>
                 </div>
             </AuthProvider> */}
+                <div className="relative w-full flex flex-row justify-center text-white">
+                    <Placeholder
+                        header="User_Name"
+                        className="w-1/2   "
+                    >
+                        <img
+                            alt="Telegram sticker"
+                            className="w-full h-full border-solid border-2 rounded-full"
+                            src="https://xelene.me/telegram.gif"
+                        />
+                    </Placeholder>
 
-                <Avatar
-                    size={96}
-                    src="https://avatars.githubusercontent.com/u/84640980?v=4"
-                />
 
-                <div className="w-1/2 h-2 bg-yellow-500 rounded-full relative mt-9 ">
-                    <div className="progress-gradient h-2 rounded-full w-full" ></div>
+                </div>
+
+                <div className="w-full h-fit bg-transparent mx-auto rounded-full relative mt-9 mb-3 ">
+                <Progress 
+                value={60}
+                className="mx-3 my-5 text-yellow-500" />
+                {' '}
                 </div>
 
 
