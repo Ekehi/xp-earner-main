@@ -1,7 +1,7 @@
 // src/App.js
-import { useEffect, useState, useRef } from 'react';
+import { React, useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AppRoot, Progress, Placeholder } from '@telegram-apps/telegram-ui';
+import { AppRoot, Avatar, Placeholder } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
 import { BsHouse, BsListTask, BsDiamond } from 'react-icons/bs';
@@ -10,8 +10,10 @@ import { Outlet } from 'react-router-dom';
 import { SDKProvider } from '@tma.js/sdk-react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
+import Countdown from './pages/coutdown';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import CircularCount from "./pages/CircularCount";
 
 const { useNavigate } = require('react-router-dom');
 function App() {
@@ -23,6 +25,20 @@ function App() {
     const indicatorRef = useRef(null);
     const navItemsRef = useRef([]);
 
+    const [balance, setBalance] = useState(0);
+    const minClaim = 5; // Minimum claimable value
+    const maxClaim = 10; // Maximum claimable value
+
+    const handlePointClaim = (claimAmount) => {
+        setBalance(balance + claimAmount);
+    };
+
+    const [balance2, setBalance2] = useState(0);
+
+    const handleClaimPoints = (points) => {
+        // Update user balance
+        setBalance2(balance2 + points);
+    };
 
 
     useEffect(() => {
@@ -114,7 +130,7 @@ function App() {
     }
     return (
         <AppRoot>
-            <div className="bg-black flexvf  justify-center">
+            <div className=" bg-black flex flex-col h-fit items-center justify-center">
                 {/* <AuthProvider>
                 <div className="App d-flex flex-row w-fit bg-black">
                     <SDKProvider>
@@ -125,30 +141,46 @@ function App() {
                     </SDKProvider>
                 </div>
             </AuthProvider> */}
-                <div className="relative w-full flex flex-row justify-center text-white">
-                    <Placeholder
-                        header="User_Name"
-                        className="w-1/2   "
-                    >
+
+                <div className="relative flex items-center justify-between px-3 pt-6 w-full h- bg-yellow-500">
+
+                    <div className="relative w-fit flex flex-row justify-between text-white border-solid border-2 items-center">
+                        <p className="w-fit h-full m-auto flex flex-row font-thin text-xs">
+                            User_Name
+                        </p>
                         <img
                             alt="Telegram sticker"
-                            className="w-full h-full border-solid border-2 rounded-full"
+                            className="w-3 h-3  rounded-full"
                             src="https://xelene.me/telegram.gif"
                         />
-                    </Placeholder>
+                    </div>
 
-
+                    <div className="relative w-fit flex flex-row justify-between text-white border-solid border-2 items-center">
+                        <p className="w-fit h-full m-auto flex flex-row font-thin text-xs">
+                        {balance} Points
+                        </p>
+                    </div>
                 </div>
 
-                <div className="w-full h-fit bg-transparent mx-auto rounded-full relative mt-9 mb-3 ">
-                <Progress 
-                value={60}
-                className="mx-3 my-5 text-yellow-500" />
-                {' '}
+                <div className="relative w-fit h-fit top-20 m-auto flex flex-row justify-center">
+                    <Avatar
+
+                        className=' '
+                        size={150}
+                         src="https://xelene.me/telegram.gif"
+                    />
+                </div>
+
+                <div className="container absolute mx-auto p-4 bottom-10">
+                    {/* <header className="App-header">
+                        <h1 className="text-3xl font-bold mb-4 bg-yellow-500 text-black">Balance: {balance} points</h1>
+                    </header> */}
+                    <Countdown 
+                    onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
                 </div>
 
 
-                <nav className="absolute  justify-between pb-2 box-border  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
+                <nav className="absolute  justify-between pb-2 border-2 border-solid  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
                     {[
                         { path: '', name: 'Home', icon: <BsHouse /> },
                         {
@@ -170,16 +202,16 @@ function App() {
                             <span className='font-mono text-xs no-underline text'>{item.name}</span>
                         </Link>
                     ))}
-                    <div
+                    {/* <div
                         className="nav-indicator-wrapper"
                         ref={indicatorRef.current}
                     >
-                        <span className="nav-indicator"></span>
-                    </div>
+                    </div> */}
                 </nav>
             </div>
         </AppRoot>
     );
-}
+
+};
 
 export default App;
