@@ -44,14 +44,14 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
 
   return (
     <div className="flex flex-col items-center w-full m-5">
-      <div className="w-full rounded-full h-fit mb-12 relative mt-1 border-2 border-slate-900">
+      <div className="w-full rounded-2xl h-fit relative mt-1 border-2 border-slate-900">
        
           <div
-            className=" relative h-8 rounded-full bg-gradient-to-r from-slate-900 to to-blue-900"
+            className=" relative h-9 rounded-xl bg-gradient-to-r from-slate-900 to to-blue-900"
             style={{ width: `${(timeLeft / 100) * 100}%` }}
           >
           </div>
-           <span className="absolute inset-0 rounded-full flex justify-center items-center text-white font-bold">
+           <span className="absolute inset-0  flex justify-center items-center text-white font-bold">
             {timeLeft === 100 ? `Your Reward : ${claimAmount}` : formatTime(timeLeft)}
           </span>
       </div>

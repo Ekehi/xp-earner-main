@@ -150,26 +150,34 @@ function App() {
                         </p>
                     </div>
                     <img
-                            alt="Telegram sticker"
-                            className="w-8 h-8 -ml-7 bg-black rounded-full"
-                            src="https://xelene.me/telegram.gif"
-                        />
+                        alt="Telegram sticker"
+                        className="w-8 h-8 -ml-7 bg-black rounded-full"
+                        src="https://xelene.me/telegram.gif"
+                    />
                 </div>
 
-                <div className="relative w-fit h-fit top-20 m-auto flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
-                    <div className='w-80 h-80 p-4 rounded-full  circle-outer'>
+                <div className="relative w-fit h-fit top-[30px] m-auto flex flex-col align-middle justify-center">
+                    <h1 className="text-3xl font-bold mb-2  text-white justify-center text-center"> {balance} </h1>
+                    <div className='w-80 h-80 p-4 rounded-full circle-outer'>
                         <Avatar
 
                             className='rounded-full circle-inner'
-                            size={175}
+                            size={160}
                             src="https://xelene.me/telegram.gif"
                         />
                     </div>
 
                 </div>
 
-                <div className="container absolute mx-auto p-4 bottom-10">
+                <div className="flex-grow h-7 mt-12 w-full bg-transparent rounded-t-[48px] relative top-glow z-0">
+                    <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-transparent rounded-t-[46px]">
+                        <div className="px-4 mt-6 flex justify-between gap-2">
+            
+                        </div>
+                    </div>
+                </div>
+
+                <div className="container absolute mx-auto p-4 bottom-6">
                     {/* <header className="App-header">
                         <h1 className="text-3xl font-bold mb-4 bg-yellow-500 text-black">Balance: {balance} points</h1>
                     </header> */}
