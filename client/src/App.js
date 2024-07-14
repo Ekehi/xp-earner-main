@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AppRoot, Avatar, Placeholder } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
-import { BsHouse, BsListTask, BsDiamond } from 'react-icons/bs';
+import { BsHouse, BsListTask, BsRocket } from 'react-icons/bs';
 import AppHeader from './shared/header/Header';
 import { Outlet } from 'react-router-dom';
 import { SDKProvider } from '@tma.js/sdk-react';
@@ -142,45 +142,43 @@ function App() {
                 </div>
             </AuthProvider> */}
 
-                <div className="relative flex items-center justify-between px-3 pt-6 w-full h- bg-yellow-500">
+                <div className="relative flex items-center justify-center px-3 pt-6 w-full h- bg-transparent">
 
-                    <div className="relative w-fit flex flex-row justify-between text-white border-solid border-2 items-center">
-                        <p className="w-fit h-full m-auto flex flex-row font-thin text-xs">
+                    <div className="flex items-center justify-around w-fit border-2 border-purple-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
                             User_Name
                         </p>
-                        <img
+                    </div>
+                    <img
                             alt="Telegram sticker"
-                            className="w-3 h-3  rounded-full"
+                            className="w-8 h-8 -ml-7 bg-black rounded-full"
+                            src="https://xelene.me/telegram.gif"
+                        />
+                </div>
+
+                <div className="relative w-fit h-fit top-20 m-auto flex flex-col align-middle justify-center">
+                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
+                    <div className='w-80 h-80 p-4 rounded-full  circle-outer'>
+                        <Avatar
+
+                            className='rounded-full circle-inner'
+                            size={175}
                             src="https://xelene.me/telegram.gif"
                         />
                     </div>
 
-                    <div className="relative w-fit flex flex-row justify-between text-white border-solid border-2 items-center">
-                        <p className="w-fit h-full m-auto flex flex-row font-thin text-xs">
-                        {balance} Points
-                        </p>
-                    </div>
-                </div>
-
-                <div className="relative w-fit h-fit top-20 m-auto flex flex-row justify-center">
-                    <Avatar
-
-                        className=' '
-                        size={150}
-                         src="https://xelene.me/telegram.gif"
-                    />
                 </div>
 
                 <div className="container absolute mx-auto p-4 bottom-10">
                     {/* <header className="App-header">
                         <h1 className="text-3xl font-bold mb-4 bg-yellow-500 text-black">Balance: {balance} points</h1>
                     </header> */}
-                    <Countdown 
-                    onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
+                    <Countdown
+                        onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
                 </div>
 
 
-                <nav className="absolute  justify-between pb-2 border-2 border-solid  bottom-0.5 flex  bg-transparent solid  rounded-md h-fit w-screen ">
+                <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-slate-900  bottom-0.5 flex bg-gradient-to-b from-transparent to-slate-900  rounded-md h-fit w-screen ">
                     {[
                         { path: '', name: 'Home', icon: <BsHouse /> },
                         {
@@ -188,18 +186,18 @@ function App() {
                             name: 'Task',
                             icon: <BsListTask />,
                         },
-                        { path: 'login', name: 'Presale', icon: <BsDiamond /> },
+                        { path: 'login', name: 'Boost', icon: <BsRocket /> },
                     ].map((item, index) => (
                         <Link
                             to={`/${item.path.toLowerCase()}`}
                             key={index}
-                            className={`relative flex flex-col text bg-transparent no-underline text-yellow-500 justify-center h-1  items-center gap-  p-4 transition ${activeIndex === index ? 'text-yellow-500' : 'text-yellow-800'
+                            className={`relative flex flex-col no-underline  text-purple-500 justify-center h-1  items-center active:no-underline focus:text-purple-500 focus:no-underline active:text-purple-500 target:no-underline target:text-purple-500  p-4 transition  ${activeIndex === index ? 'text-purple-500 focus:text-purple-500 focus active:text-purple-500 motion-safe:scale-125 ' : 'text-purple-950'
                                 }`}
                             onClick={() => setActiveIndex(index)}
                             ref={(el) => (navItemsRef.current[index] = el)}
                         >
                             <i>{item.icon}</i>
-                            <span className='font-mono text-xs no-underline text'>{item.name}</span>
+                            <span className='font-mono text-xs '>{item.name}</span>
                         </Link>
                     ))}
                     {/* <div

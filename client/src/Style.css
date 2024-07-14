@@ -53,5 +53,23 @@ body::-webkit-scrollbar {
     color: in;
 }
 
+.circle-outer {
+    background: linear-gradient(to bottom, #292da0, #202731);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    height: 60vw;
+    max-width: 360px;
+    max-height: 360px;
+  }
+  
+  .circle-inner {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  }
 
   

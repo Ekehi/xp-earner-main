@@ -44,28 +44,30 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
 
   return (
     <div className="flex flex-col items-center w-full m-5">
-      <div className="w-full bg-gray-200 rounded-full h-8 mb-12 relative">
-        <div
-          className="bg-blue-600 h-8 rounded-full"
-          style={{ width: `${(timeLeft / 100) * 100}%` }}
-        ></div>
-        <span className="absolute inset-0 rounded-full flex justify-center items-center text-white font-bold">
-          {timeLeft === 100 ? `Claimable Amount: ${claimAmount}` : formatTime(timeLeft)}
-        </span>
+      <div className="w-full rounded-full h-fit mb-12 relative mt-1 border-2 border-slate-900">
+       
+          <div
+            className=" relative h-8 rounded-full bg-gradient-to-r from-slate-900 to to-blue-900"
+            style={{ width: `${(timeLeft / 100) * 100}%` }}
+          >
+          </div>
+           <span className="absolute inset-0 rounded-full flex justify-center items-center text-white font-bold">
+            {timeLeft === 100 ? `Your Reward : ${claimAmount}` : formatTime(timeLeft)}
+          </span>
       </div>
 
       <div className='relative w-full flex flex-row justify-between '>
         <button
           onClick={startCountdown}
-          className={`${timeLeft === 100 ? 'bg-green-500 hover:bg-green-700' : 'bg-blue-500 hover:bg-blue-700'
-            } text-white font-bold py-2 px-4 rounded mt-4`}
+          className={`${timeLeft === 100 ? '' : ' animate-pulse'
+            } text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-[1px] border-slate-800 bg-gradient-to-b from-slate-900 to-purple-900 hover:bg-transparent`}
         >
-          {timeLeft === 100 ? 'Claim Point' : 'Mine'}
+          {timeLeft === 100 ? 'Claim' : 'Mine'}
         </button>
         <button
 
           className=
-          'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4'
+          ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-[1px] border-slate-800 bg-gradient-to-b from-slate-900 to-purple-900 hover:bg-transparent'
         >
           Daily Reward
         </button>
