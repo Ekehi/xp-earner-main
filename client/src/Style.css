@@ -1,7 +1,34 @@
-body {
+body,
+html   
+{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+    background: rgb(255, 255, 255);
+}
+
+div#root {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
 }
 
 .cardLeft {
@@ -16,3 +43,36 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.text{
+    text-decoration: none;
+}
+
+.text:focus{
+    text-decoration: none;
+    color: in;
+}
+
+.circle-outer {
+    background: linear-gradient(to bottom, #292da0, #202731);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vw;
+    max-width: 360px;
+    max-height: 360px;
+  }
+  
+  .circle-inner {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26);
+  }
+
+  .top-glow {
+    box-shadow: 0 -12px 20px rgba(150, 83, 238, 0.26);
+  }
+  

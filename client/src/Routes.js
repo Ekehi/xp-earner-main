@@ -7,6 +7,7 @@ import Profile from './pages/profile/Profile';
 import Task from './pages/task/Task';
 import Tasks from './pages/tasks/Tasks';
 import AuthGuard from './guards/Guard';
+import Homepage from './pages/Homepage/homepage';
 
 export const routes = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Tasks />,
+                element: <App />,
             },
             {
                 path: '/login',
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
                     {
                         path: '/task/:taskSlug',
                         element: <Task />,
+                    },
+                    {
+                        path: '/tasks',
+                        element: <Tasks />,
                     },
                 ],
             },

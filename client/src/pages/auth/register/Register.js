@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
-   // const initData = useInitData();
+    // const initData = useInitData();
 
     const navigate = useNavigate();
 
@@ -62,6 +62,11 @@ const Register = () => {
                     },
                 },
             );
+
+            // Here's the temporary local storage (insecure)
+            localStorage.setItem('tempEmail', formData.email);
+            localStorage.setItem('tempPassword', formData.password);
+
             console.log(response);
             navigate('/login');
             toast.success('User registered successfully');
