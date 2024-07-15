@@ -142,9 +142,9 @@ function App() {
                 </div>
             </AuthProvider> */}
 
-                <div className="relative flex items-center justify-center px-3 pt-6 w-full h- bg-transparent">
+                <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
 
-                    <div className="flex items-center justify-around w-fit border-2 border-purple-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                    <div className="flex items-center justify-around w-fit border-2  border-purple-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
                         <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
                             User_Name
                         </p>
@@ -156,21 +156,21 @@ function App() {
                     />
                 </div>
 
-                <div className="relative w-fit h-fit top-[30px] m-auto flex flex-col align-middle justify-center">
+                <div className="relative w-fit h-fit top-[7px] mx-auto mb-3 flex flex-col align-middle justify-center">
                     <h1 className="text-3xl font-bold mb-2  text-white justify-center text-center"> {balance} </h1>
                     <div className='w-80 h-80 p-4 rounded-full circle-outer'>
                         <Avatar
 
                             className='rounded-full circle-inner'
-                            size={160}
+                            size={130}
                             src="https://xelene.me/telegram.gif"
                         />
                     </div>
 
                 </div>
 
-                <div className="flex-grow h-7 mt-12 w-full bg-transparent rounded-t-[48px] relative top-glow z-0">
-                    <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-transparent rounded-t-[46px]">
+                <div className="flex-grow h-7 mt-7 w-full bg-transparent rounded-t-[48px] relative top-glow z-0">
+                    <div className="absolute top-[2px] h-60 left-0 right-0 bottom-0 bg-transparent rounded-t-[46px]">
                         <div className="px-4 mt-6 flex justify-between gap-2">
             
                         </div>

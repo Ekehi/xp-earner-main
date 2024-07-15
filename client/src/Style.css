@@ -58,8 +58,8 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     max-width: 360px;
     max-height: 360px;
   }
@@ -73,6 +73,6 @@ body::-webkit-scrollbar {
   }
 
   .top-glow {
-    box-shadow: 0 -12px 20px rgba(150, 83, 238, 0.26);
+    box-shadow: 0 -7px 20px rgba(150, 83, 238, 0.26);
   }
   
