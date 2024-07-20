@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useLocation } from 'react-router-dom';
 import './footer.css';
 import React, { useState, useEffect, useRef } from 'react';
-import { BsHouse, BsListTask, BsInfo } from 'react-icons/bs';
+import { BsHouse, BsListTask, BsRocket } from 'react-icons/bs';
 
 const AppFooter = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -35,29 +35,30 @@ const AppFooter = () => {
     }, [activeIndex]);
 
     return (
-        <nav className="nav">
-            {[
-                { path: '', name: 'Home', icon: <BsHouse /> },
-                { path: 'register', name: 'Task', icon: <BsListTask /> },
-                { path: 'login', name: 'ICO', icon: <BsInfo /> },
-            ].map((item, index) => (
-                <Link
-                    to={`/${item.path.toLowerCase()}`}
-                    key={index}
-                    className={`nav-item ${
-                        activeIndex === index ? 'is-active' : ''
-                    }`}
-                    onClick={() => setActiveIndex(index)}
-                    ref={(el) => (navItemsRef.current[index] = el)}
-                >
-                    <i>{item.icon}</i>
-                    <span>{item.name}</span>
-                </Link>
-            ))}
-            <div className="nav-indicator-wrapper" ref={indicatorRef.current}>
-                <span className="nav-indicator"></span>
-            </div>
-        </nav>
+        <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-slate-900  bottom-0.5 flex bg-gradient-to-b from-transparent to-slate-900  rounded-md h-fit w-screen ">
+                    {[
+                        { path: '', name: 'Home', icon: <BsHouse /> },
+                        {
+                            path: 'register',
+                            name: 'Task',
+                            icon: <BsListTask />,
+                        },
+                        { path: 'login', name: 'Boost', icon: <BsRocket /> },
+                    ].map((item, index) => (
+                        <Link
+                            to={`/${item.path.toLowerCase()}`}
+                            key={index}
+                            className={`relative flex flex-col no-underline  text-purple-500 justify-center h-1  items-center active:no-underline focus:text-purple-500 focus:no-underline active:text-purple-500 target:no-underline target:text-purple-500  p-4 transition  ${activeIndex === index ? 'text-purple-500 focus:text-purple-500 focus active:text-purple-500 motion-safe:scale-125 ' : 'text-purple-950'
+                                }`}
+                            onClick={() => setActiveIndex(index)}
+                            ref={(el) => (navItemsRef.current[index] = el)}
+                        >
+                            <i>{item.icon}</i>
+                            <span className='font-mono text-xs '>{item.name}</span>
+                        </Link>
+                    ))}
+                   
+                </nav>
     );
 };
 
