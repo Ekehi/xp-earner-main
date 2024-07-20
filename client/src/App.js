@@ -51,7 +51,7 @@ function App() {
                 <div className="relative flex self-center m-auto w-full">
                     <svg
                         aria-hidden="true"
-                        class="inline container m-auto w-20 h-20  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
+                        class="inline container m-auto w-10 h-10  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -83,18 +83,17 @@ function App() {
         <AppRoot>
             <div className=" bg-black flex flex-col h-fit items-center justify-center">
                 <AuthProvider>
-                <div className="App d-flex flex-row w-fit bg-black">
-                    <SDKProvider>
-                        <div className="h-screen flex-grow w-screen">
-                            <Outlet />
-                            <Toaster />
-                            <Footer/>
-                        </div>
-                    </SDKProvider>
-                </div>
-            </AuthProvider>
-
-        </div>
+                    <div className="App d-flex flex-row w-fit bg-black">
+                        <SDKProvider>
+                            <div className="h-screen flex-grow w-screen">
+                                <Outlet />
+                                <Toaster />
+                                <Footer />
+                            </div>
+                        </SDKProvider>
+                    </div>
+                </AuthProvider>
+            </div>
         </AppRoot>
     );
 
