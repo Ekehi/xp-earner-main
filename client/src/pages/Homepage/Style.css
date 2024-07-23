@@ -1,0 +1,78 @@
+body,
+html   
+{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+    background: rgb(255, 255, 255);
+}
+
+div#root {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.cardLeft {
+    max-width: 70%;
+}
+
+.cardRight {
+    max-width: 30%;
+}
+
+.cardBody {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    text-decoration: none;
+}
+
+.text:focus{
+    text-decoration: none;
+    color: in;
+}
+
+.circle-outer {
+    background: linear-gradient(to bottom, #ffa000, #202731);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 40vw;
+    max-width: 360px;
+    max-height: 360px;
+  }
+  
+  .circle-inner {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26);
+  }
+
+  .top-glow {
+    box-shadow: 0 -7px 25px rgba(255, 162, 0, 0.836);
+  }
+  

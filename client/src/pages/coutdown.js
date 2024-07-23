@@ -47,7 +47,7 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
       <div className="w-full rounded-2xl h-fit relative mt-1 border-2 border-slate-900">
        
           <div
-            className=" relative h-9 rounded-xl bg-gradient-to-r from-slate-900 to to-blue-900"
+            className=" relative h-9 rounded-xl bg-gradient-to-r from-gray-300 via-pink-400 to to-blue-900"
             style={{ width: `${(timeLeft / 100) * 100}%` }}
           >
           </div>
@@ -60,14 +60,14 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
         <button
           onClick={startCountdown}
           className={`${timeLeft === 100 ? '' : ' animate-pulse'
-            } text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-[1px] border-slate-800 bg-gradient-to-b from-slate-900 to-purple-900 hover:bg-transparent`}
+            } text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2`}
         >
           {timeLeft === 100 ? 'Claim' : 'Mine'}
         </button>
         <button
 
           className=
-          ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-[1px] border-slate-800 bg-gradient-to-b from-slate-900 to-purple-900 hover:bg-transparent'
+          ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
         >
           Daily Reward
         </button>
