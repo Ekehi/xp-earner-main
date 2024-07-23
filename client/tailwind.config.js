@@ -16,8 +16,20 @@ module.exports = {
       wide: '.025em',
       wider: '.05em',
       widest: '6.4px',
+    },
+    extend: {
+      backgroundImage: {
+       'ad-section': "url('/public/images/1.jpg')",
+      }
     }
   },
+
+  variants: {
+    extend: {
+     backgroundImage: ['hover', 'focus'],
+    }
+  },
+
   plugins: [
     require('flowbite/plugin')
   ],

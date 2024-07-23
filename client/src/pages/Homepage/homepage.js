@@ -1,8 +1,8 @@
 // src/App.js
 import { React, useEffect, useState } from 'react';
-import { AppRoot, Avatar} from '@telegram-apps/telegram-ui';
+import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
-import 'tailwindcss/tailwind.css';
+import './Style.css';
 import Countdown from '../coutdown';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
@@ -54,7 +54,7 @@ function App() {
                 <div className="relative flex self-center m-auto w-full">
                     <svg
                         aria-hidden="true"
-                        class="inline container m-auto w-20 h-20  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
+                        class="inline container m-auto w-10 h-10  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ function App() {
             <div className=" bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
 
-                    <div className="flex items-center justify-around w-fit border-2  border-purple-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                    <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
                         <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
                             User_Name
                         </p>
@@ -99,22 +99,33 @@ function App() {
                     />
                 </div>
 
-                <div className="relative w-fit h-fit top-[7px] mx-auto mb-3 flex flex-col align-middle justify-center">
+                <div className="relative w-fit h-fit top-[7px] mx-auto mb-1 flex flex-col align-middle justify-center">
                     <h1 className="text-3xl font-bold mb-2  text-white justify-center text-center"> {balance} </h1>
-                    <div className='w-80 h-80 p-4 rounded-full circle-outer'>
-                        <Avatar
 
-                            className='rounded-full circle-inner'
-                            size={130}
-                            src="https://xelene.me/telegram.gif"
-                        />
-                    </div>
+                    <Avatar
+                        size={130}
+                        src="200.png"
+                        className='circle-outer top-glow animate-pulse delay-[10000ms]'
+                    />
+
 
                 </div>
 
-                <div className="flex-grow h-7 mt-7 w-full bg-transparent rounded-t-[48px] relative top-glow z-0">
-                    <div className="absolute top-[2px] h-60 left-0 right-0 bottom-0 bg-transparent rounded-t-[46px]">
-                        <div className="px-4 mt-6 flex justify-between gap-2">
+                <div className=" flex-grow h-56 mt-4 w-full mx-2 bg-transparent rounded-md relative">
+                    <div className="relative flex h-fit w-fit mx-2 bottom-0 bg-cover bg-ad-section rounded-xl">
+                        <div className="container my-auto p-4 flex justify-between gap-2 h-48 w-full rounded-xl bg-white/20 backdrop-contrast-50">
+                            
+                                <h1 class="text-base font-extrabold text-white leading-tight mb-4">
+                                    50K USDT <span class="text-pink-300">Give</span><span class="text-purple-300">Away</span><span class="text-blue-300">50K USDT</span>
+                                </h1>
+                                <p class="text-sm font-mono text-white leading-tight mb-8">
+                                    * Invite at least 5 Friends. <br/>
+                                    * Check in at least 10 consecutive days.
+                                </p>
+                                <a href="#" class="inline-block bg-white text-pink-500 hover:text-pink-600 font-medium px-3 py-[4px] rounded-xl shadow-lg hover:shadow-xl transition duration-200">
+                                   Join
+                                </a>
+                            
 
                         </div>
                     </div>
