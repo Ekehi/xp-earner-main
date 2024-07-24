@@ -98,9 +98,9 @@ function App() {
                         src="https://xelene.me/telegram.gif"
                     />
                 </div>
-
-                <div className="relative w-fit h-fit top-7 mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-6  text-white justify-center text-center"> {balance} </h1>
+      
+                <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
+                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
 
                     <Avatar
                         size={130}
@@ -109,12 +109,12 @@ function App() {
                     />
                 </div>
 
-                <div className=" flex-grow h-40 mt-32 mt- w-full mx-2 bg-transparent rounded-md relative">
+                <div className=" flex-grow h-40 mt-16  w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
                             
-                                <h1 class="text-base wl-ful font-extrabold text-yellow-500 leading-none mb-2 text-start">
-                                    10K USDT <span class="text-white">GiveAway</span>
+                                <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
+                                    10K USDT <span class="text-white">GIVEAWAY</span>
                                 </h1>
                                 <p class="text-sm font-mono text-white/80 leading-tight mb-2">
                                     * Invite at least 10 Friends. <br/>
