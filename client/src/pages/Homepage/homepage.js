@@ -99,8 +99,8 @@ function App() {
                     />
                 </div>
 
-                <div className="relative w-fit h-fit top-[7px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-2  text-white justify-center text-center"> {balance} </h1>
+                <div className="relative w-fit h-fit top-7 mx-auto mb-1 flex flex-col align-middle justify-center">
+                    <h1 className="text-3xl font-bold mb-6  text-white justify-center text-center"> {balance} </h1>
 
                     <Avatar
                         size={130}
