@@ -54,12 +54,9 @@ function App() {
                             alt="o"
                             className="w-5 h-5 mx-[2px] animate-bounce"
                             src="20.png"
-                        /> ading</h1>
-                    <div className='flex space-x-2 justify-center items-center bg-white h-screen dark:invert'>
-                        <div class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.3s]'></div>
-                        <div class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.15s]'></div>
-                        <div class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce'></div>
-                    </div>
+                        /> ading</h1> <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.3s]'>.</span>
+                        <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.15s]'>.</span>
+                        <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce'></span>
                 </div>
             </div>
         );
