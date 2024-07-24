@@ -2,8 +2,10 @@
 module.exports = {
   darkMode: 'class',
   content: [    
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    "./public/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./styles/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     letterSpacing: {
@@ -14,8 +16,20 @@ module.exports = {
       wide: '.025em',
       wider: '.05em',
       widest: '6.4px',
+    },
+    extend: {
+      backgroundImage: {
+       'ad-section': "url('/public/images/1.jpg')",
+      }
     }
   },
+
+  variants: {
+    extend: {
+     backgroundImage: ['hover', 'focus'],
+    }
+  },
+
   plugins: [
     require('flowbite/plugin')
   ],
