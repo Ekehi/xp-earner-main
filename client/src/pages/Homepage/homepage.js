@@ -98,7 +98,7 @@ function App() {
                         src="https://xelene.me/telegram.gif"
                     />
                 </div>
-
+      
                 <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
                     <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
 
