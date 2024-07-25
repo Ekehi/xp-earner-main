@@ -53,7 +53,7 @@ function App() {
                         <img
                             alt="o"
                             className="w-5 h-5 mx-[2px] animate-bounce"
-                            src="20.png"
+                            src="50.png"
                         /> ading</h1> <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.3s]'>.</span>
                         <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce [animation-delay:-0.15s]'>.</span>
                         <span class='h-1 w-1 bg-yellow-500 rounded-full animate-bounce'></span>

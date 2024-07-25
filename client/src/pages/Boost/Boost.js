@@ -2,11 +2,11 @@
 import { React, useEffect, useState } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
-import './Style.css';
+/* import './Style.css'; */
 import Countdown from '../coutdown';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
-function Homepage() {
+function Boost() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState(0);
@@ -85,22 +85,9 @@ function Homepage() {
     return (
         <AppRoot>
             <div className=" bg-black flex flex-col h-fit items-center justify-center">
-                <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
 
-                    <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
-                            User_Name
-                        </p>
-                    </div>
-                    <img
-                        alt="Telegram sticker"
-                        className="w-8 h-8 -ml-7 bg-black rounded-full"
-                        src="https://xelene.me/telegram.gif"
-                    />
-                </div>
 
-                <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
+                <div className="relative w-fit h-fit top-32 mx-auto mb-1 flex flex-col align-middle justify-center">
 
                     <Avatar
                         size={130}
@@ -112,29 +99,31 @@ function Homepage() {
                 <div className=" flex-grow h-40 mt-16  w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
-                            
-                                <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
-                                    10K USDT <span class="text-white">GIVEAWAY</span>
-                                </h1>
-                                <p class="text-sm font-mono text-white/80 leading-tight mb-2">
-                                    * Invite at least 10 Friends. <br/>
-                                    * Check in at least 10 consecutive days.
-                                </p>
+
+                            <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
+                                10K USDT <span class="text-white">GIVEAWAY</span>
+                            </h1>
+                            <p class="text-sm font-mono text-white/80 leading-tight mb-2">
+                                * Invite at least 10 Friends. <br />
+                                * Check in at least 10 consecutive days.
+                            </p>
                         </div>
                     </div>
+                </div><div className='relative w-full flex flex-row justify-center '>
+                    <button
+
+                        className=
+                        ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
+                    >
+                        Boost
+                    </button>
+
                 </div>
 
-                <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    {/* <header className="App-header">
-                        <h1 className="text-3xl font-bold mb-4 bg-yellow-500 text-black">Balance: {balance} points</h1>
-                    </header> */}
-                    <Countdown
-                        onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
-                </div>
             </div>
         </AppRoot>
     );
 
 };
 
-export default Homepage;
+export default Boost;
