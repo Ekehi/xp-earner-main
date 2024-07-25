@@ -8,6 +8,7 @@ import Task from './pages/task/Task';
 import Tasks from './pages/tasks/Tasks';
 import AuthGuard from './guards/Guard';
 import Homepage from './pages/Homepage/homepage';
+import Boost from './pages/Boost/Boost';
 
 export const routes = createBrowserRouter([
     {
@@ -19,12 +20,12 @@ export const routes = createBrowserRouter([
                 element: <Homepage />,
             },
             {
-                path: '/login',
-                element: <Login />,
+                path: '/tasks',
+                element: <Tasks />,
             },
             {
-                path: '/register',
-                element: <Register />,
+                path: '/Boost',
+                element: <Boost />,
             },
             {
                 element: <AuthGuard />,
@@ -33,10 +34,10 @@ export const routes = createBrowserRouter([
                         path: '/profile',
                         element: <Profile />,
                     },
-                    {
+                   /*  {
                         path: '/task/:taskSlug',
                         element: <Task />,
-                    },
+                    }, */
                     {
                         path: '/tasks',
                         element: <Tasks />,

@@ -43,7 +43,7 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
   };
 
   return (
-    <div className="flex flex-col items-center h-fit w-full mb-5 mt-1 mx-5">
+    <div className="flex flex-col items-center h-fit w-full mb-5 mt-4 mx-5">
       <div className="w-full rounded-2xl h-fit relative mt-1 border-2 border-slate-900">
        
           <div

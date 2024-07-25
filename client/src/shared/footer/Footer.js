@@ -11,7 +11,7 @@ const AppFooter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const paths = ['/', '/register', '/login'];
+        const paths = ['/', '/task', '/Boost'];
         const currentPathIndex = paths.indexOf(location.pathname);
         setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
     }, [location.pathname]);
@@ -36,29 +36,37 @@ const AppFooter = () => {
 
     return (
         <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-yellow-950  bottom-0.5 flex bg-gradient-to-b from-transparent to-slate-900  rounded-md h-fit w-screen ">
-                    {[
-                        { path: '', name: 'Home', icon: <BsHouse /> },
-                        {
-                            path: 'register',
-                            name: 'Task',
-                            icon: <BsListTask />,
-                        },
-                        { path: 'login', name: 'Boost', icon: <BsRocket /> },
-                    ].map((item, index) => (
-                        <Link
-                            to={`/${item.path.toLowerCase()}`}
-                            key={index}
-                            className={`relative flex flex-col no-underline  text-yellow-500 justify-center h-1  items-center active:no-underline focus:text-yellow-500 focus:no-underline active:text-yellow-500 target:no-underline target:text-yellow-500  p-4 transition  ${activeIndex === index ? 'text-yellow-500 focus:text-yellow-500 focus active:text-yellow-500 motion-safe:scale-125 focus:border-b-2 focus:border-yellow-600 rounded-b-md' : 'text-yellow-950'
-                                }`}
-                            onClick={() => setActiveIndex(index)}
-                            ref={(el) => (navItemsRef.current[index] = el)}
-                        >
-                            <i>{item.icon}</i>
-                            <span className='font-mono text-xs '>{item.name}</span>
-                        </Link>
-                    ))}
-                   
-                </nav>
+            {[
+                {
+                    path: '',
+                    name: 'Home',
+                    icon: <BsHouse />
+                },
+                {
+                    path: 'task',
+                    name: 'Task',
+                    icon: <BsListTask />,
+                },
+                {
+                    path: 'Boost',
+                    name: 'Boost',
+                    icon: <BsRocket />
+                },
+            ].map((item, index) => (
+                <Link
+                    to={`/${item.path.toLowerCase()}`}
+                    key={index}
+                    className={`relative flex flex-col no-underline  text-yellow-500 justify-center h-1  items-center active:no-underline focus:text-yellow-500 focus:no-underline active:text-yellow-500 target:no-underline target:text-yellow-500  p-4 transition  ${activeIndex === index ? 'text-yellow-500 focus:text-yellow-500 focus active:text-yellow-500 motion-safe:scale-125' : 'text-yellow-950'
+                        }`}
+                    onClick={() => setActiveIndex(index)}
+                    ref={(el) => (navItemsRef.current[index] = el)}
+                >
+                    <i>{item.icon}</i>
+                    <span className='font-mono text-xs '>{item.name}</span>
+                </Link>
+            ))}
+
+        </nav>
     );
 };
 
