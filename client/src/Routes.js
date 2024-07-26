@@ -34,14 +34,14 @@ export const routes = createBrowserRouter([
                         path: '/profile',
                         element: <Profile />,
                     },
-                   /*  {
+                    {
                         path: '/task/:taskSlug',
                         element: <Task />,
-                    }, */
-                    {
+                    },
+                    /* {
                         path: '/tasks',
                         element: <Tasks />,
-                    },
+                    }, */
                 ],
             },
             {

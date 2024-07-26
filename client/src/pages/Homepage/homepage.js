@@ -6,7 +6,7 @@ import './Style.css';
 import Countdown from '../coutdown';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
-function Homepage() {
+function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState(0);
@@ -137,4 +137,4 @@ function Homepage() {
 
 };
 
-export default Homepage;
+export default App;

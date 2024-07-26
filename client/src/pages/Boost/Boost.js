@@ -2,21 +2,12 @@
 import { React, useEffect, useState } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
-/* import './Style.css'; */
-import Countdown from '../coutdown';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function Boost() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState(0);
-    const minClaim = 5; // Minimum claimable value
-    const maxClaim = 10; // Maximum claimable value
-
-    const handlePointClaim = (claimAmount) => {
-        setBalance(balance + claimAmount);
-    };
-
 
 
 
@@ -84,19 +75,18 @@ function Boost() {
     }
     return (
         <AppRoot>
-            <div className=" bg-black flex flex-col h-fit items-center justify-center">
+            <div className="relative bg-black grid p-auto h-fit items-center justify-center">
 
-
-                <div className="relative w-fit h-fit top-32 mx-auto mb-1 flex flex-col align-middle justify-center">
+                <div className="relative w-fit h-fit top-16 mx-auto mb- flex flex-col align-middle justify-center">
 
                     <Avatar
-                        size={130}
-                        src="200.png"
-                        className='circle-outer top-glow animate-pulse delay-[10000ms]'
+                        size={200}
+                        src="boost.png"
+                        className='bcircle-outer top-glow animate-r delay-[10000ms]'
                     />
                 </div>
 
-                <div className=" flex-grow h-40 mt-16  w-full mx-2 bg-transparent rounded-md relative">
+                <div className=" relative flex-grow top-24  w-full mx-2 bg-transparent rounded-md">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
 
@@ -109,15 +99,24 @@ function Boost() {
                             </p>
                         </div>
                     </div>
-                </div><div className='relative w-full flex flex-row justify-center '>
+                </div>
+
+                <div className=' relative w-full flex flex-row justify-center '>
                     <button
 
                         className=
-                        ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
+                        ' text-white font-bold py-2 px-4 rounded-full top-32 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
                     >
                         Boost
                     </button>
 
+                </div>
+
+                
+                <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/70 backdrop-blur-xl shadow-lg'>
+                    <p className='text-white m-auto absolute top-96 text-3xl font-mono'>
+                    Coming Soon
+                    </p>
                 </div>
 
             </div>
