@@ -20,8 +20,8 @@ export const routes = createBrowserRouter([
                 element: <Homepage />,
             },
             {
-                path: '/tasks',
-                element: <Tasks />,
+                path: '/task/:taskSlug',
+                element: <Task />,
             },
             {
                 path: '/Boost',
@@ -35,8 +35,8 @@ export const routes = createBrowserRouter([
                         element: <Profile />,
                     },
                     {
-                        path: '/task/:taskSlug',
-                        element: <Task />,
+                       /*  path: '/task/:taskSlug',
+                        element: <Task />, */
                     },
                     /* {
                         path: '/tasks',

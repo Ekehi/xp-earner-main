@@ -60,14 +60,14 @@ const Countdown = ({ onPointClaim, minClaim, maxClaim }) => {
         <button
           onClick={startCountdown}
           className={`${timeLeft === 100 ? '' : ' animate-pulse'
-            } text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2`}
+            } text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-yellow-500 hover:bg-transparent border-s-2`}
         >
           {timeLeft === 100 ? 'Claim' : 'Mine'}
         </button>
         <button
 
           className=
-          ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
+          ' text-white font-bold py-2 px-4 rounded-full mt-4 border-solid  border-white bg-yellow-500 hover:bg-transparent border-s-2'
         >
           Daily Reward
         </button>

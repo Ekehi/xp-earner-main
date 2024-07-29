@@ -125,9 +125,6 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    {/* <header className="App-header">
-                        <h1 className="text-3xl font-bold mb-4 bg-yellow-500 text-black">Balance: {balance} points</h1>
-                    </header> */}
                     <Countdown
                         onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
                 </div>
