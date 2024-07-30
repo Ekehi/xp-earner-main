@@ -3,11 +3,11 @@ import { React, useEffect, useState } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import { BsArrowRightCircle } from 'react-icons/bs';
 
 function Boost() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const [balance, setBalance] = useState(0);
 
 
 
@@ -74,53 +74,52 @@ function Boost() {
         );
     }
     return (
-        <AppRoot>
-            <div className="relative bg-black grid p-auto h-fit items-center justify-center">
 
-                <div className="relative w-fit h-fit top-16 mx-auto mb- flex flex-col align-middle justify-center">
+        <div className="container relative mt-5 justify-center align-middle flex">
 
-                    <Avatar
-                        size={200}
-                        src="boost.png"
-                        className='bcircle-outer top-glow animate-r delay-[10000ms]'
-                    />
-                </div>
+            <div className="relative  w-fiht h-nfit top-14 mx-auto mb- flex flex-col align-middle justify-center">
 
-                <div className=" relative flex-grow top-24  w-full mx-2 bg-transparent rounded-md">
-                    <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
-                        <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
+                <Avatar
+                    size={200}
+                    src="1000.png"
+                    className='bcircle-outer top-glow'
+                />
+            </div>
 
-                            <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
-                                10K USDT <span class="text-white">GIVEAWAY</span>
-                            </h1>
-                            <p class="text-sm font-mono text-white/80 leading-tight mb-2">
-                                * Invite at least 10 Friends. <br />
-                                * Check in at least 10 consecutive days.
-                            </p>
-                        </div>
+            <div className=" relative flex-grow top-24  w-full mx-2 bg-transparent rounded-md">
+                <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
+                    <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
+
+                        <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-center">
+                            BOOST YOUR DAILY <span class="text-white text-center left-5 block">EARNING</span>
+                        </h1>
+                        <p class="text-sm font-bold justify-center text-center text-white/80 leading-tight mb-2">
+                            Buy $EKH token for more special rewards and be among the early adopters.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div className=' relative w-full flex flex-row justify-center '>
-                    <button
-
-                        className=
-                        ' text-white font-bold py-2 px-4 rounded-full top-32 border-solid  border-white bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-900 hover:bg-transparent border-s-2'
-                    >
-                        Boost
-                    </button>
-
-                </div>
-
-                
-                <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/70 backdrop-blur-xl shadow-lg'>
-                    <p className='text-white m-auto absolute top-96 text-3xl font-mono'>
-                    Coming Soon
-                    </p>
+            <div className=' relative flex top-32 w-4/5 align-middle justify-center mx-auto'>
+                <div className='relative w-full flex justify-center h-full rounded-xl border-aninmation' >
+                <a className='text-white font-bold text-center w-full m-[3px] p-2 h-full rounded-xl bg-black hover:bg-yellow-500 '
+                   href='https://www.ekehi.network/#presale' 
+                >
+                    Boost
+                    <BsArrowRightCircle className=' relative inline-block left-10 text-yellow-500' />
+                </a>
                 </div>
 
             </div>
-        </AppRoot>
+
+
+            {/*   <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/70 backdrop-blur-xl shadow-lg'>
+                <p className='text-white m-auto absolute top-96 text-3xl font-mono'>
+                    Coming Soon
+                </p>
+            </div>
+ */}
+        </div>
     );
 
 };
