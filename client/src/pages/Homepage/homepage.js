@@ -3,13 +3,14 @@ import { React, useEffect, useState } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import './Style.css';
-import ClaimReward from '../ClaimReward';
+import Reward from '../Reward';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [balance, setBalance] = useState(0);
+    const userId = '12345'; // Replace this with the actual user ID or pass it as a prop
     const minClaim = 5; // Minimum claimable value
     const maxClaim = 10; // Maximum claimable value
 
@@ -125,8 +126,8 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <ClaimReward
-                        onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
+                    <Reward
+                        userId={userId} />
                 </div>
             </div>
         </AppRoot>
