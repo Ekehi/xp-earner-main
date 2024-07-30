@@ -3,7 +3,7 @@ import { React, useEffect, useState } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import './Style.css';
-import Countdown from '../coutdown';
+import ClaimReward from '../ClaimReward';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
@@ -125,7 +125,7 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <Countdown
+                    <ClaimReward
                         onPointClaim={handlePointClaim} minClaim={minClaim} maxClaim={maxClaim} />
                 </div>
             </div>
