@@ -11,7 +11,7 @@ const Rewards = ({ userId }) => {
   const claimDailyReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('/api/rewards/claim-daily-reward', { userId });
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/rewards/claim-daily-reward', { userId });
       if (response.data.success) {
         alert(`You have received ${response.data.points} points!`);
         setDailyNextClaim(new Date(response.data.nextDailyClaim));
@@ -29,7 +29,7 @@ const Rewards = ({ userId }) => {
   const claim12HourReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('/api/rewards/claim-12hour-reward', { userId });
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/rewards/claim-12hour-reward', { userId });
       if (response.data.success) {
         alert(`You have received ${response.data.points} points!`);
         set12HourNextClaim(new Date(response.data.next12HourClaim));
