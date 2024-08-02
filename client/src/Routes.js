@@ -28,6 +28,14 @@ export const routes = createBrowserRouter([
                 element: <Boost />,
             },
             {
+                path: '/Login',
+                element: <Login />,
+            },
+            {
+                path: '/Register',
+                element: <Register />,
+            },
+            {
                 element: <AuthGuard />,
                 children: [
                     {
@@ -46,7 +54,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <Navigate to="/" />,
+                element: <Navigate to="/Login" />,
             },
         ],
     },
