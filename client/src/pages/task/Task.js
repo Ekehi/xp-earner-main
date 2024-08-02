@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
-//import { tokenData } from '../../services/context';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../services/authContext';

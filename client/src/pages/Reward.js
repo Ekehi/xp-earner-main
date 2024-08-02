@@ -5,7 +5,7 @@ const Rewards = ({ userId }) => {
   const [dailyNextClaim, setDailyNextClaim] = useState(null);
   const [hour12NextClaim, set12HourNextClaim] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(43200); // 12 hours in seconds
+  const [timeLeft, setTimeLeft] = useState(43200);
   const [claimAmount, setClaimAmount] = useState(0);
 
   const claimDailyReward = async () => {

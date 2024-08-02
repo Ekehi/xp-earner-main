@@ -54,7 +54,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <Navigate to="/Login" />,
+                element: <Navigate to="/" />,
             },
         ],
     },

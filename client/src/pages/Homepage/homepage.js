@@ -1,7 +1,6 @@
-
 import { React, useEffect, useState, useContext } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
-import axios from 'axios';
+//import axios from 'axios';
 import './Style.css';
 import Reward from '../Reward';
 import '@telegram-apps/telegram-ui/dist/styles.css';
@@ -11,15 +10,13 @@ function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const [balance, setBalance] = useState(0);
-    const userId = '12345'; // Replace this with the actual user ID or pass it as a prop
-    const minClaim = 5; // Minimum claimable value
-    const maxClaim = 10; // Maximum claimable value
+    const userId = '12345';
 
     const userData = useContext(UserContext);
 
-    const handlePointClaim = (claimAmount) => {
-        setBalance(balance + claimAmount);
-    };
+    // const handlePointClaim = (claimAmount) => {
+    //     setBalance(balance + claimAmount);
+    // };
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
