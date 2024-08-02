@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom';
 import { SDKProvider } from '@tma.js/sdk-react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
+import { UserProvider } from './TelegramServices/UserContext';
 import Footer from './shared/footer/Footer';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
@@ -72,7 +73,7 @@ function App() {
     return (
         <AppRoot>
             <div className=" bg-black flex flex-col h-fit items-center justify-center">
-                <AuthProvider>
+                <UserProvider>
                     <div className="App d-flex flex-row w-fit bg-black">
                         <SDKProvider>
                             <div className="h-screen flex-grow w-screen">
@@ -82,7 +83,7 @@ function App() {
                             </div>
                         </SDKProvider>
                     </div>
-                </AuthProvider>
+                </UserProvider>
             </div>
         </AppRoot>
     );
