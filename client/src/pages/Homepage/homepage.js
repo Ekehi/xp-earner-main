@@ -8,43 +8,35 @@ import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [balance, setBalance] = useState(0);
-    const userId = '12345'; // Replace this with the actual user ID or pass it as a prop
-    const minClaim = 5; // Minimum claimable value
-    const maxClaim = 10; // Maximum claimable value
-
-    const handlePointClaim = (claimAmount) => {
-        setBalance(balance + claimAmount);
-    };
-
-
-
+    const userId = '12345';
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
             window.Telegram.WebApp.expand();
+            setLoading(false);
         }
     }, []);
 
-    useEffect(() => {
-        setLoading(true);
-        axios
-            .get('https://xp-earner.onrender.com/api/v1/tasks', {
-                withCredentials: true,
-                credentials: 'include',
-            })
-            .then((res) => {
-                console.log('data', res);
+    // useEffect(() => {
+    //     setLoading(true);
+    //     axios
+    //         .get('https://xp-earner.onrender.com/api/v1/tasks', {
+    //             withCredentials: true,
+    //             credentials: 'include',
+    //         })
+    //         .then((res) => {
+    //             console.log('data', res);
 
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-                setError(err.response.data.message);
-                console.log(err);
-            });
-    }, []);
+    //             setLoading(false);
+    //         })
+    //         .catch((err) => {
+    //             setLoading(false);
+    //             setError(err.response.data.message);
+    //             console.log(err);
+    //         });
+    // }, []);
 
 
     // spinner while loading functionality
@@ -126,8 +118,7 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <Reward
-                        userId={userId} />
+                    <Reward userId={userId} />
                 </div>
             </div>
         </AppRoot>
