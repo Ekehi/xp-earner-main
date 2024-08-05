@@ -78,15 +78,16 @@ const Register = () => {
 
     return (
         <div
-            className="container mt-5"
+            className=" flex flex-col p-5 h-full w-full bg-black  justify-center align-middle"
         >
-            <h2>Sign Up</h2>
+            <div className=' wrapper relative mb-5 mx-auto shadow-md shadow-yellow-900'>
+            <h2 className='text-yellow-500'> Sign Up</h2>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control border-none outline-none"
                         id="name"
                         name="name"
                         value={formData.name}
@@ -144,10 +145,11 @@ const Register = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary text-yellow-500 border bg-transparent rounded-md">
                     Submit
                 </button>
             </form>
+            </div>
         </div>
     );
 };
