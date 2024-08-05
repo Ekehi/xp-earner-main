@@ -47,7 +47,7 @@ function App() {
 
     // spinner while loading functionality
 
-    if (!userData) {
+    /* if (!userData) {
         return (
             <div className="flex flex-row  container w-screen h-screen m-auto justify-items-center">
                 <div className="relative flex self-center m-auto w-full">
@@ -69,7 +69,7 @@ function App() {
                     </svg>
                 </div>
             </div>)
-    }
+    } */
 
     if (loading) {
         return (
@@ -112,13 +112,13 @@ function App() {
 
                     <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
                         <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
-                        {userData.userName}
+                        sd
                         </p>
                     </div>
                     <img
                         alt="Telegram sticker"
                         className="w-8 h-8 -ml-7 bg-black rounded-full"
-                        src={userData.userPhoto}
+                        /* src={userData.userPhoto} */
                     />
                 </div>
 

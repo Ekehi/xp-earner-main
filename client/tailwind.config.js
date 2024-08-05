@@ -19,7 +19,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-       'ad-section': "url('/public/images/1.jpg')",
+       'reg-section': "url('/public/images/8.jpg')",
       }
     }
   },
