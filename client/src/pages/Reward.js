@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../../services/authContext';
 
 const Rewards = ({ userId }) => {
+  const { authState } = useContext(AuthContext);
   const [dailyNextClaim, setDailyNextClaim] = useState(null);
   const [hour12NextClaim, set12HourNextClaim] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +13,13 @@ const Rewards = ({ userId }) => {
   const claimDailyReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-daily-reward', { userId });
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-daily-reward', { userId },
+        {
+          headers: {
+            Authorization: `Bearer ${authState.token}`,
+          }
+        },
+      );
       if (response.data.success) {
         alert(`You have received ${response.data.points} points!`);
         setDailyNextClaim(new Date(response.data.nextDailyClaim));
@@ -29,7 +37,13 @@ const Rewards = ({ userId }) => {
   const claim12HourReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-12hour-reward', { userId });
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-12hour-reward', { userId },
+        {
+          headers: {
+            Authorization: `Bearer ${authState.token}`,
+          }
+        },
+      );
       if (response.data.success) {
         alert(`You have received ${response.data.points} points!`);
         set12HourNextClaim(new Date(response.data.next12HourClaim));

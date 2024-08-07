@@ -141,7 +141,7 @@ function App() {
                     <img
                         alt="Telegram sticker"
                         className="w-8 h-8 -ml-7 bg-black rounded-full"
-                        /* src={userData.userPhoto} */
+                        src={user.avatar}
                     />
                 </div>
 
