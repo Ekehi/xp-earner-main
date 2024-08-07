@@ -13,7 +13,7 @@ const Rewards = ({ userId }) => {
 
   const fetchInitialClaimTimes = async () => {
     try {
-      const response = await axios.get('https://xp-earner.onrender.com/api/v1/get-claim-times', {
+      const response = await axios.get('https://xp-earner.onrender.com/api/v1/get-claim-times', { userId }, {
         headers: {
           Authorization: `Bearer ${authState.token}`,
         }
