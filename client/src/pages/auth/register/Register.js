@@ -133,7 +133,7 @@ const Register = () => {
                 </div>
 
                 {/* New image field */}
-                <div className="form-group">
+                <div className="form-group hidden">
                     <label htmlFor="image">Profile Image</label>
                     <input
                         type="file"
