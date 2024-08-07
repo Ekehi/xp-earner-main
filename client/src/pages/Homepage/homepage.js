@@ -11,10 +11,6 @@ function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const { authState } = useContext(AuthContext);
-    const [claimTimes, setClaimTimes] = useState({
-        nextDailyClaim: null,
-        next12HourClaim: null,
-    });
 
     useEffect(() => {
         setLoading(true);
@@ -25,17 +21,11 @@ function App() {
                 },
             })
             .then((res) => {
-                console.log('Response:', res);
                 setUser(res.data.data.data);
-                setClaimTimes({
-                    nextDailyClaim: new Date(res.data.data.nextDailyClaim),
-                    next12HourClaim: new Date(res.data.data.next12HourClaim)
-                });
                 setLoading(false);
             })
             .catch((err) => {
                 setLoading(false);
-                console.log('Error:', err);
                 setError(err.response.data.message);
             });
     }, [authState.token]);
@@ -49,11 +39,11 @@ function App() {
 
     if (loading) {
         return (
-            <div className="flex flex-row  container w-screen h-screen m-auto justify-items-center">
+            <div className="flex flex-row container w-screen h-screen m-auto justify-items-center">
                 <div className="relative flex self-center m-auto w-full">
                     <svg
                         aria-hidden="true"
-                        className="inline container m-auto w-10 h-10  text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
+                        className="inline container m-auto w-10 h-10 text-grey-700 animate-spin dark:text-gray-600 fill-yellow-500"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -79,9 +69,6 @@ function App() {
             </div>
         );
     }
-
-    console.log('User:', user);
-    console.log('Claim Times:', claimTimes);
 
     return (
         <AppRoot>
@@ -127,11 +114,7 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <Reward
-                        userId={user._id}
-                        nextDailyClaim={claimTimes.nextDailyClaim}
-                        next12HourClaim={claimTimes.next12HourClaim}
-                    />
+                    <Reward user={user} />
                 </div>
             </div>
         </AppRoot>

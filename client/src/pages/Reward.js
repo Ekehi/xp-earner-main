@@ -1,25 +1,31 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../services/authContext';
+import { AuthContext } from '../../services/authContext';
 import toast from 'react-hot-toast';
 
-const Reward = ({ userId, nextDailyClaim, next12HourClaim }) => {
+const Reward = ({ user }) => {
   const { authState } = useContext(AuthContext);
-  const [dailyNextClaim, setDailyNextClaim] = useState(nextDailyClaim);
-  const [hour12NextClaim, set12HourNextClaim] = useState(next12HourClaim);
+  const [dailyNextClaim, setDailyNextClaim] = useState(null);
+  const [hour12NextClaim, set12HourNextClaim] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(43200);
   const [claimAmount, setClaimAmount] = useState(0);
 
   useEffect(() => {
-    setDailyNextClaim(nextDailyClaim);
-    set12HourNextClaim(next12HourClaim);
-  }, [nextDailyClaim, next12HourClaim]);
+    if (user.lastDailyClaim) {
+      const nextDaily = new Date(new Date(user.lastDailyClaim).getTime() + 24 * 60 * 60 * 1000);
+      setDailyNextClaim(nextDaily);
+    }
+    if (user.last12HourClaim) {
+      const next12Hour = new Date(new Date(user.last12HourClaim).getTime() + 12 * 60 * 60 * 1000);
+      set12HourNextClaim(next12Hour);
+    }
+  }, [user]);
 
   const claimDailyReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-daily-reward', { userId },
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-daily-reward', { userId: user._id },
         {
           headers: {
             Authorization: `Bearer ${authState.token}`,
@@ -43,7 +49,7 @@ const Reward = ({ userId, nextDailyClaim, next12HourClaim }) => {
   const claim12HourReward = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-12hour-reward', { userId },
+      const response = await axios.post('https://xp-earner.onrender.com/api/v1/claim-12hour-reward', { userId: user._id },
         {
           headers: {
             Authorization: `Bearer ${authState.token}`,
