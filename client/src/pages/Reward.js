@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../../services/authContext';
+import { AuthContext } from '../services/authContext';
 
 const Rewards = ({ userId }) => {
   const { authState } = useContext(AuthContext);
