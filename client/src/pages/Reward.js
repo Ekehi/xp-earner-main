@@ -3,37 +3,37 @@ import axios from 'axios';
 import { AuthContext } from '../services/authContext';
 import toast from 'react-hot-toast';
 
-const Rewards = ({ userId }) => {
+const Rewards = ({ userId, nextDailyClaim, next12HourClaim }) => {
   const { authState } = useContext(AuthContext);
-  const [dailyNextClaim, setDailyNextClaim] = useState(null);
-  const [hour12NextClaim, set12HourNextClaim] = useState(null);
+  const [dailyNextClaim, setDailyNextClaim] = useState(nextDailyClaim);
+  const [hour12NextClaim, set12HourNextClaim] = useState(next12HourClaim);
   const [isLoading, setIsLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(43200);
   const [claimAmount, setClaimAmount] = useState(0);
 
-  const fetchInitialClaimTimes = async () => {
-    try {
-      const response = await axios.get('https://xp-earner.onrender.com/api/v1/get-claim-times', { userId }, {
-        headers: {
-          Authorization: `Bearer ${authState.token}`,
-        }
-      });
-      if (response.data.success) {
-        setDailyNextClaim(new Date(response.data.nextDailyClaim));
-        set12HourNextClaim(new Date(response.data.next12HourClaim));
-        setClaimAmount(response.data.points);
-      } else {
-        toast.error(response.data.message);
-      }
-    } catch (error) {
-      console.error('Error fetching initial claim times:', error);
-      toast.error('An error occurred. Please try again later.');
-    }
-  };
+  // const fetchInitialClaimTimes = async () => {
+  //   try {
+  //     const response = await axios.get('https://xp-earner.onrender.com/api/v1/get-claim-times', { userId }, {
+  //       headers: {
+  //         Authorization: `Bearer ${authState.token}`,
+  //       }
+  //     });
+  //     if (response.data.success) {
+  //       setDailyNextClaim(new Date(response.data.nextDailyClaim));
+  //       set12HourNextClaim(new Date(response.data.next12HourClaim));
+  //       setClaimAmount(response.data.points);
+  //     } else {
+  //       toast.error(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching initial claim times:', error);
+  //     toast.error('An error occurred. Please try again later.');
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchInitialClaimTimes();
-  }, []);
+  // useEffect(() => {
+  //   fetchInitialClaimTimes();
+  // }, []);
 
   const claimDailyReward = async () => {
     setIsLoading(true);

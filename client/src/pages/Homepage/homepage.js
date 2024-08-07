@@ -12,8 +12,12 @@ function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const { authState } = useContext(AuthContext);
-    const [balance, setBalance] = useState(0);
-    const userId = '12345';
+    const [claimTimes, setClaimTimes] = useState({
+        nextDailyClaim: null,
+        next12HourClaim: null, }
+    );
+  
+    
 
     const userData = useContext(UserContext);
 
@@ -32,6 +36,10 @@ function App() {
             .then((res) => {
                 console.log(res);
                 setUser(res.data.data.data);
+                setClaimTimes({
+                    nextDailyClaim: new Date(res.data.data.nextDailyClaim),
+                    next12HourClaim: new Date(res.data.data.next12HourClaim)
+                });
                 setLoading(false);
             })
             .catch((err) => {
@@ -171,7 +179,11 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <Reward userId={user._id} />
+                    <Reward 
+                        userId={user._id}
+                        nextDailyClaim={claimTimes.nextDailyClaim}
+                        next12HourClaim={claimTimes.next12HourClaim}
+                    />
                 </div>
             </div>
         </AppRoot>
