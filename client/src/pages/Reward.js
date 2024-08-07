@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../../services/authContext';
+import { AuthContext } from '../services/authContext';
 import toast from 'react-hot-toast';
 
 const Reward = ({ user }) => {
