@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../services/authContext';
-//import { useInitData } from '@tma.js/sdk-react';
 
 const Login = () => {
     //const initData = useInitData();

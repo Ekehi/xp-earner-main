@@ -1,14 +1,17 @@
 import { React, useEffect, useState, useContext } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
-//import axios from 'axios';
+import axios from 'axios';
 import './Style.css';
 import Reward from '../Reward';
+import { AuthContext } from '../../services/authContext';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import { UserContext } from '../../TelegramServices/UserContext';
 
 function App() {
+    const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const { authState } = useContext(AuthContext);
     const [balance, setBalance] = useState(0);
     const userId = '12345';
 
@@ -17,6 +20,26 @@ function App() {
     // const handlePointClaim = (claimAmount) => {
     //     setBalance(balance + claimAmount);
     // };
+
+    useEffect(() => {
+        setLoading(true);
+        axios
+            .get('https://xp-earner.onrender.com/api/v1/users/me', {
+                headers: {
+                    Authorization: `Bearer ${authState.token}`,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+                setUser(res.data.data.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                setLoading(false);
+                console.log(err);
+                setError(err.response.data.message);
+            });
+    }, [authState.token]);
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
@@ -112,7 +135,7 @@ function App() {
 
                     <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
                         <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
-                        sd
+                        {user.name}
                         </p>
                     </div>
                     <img
@@ -123,7 +146,7 @@ function App() {
                 </div>
 
                 <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {balance} </h1>
+                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center"> {user.xp_points} </h1>
 
                     <Avatar
                         size={130}
@@ -137,7 +160,7 @@ function App() {
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
 
                             <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
-                                10K USDT <span class="text-white">GIVEAWAY</span>
+                                PARTICIPATE IN 10K USDT <span class="text-white">GIVEAWAY</span>
                             </h1>
                             <p class="text-sm font-mono text-white/80 leading-tight mb-2">
                                 * Invite at least 10 Friends. <br />
@@ -148,7 +171,7 @@ function App() {
                 </div>
 
                 <div className="container absolute mt-3 mx-auto p-4 bottom-6">
-                    <Reward userId={userId} />
+                    <Reward userId={user._id} />
                 </div>
             </div>
         </AppRoot>
