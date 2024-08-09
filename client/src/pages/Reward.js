@@ -103,7 +103,7 @@ const Reward = ({ user }) => {
     <div className="flex flex-col items-center h-fit w-full mb-5 mt-4 mx-5">
       <div className="w-full rounded-2xl h-fit relative mt-1 border-2 border-slate-900">
         <div
-          className="relative h-9 rounded-xl bg-gradient-to-r from-gray-300 via-pink-400 to-blue-900"
+          className="relative h-9 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
           style={{ width: `${(timeLeft / 43200) * 100}%` }}
         ></div>
         <span className="absolute inset-0 flex justify-center items-center text-white font-bold">
@@ -111,20 +111,31 @@ const Reward = ({ user }) => {
         </span>
       </div>
       <div className="relative w-full flex flex-row justify-between">
-        <button
-          className="text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
-          onClick={claimDailyReward}
-          disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
-        >
-          Daily Reward {dailyNextClaim && dailyNextClaim > new Date() && `in ${calculateRemainingTime(dailyNextClaim)}`}
-        </button>
-        <button
-          className="text-white font-bold py-2 px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
-          onClick={claim12HourReward}
-          disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
-        >
-          Mine {hour12NextClaim && hour12NextClaim > new Date() && `in ${calculateRemainingTime(hour12NextClaim)}`}
-        </button>
+      <button
+  className="text-white font-medium text-xs px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
+  onClick={claimDailyReward}
+  disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
+>
+  <span>Daily Reward</span>
+  {dailyNextClaim && dailyNextClaim > new Date() && (
+    <span className="block">
+      {calculateRemainingTime(dailyNextClaim)}
+    </span>
+  )}
+</button>
+<button
+  className="text-white font-medium text-xs py-2 px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
+  onClick={claim12HourReward}
+  disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
+>
+  <span>Mine</span>
+  {hour12NextClaim && hour12NextClaim > new Date() && (
+    <span className="block">
+      {calculateRemainingTime(hour12NextClaim)}
+    </span>
+  )}
+</button>
+
       </div>
     </div>
   );
