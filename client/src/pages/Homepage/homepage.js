@@ -109,7 +109,7 @@ function App() {
                     </div>
                 </div>
 
-                <div className="container absolute mt-4 mx-auto p-4 bottom-5">
+                <div className="container absolute mt-3 mx-auto p-4 bottom-4">
                     <Reward user={user} />
                 </div>
             </div>
