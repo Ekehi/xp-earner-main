@@ -75,15 +75,11 @@ function App() {
             <div className=" bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
                     <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-xs text-white">
+                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-base text-white">
                             {user.name}
                         </p>
                     </div>
-                    <img
-                        alt="Telegram sticker"
-                        className="w-8 h-8 -ml-7 bg-black rounded-full"
-                        src={user.avatar}
-                    />
+                   
                 </div>
 
                 <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
@@ -113,7 +109,7 @@ function App() {
                     </div>
                 </div>
 
-                <div className="container absolute mt-3 mx-auto p-4 bottom-6">
+                <div className="container absolute mt-4 mx-auto p-4 bottom-5">
                     <Reward user={user} />
                 </div>
             </div>
