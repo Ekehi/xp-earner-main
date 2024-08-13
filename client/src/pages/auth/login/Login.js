@@ -35,7 +35,7 @@ const Login = () => {
             .post(
                 'https://xp-earner.onrender.com/api/v1/login',
                 {
-                    email: formData.email,
+                    name: formData.name,
                     password: formData.password,
                 },
                 {
@@ -68,13 +68,13 @@ const Login = () => {
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Username</label>
                     <input
-                        type="email"
+                        type="text"
                         className="form-control"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                        id="name"
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
                         required
                     />
