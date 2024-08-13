@@ -9,37 +9,62 @@ import { AuthProvider } from './services/authContext';
 import Footer from './shared/footer/Footer';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+//import { useInitData } from '@tma.js/sdk-react';
 
 function App() {
+    const [initData, setInitData] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const location = useLocation(); // Get the current route
+    const location = useLocation();
+    const [formData, setFormData] = useState({
+        name: '',
+        password: '',
+    });
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
+            const telegramInitData = window.Telegram.WebApp.initData;
+            setInitData(telegramInitData);
             window.Telegram.WebApp.expand();
         }
     }, []);
 
     useEffect(() => {
+        if (initData) {
+            setFormData({
+                name:initData.user?.username || '',
+                password:initData.user?.id || '',
+            });
+        }
+    }, [initData]);
+
+    useEffect(() => {
         setLoading(true);
         axios
-            .get('https://xp-earner.onrender.com/api/v1/tasks', {
+        .post(
+            'https://xp-earner.onrender.com/api/v1/login',
+            {
+                name: formData.name,
+                password: formData.password,
+            },
+            {
                 withCredentials: true,
                 credentials: 'include',
-            })
-            .then((res) => {
-                console.log('data', res);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-                setError(err.response.data.message);
-                console.log(err);
-            });
+            },
+        )
+        .then((res) => {
+            const token = res.data.token;
+            login(token);
+            console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
+            console.log(res);
+            navigate('/');
+            toast.success('Login Successful');
+        })
+        .catch((err) => {
+            console.log(err);
+            toast.error(err.response.data.message);
+        });
     }, []);
-
-    // spinner while loading functionality
 
     if (loading) {
         return (

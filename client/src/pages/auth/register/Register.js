@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-//import { useInitData } from '@tma.js/sdk-react';
+import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
-    // const initData = useInitData();
+    const initData = useInitData();
 
     const navigate = useNavigate();
 
@@ -18,17 +18,17 @@ const Register = () => {
         image: null, // Added image field to store the selected file
     });
 
-    // useEffect(() => {
-    //     if (initData) {
-    //         setFormData({
-    //             name:initData.user?.firstName || '',
-    //             email:'',
-    //             password:initData.user?.id || '',
-    //             confirmPassword:initData.user?.id || '',
-    //             image:initData.user?.photoUrl || '',
-    //         });
-    //     }
-    // }, [initData]);
+    useEffect(() => {
+        if (initData) {
+            setFormData({
+                name:initData.user?.username || '',
+                email:'',
+                password:initData.user?.id || '',
+                confirmPassword:initData.user?.id || '',
+                image:initData.user?.photoUrl || '',
+            });
+        }
+    }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -48,7 +48,7 @@ const Register = () => {
         formDataToSend.append('email', formData.email);
         formDataToSend.append('password', formData.password);
         formDataToSend.append('passwordConfirm', formData.confirmPassword);
-        formDataToSend.append('image', formData.image); // Append the image file
+        formDataToSend.append('image', formData.image);
 
         try {
             const response = await axios.post(
