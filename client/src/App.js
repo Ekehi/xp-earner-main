@@ -57,7 +57,6 @@ function App() {
         )
         .then((res) => {
             const token = res.data.token;
-            login(token);
             console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
             console.log(res);
             navigate('/');
