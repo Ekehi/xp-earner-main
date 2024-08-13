@@ -2,16 +2,19 @@ import { React, useEffect, useState } from 'react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import axios from 'axios';
 import 'tailwindcss/tailwind.css';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { SDKProvider } from '@tma.js/sdk-react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
 import Footer from './shared/footer/Footer';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import toast from 'react-hot-toast';
+
 //import { useInitData } from '@tma.js/sdk-react';
 
 function App() {
+    const navigate = useNavigate();
     const [initData, setInitData] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -40,13 +43,13 @@ function App() {
 
     useEffect(() => {
         setLoading(true);
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', formData.name);
+        formDataToSend.append('password', formData.password);
         axios
         .post(
             'https://xp-earner.onrender.com/api/v1/login',
-            {
-                name: formData.name,
-                password: formData.password,
-            },
+            formDataToSend,
             {
                 withCredentials: true,
                 credentials: 'include',
