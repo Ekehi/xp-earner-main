@@ -76,7 +76,7 @@ function App() {
                             alt="o"
                             className="w-5 h-5 mx-[2px] animate-bounce"
                             src="50.png"
-                        /> ading</h1>
+                        />ading</h1>
                 </div>
             </div>
         );
