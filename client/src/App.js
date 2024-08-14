@@ -42,6 +42,7 @@ function App() {
     }, [initData]);
 
     useEffect(() => {
+        if (formData.name && formData.password) {
         setLoading(true);
         const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
@@ -66,8 +67,12 @@ function App() {
             console.log(err);
             navigate('/register');
             toast.error(err.response.data.message);
+        })
+        .finally(() => {
+            setLoading(false);
         });
-    }, []);
+    }
+    }, [formData]);
 
     if (loading) {
         return (
