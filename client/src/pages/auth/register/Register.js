@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 //import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
-    const initData = useInitData();
+   // const initData = useInitData();
 
     const navigate = useNavigate();
 
