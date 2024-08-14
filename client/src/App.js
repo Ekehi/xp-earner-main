@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
-import { AuthContext } from './services/authContext';
+import { AuthContext, AuthProvider } from './services/authContext';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import Footer from './shared/footer/Footer';
 import 'tailwindcss/tailwind.css';
@@ -13,6 +13,7 @@ function App() {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
@@ -83,16 +84,20 @@ function App() {
         );
     }
 
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+
     return (
         <AppRoot>
             <div className="bg-black flex flex-col h-fit items-center justify-center">
-                <div className="App d-flex flex-row w-fit bg-black">
-                    <div className="h-screen flex-grow w-screen">
-                        <Outlet />
-                        <Toaster />
-                        <Footer />
+                <AuthProvider>
+                    <div className="App d-flex flex-row w-fit bg-black">
+                        <div className="h-screen flex-grow w-screen">
+                            <Outlet />
+                            <Toaster />
+                            {!isAuthPage && <Footer />}
+                        </div>
                     </div>
-                </div>
+                </AuthProvider>
             </div>
         </AppRoot>
     );
