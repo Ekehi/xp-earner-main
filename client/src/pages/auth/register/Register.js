@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { useInitData } from '@tma.js/sdk-react';
+//import { useInitData } from '@tma.js/sdk-react';
 
 const Register = () => {
     const initData = useInitData();
