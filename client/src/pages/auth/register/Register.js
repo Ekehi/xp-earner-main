@@ -18,17 +18,17 @@ const Register = () => {
         image: null, // Added image field to store the selected file
     });
 
-    useEffect(() => {
-        if (initData) {
-            setFormData({
-                name:initData.user?.username || '',
-                email:'',
-                password:initData.user?.id || '',
-                confirmPassword:initData.user?.id || '',
-                image:initData.user?.photoUrl || '',
-            });
-        }
-    }, [initData]);
+    // useEffect(() => {
+    //     if (initData) {
+    //         setFormData({
+    //             name:initData.user?.username || '',
+    //             email:'',
+    //             password:initData.user?.id || '',
+    //             confirmPassword:initData.user?.id || '',
+    //             image:initData.user?.photoUrl || '',
+    //         });
+    //     }
+    // }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
