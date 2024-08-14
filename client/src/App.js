@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { AppRoot } from '@telegram-apps/telegram-ui';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import 'tailwindcss/tailwind.css';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from './services/authContext';
+import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
+import { AuthContext } from './services/authContext';
+import { AppRoot } from '@telegram-apps/telegram-ui';
 import Footer from './shared/footer/Footer';
+import 'tailwindcss/tailwind.css';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
-import toast from 'react-hot-toast';
 
 function App() {
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
-    const location = useLocation();
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
@@ -24,28 +23,28 @@ function App() {
                 const username = initData.user.username || '';
                 const userId = initData.user.id || '';
 
-                // Proceed to login automatically with the Telegram data
                 if (username && userId) {
-                    handleLogin(username, userId);
+                    handleAutoLogin(username, userId);
+                } else {
+                    toast.error('Failed to retrieve Telegram user data.');
+                    navigate('/login'); // Redirect to login if no Telegram data is found
                 }
             } else {
-                // Handle the case where initData or user data is not available
-                toast.error('Telegram user data not available');
-                navigate('/register');
+                toast.error('Telegram WebApp data not available.');
+                navigate('/login'); // Redirect to login if WebApp data is not available
             }
         }
     }, [navigate]);
 
-    const handleLogin = (name, password) => {
+    const handleAutoLogin = (username, userId) => {
         setLoading(true);
-        const formDataToSend = new FormData();
-        formDataToSend.append('name', name);
-        formDataToSend.append('password', password);
-
         axios
             .post(
                 'https://xp-earner.onrender.com/api/v1/login',
-                formDataToSend,
+                {
+                    name: username,
+                    password: userId,
+                },
                 {
                     withCredentials: true,
                     credentials: 'include',
@@ -53,16 +52,16 @@ function App() {
             )
             .then((res) => {
                 const token = res.data.token;
+                login(token);
                 sessionStorage.setItem('JWT', token);
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
-                console.log(res);
                 toast.success('Login Successful');
                 navigate('/');
             })
             .catch((err) => {
                 console.log(err);
-                navigate('/register');
                 toast.error(err.response?.data?.message || 'Login failed');
+                navigate('/register');
             })
             .finally(() => {
                 setLoading(false);
@@ -84,20 +83,16 @@ function App() {
         );
     }
 
-    const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
-
     return (
         <AppRoot>
             <div className="bg-black flex flex-col h-fit items-center justify-center">
-                <AuthProvider>
-                    <div className="App d-flex flex-row w-fit bg-black">
-                        <div className="h-screen flex-grow w-screen">
-                            <Outlet />
-                            <Toaster />
-                            {!isAuthPage && <Footer />}
-                        </div>
+                <div className="App d-flex flex-row w-fit bg-black">
+                    <div className="h-screen flex-grow w-screen">
+                        <Outlet />
+                        <Toaster />
+                        <Footer />
                     </div>
-                </AuthProvider>
+                </div>
             </div>
         </AppRoot>
     );

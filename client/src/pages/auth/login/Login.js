@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../services/authContext';
 
 const Login = () => {
-    //const initData = useInitData();
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
@@ -14,15 +13,6 @@ const Login = () => {
         email: '',
         password: '',
     });
-
-    // useEffect(() => {
-    //     if (initData) {
-    //         setFormData({
-    //             email:'',
-    //             password:initData.user?.id || '',
-    //         });
-    //     }
-    // }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
