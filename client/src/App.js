@@ -10,12 +10,11 @@ import Footer from './shared/footer/Footer';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import toast from 'react-hot-toast';
-
-//import { useInitData } from '@tma.js/sdk-react';
+import { useInitData } from '@tma.js/sdk-react';
 
 function App() {
     const navigate = useNavigate();
-    const [initData, setInitData] = useState(null);
+    const initData = useInitData();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const location = useLocation();
@@ -26,8 +25,6 @@ function App() {
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
-            const telegramInitData = window.Telegram.WebApp.initData;
-            setInitData(telegramInitData);
             window.Telegram.WebApp.expand();
         }
     }, []);
