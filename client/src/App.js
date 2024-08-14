@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
-import { AuthContext, AuthProvider } from './services/authContext';
+import { AuthProvider } from './services/authContext';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import Footer from './shared/footer/Footer';
 import 'tailwindcss/tailwind.css';
@@ -11,7 +11,6 @@ import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
 
@@ -53,7 +52,6 @@ function App() {
             )
             .then((res) => {
                 const token = res.data.token;
-                login(token);
                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
                 toast.success('Login Successful');
                 navigate('/');
