@@ -12,13 +12,8 @@ import toast from 'react-hot-toast';
 
 function App() {
     const navigate = useNavigate();
-    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const location = useLocation();
-    const [formData, setFormData] = useState({
-        name: '',
-        password: '',
-    });
 
     useEffect(() => {
         if (window.Telegram?.WebApp) {
@@ -26,46 +21,53 @@ function App() {
 
             const initData = window.Telegram.WebApp.initDataUnsafe;
             if (initData && initData.user) {
-                setFormData({
-                    name: initData.user.username || '',
-                    password: initData.user.id || '',
-                });
+                const username = initData.user.username || '';
+                const userId = initData.user.id || '';
+
+                // Proceed to login automatically with the Telegram data
+                if (username && userId) {
+                    handleLogin(username, userId);
+                }
+            } else {
+                // Handle the case where initData or user data is not available
+                toast.error('Telegram user data not available');
+                navigate('/register');
             }
         }
-    }, []);
+    }, [navigate]);
 
-    useEffect(() => {
-        if (formData.name && formData.password) {
-            setLoading(true);
-            const formDataToSend = new FormData();
-            formDataToSend.append('name', formData.name);
-            formDataToSend.append('password', formData.password);
-            axios
-                .post(
-                    'https://xp-earner.onrender.com/api/v1/login',
-                    formDataToSend,
-                    {
-                        withCredentials: true,
-                        credentials: 'include',
-                    },
-                )
-                .then((res) => {
-                    const token = res.data.token;
-                    console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
-                    console.log(res);
-                    navigate('/');
-                    toast.success('Login Successful');
-                })
-                .catch((err) => {
-                    console.log(err);
-                    navigate('/register');
-                    toast.error(err.response.data.message);
-                })
-                .finally(() => {
-                    setLoading(false);
-                });
-        }
-    }, [formData, navigate]);
+    const handleLogin = (name, password) => {
+        setLoading(true);
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', name);
+        formDataToSend.append('password', password);
+
+        axios
+            .post(
+                'https://xp-earner.onrender.com/api/v1/login',
+                formDataToSend,
+                {
+                    withCredentials: true,
+                    credentials: 'include',
+                },
+            )
+            .then((res) => {
+                const token = res.data.token;
+                sessionStorage.setItem('JWT', token);
+                console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
+                console.log(res);
+                toast.success('Login Successful');
+                navigate('/');
+            })
+            .catch((err) => {
+                console.log(err);
+                navigate('/register');
+                toast.error(err.response?.data?.message || 'Login failed');
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
 
     if (loading) {
         return (
@@ -78,14 +80,6 @@ function App() {
                             src="50.png"
                         />ading</h1>
                 </div>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="container mt-5">
-                <h2>{error}</h2>
             </div>
         );
     }
