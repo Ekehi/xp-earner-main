@@ -38,12 +38,13 @@ function App() {
 
     const handleAutoLogin = (username, userId) => {
         setLoading(true);
+        const password = String(userId);
         axios
             .post(
                 'https://xp-earner.onrender.com/api/v1/login',
                 {
                     name: username,
-                    password: userId,
+                    password: password,
                 },
                 {
                     withCredentials: true,
