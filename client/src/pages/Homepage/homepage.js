@@ -109,7 +109,7 @@ function App() {
             <div className="bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
                     <div className="flex items-center justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-base text-white">
+                        <p className="w-fit h-full px-4 m-auto flex flex-row font-bold text-base text-white">
                             {user.name}
                         </p>
                     </div>
