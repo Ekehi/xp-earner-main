@@ -133,6 +133,7 @@ const Reward = ({ user }) => {
   onClick={claimDailyReward}
   disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
   loading={isLoading}
+  text=""
 >
   <span>Daily Reward</span>
   {!isLoading ? text : <Loader className="spinner" />}
@@ -147,6 +148,7 @@ const Reward = ({ user }) => {
   onClick={claim12HourReward}
   disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
   loading={isLoading}
+  text=""
 >
   <span>Mine</span>
   {!isLoading ? text : <Loader className="spinner" />}
