@@ -64,7 +64,7 @@ const Register = () => {
                 },
             );
             console.log(response);
-            navigate('/login');
+            navigate('/');
             toast.success('User registered successfully');
         } catch (error) {
             console.error(error);
@@ -78,7 +78,7 @@ const Register = () => {
                 <h2 className='text-yellow-500'>Sign Up</h2>
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Username</label>
                         <input
                             type="text"
                             className="form-control border-none outline-none"
@@ -87,6 +87,7 @@ const Register = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            disabled={true}
                         />
                     </div>
                     <div className="form-group">
@@ -101,7 +102,7 @@ const Register = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group hidden">
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
@@ -113,7 +114,7 @@ const Register = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group hidden">
                         <label htmlFor="confirmPassword">Confirm Password</label>
                         <input
                             type="password"

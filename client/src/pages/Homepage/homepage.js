@@ -29,7 +29,7 @@ function App() {
             const initData = window.Telegram.WebApp.initDataUnsafe;
             if (initData && initData.user) {
                 const username = initData.user.username || '';
-                const userId = String(initData.user.id); // Ensure userId is a string
+                const userId = String(initData.user.id);
 
                 axios
                     .post(
@@ -39,9 +39,9 @@ function App() {
                     )
                     .then((res) => {
                         const token = res.data.token;
-                        login(token); // Store the token in context
+                        login(token);
                         sessionStorage.setItem('JWT', token);
-                        fetchUserData(token); // Fetch user data after login
+                        fetchUserData(token);
                     })
                     .catch((err) => {
                         setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));

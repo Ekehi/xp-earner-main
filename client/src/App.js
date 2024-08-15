@@ -27,11 +27,11 @@ function App() {
                     handleAutoLogin(username, userId);
                 } else {
                     toast.error('Failed to retrieve Telegram user data.');
-                    navigate('/login'); // Redirect to login if no Telegram data is found
+                    navigate('/login');
                 }
             } else {
                 toast.error('Telegram WebApp data not available.');
-                navigate('/login'); // Redirect to login if WebApp data is not available
+                navigate('/login');
             }
         }
     }, [navigate]);
