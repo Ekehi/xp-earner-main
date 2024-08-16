@@ -10,14 +10,55 @@ function App() {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
-    const { authState } = useContext(AuthContext);
+    const { authState, login } = useContext(AuthContext);
 
     useEffect(() => {
-        setLoading(true);
+        // If not authenticated, perform auto-login
+        if (!authState.token) {
+            autoLogin();
+        } else {
+            // Fetch user data if already logged in
+            fetchUserData(authState.token);
+        }
+    }, [authState.token]);
+
+    const autoLogin = () => {
+        if (window.Telegram?.WebApp) {
+            window.Telegram.WebApp.expand();
+
+            const initData = window.Telegram.WebApp.initDataUnsafe;
+            if (initData && initData.user) {
+                const username = initData.user.username || '';
+                const userId = String(initData.user.id);
+
+                axios
+                    .post(
+                        'https://xp-earner.onrender.com/api/v1/login',
+                        { name: username, password: userId },
+                        { withCredentials: true, credentials: 'include' }
+                    )
+                    .then((res) => {
+                        const token = res.data.token;
+                        login(token);
+                        sessionStorage.setItem('JWT', token);
+                        fetchUserData(token);
+                    })
+                    .catch((err) => {
+                        setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));
+                        setLoading(false);
+                    });
+            } else {
+                setError('Failed to retrieve Telegram user data.');
+                setLoading(false);
+            }
+        }
+    };
+
+    const fetchUserData = (token) => {
         axios
             .get('https://xp-earner.onrender.com/api/v1/users/me', {
                 headers: {
-                    Authorization: `Bearer ${authState.token}`,
+                    Authorization: `Bearer ${token}`,
                 },
             })
             .then((res) => {
@@ -25,17 +66,10 @@ function App() {
                 setLoading(false);
             })
             .catch((err) => {
+                setError(err.response?.data?.message || 'Failed to fetch user data');
                 setLoading(false);
-                setError(err.response.data.message);
             });
-    }, [authState.token]);
-
-    useEffect(() => {
-        if (window.Telegram?.WebApp) {
-            window.Telegram.WebApp.expand();
-            setLoading(false);
-        }
-    }, []);
+    };
 
     if (loading) {
         return (
@@ -72,18 +106,17 @@ function App() {
 
     return (
         <AppRoot>
-            <div className=" bg-black flex flex-col h-fit items-center justify-center">
+            <div className="bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
-                    <div className="flex items-center justify-around w-fit border-2  border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-thin text-base text-white">
+                    <div className="flex items-center justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                        <p className="w-fit h-full px-4 m-auto flex flex-row font-bold text-base text-white">
                             {user.name}
                         </p>
                     </div>
-                   
                 </div>
 
                 <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-3xl font-bold mb-4  text-white justify-center text-center">
+                    <h1 className="text-3xl font-bold mb-4 text-white justify-center text-center">
                         {user.xp_points}
                     </h1>
 
@@ -94,7 +127,7 @@ function App() {
                     />
                 </div>
 
-                <div className=" flex-grow h-40 mt-16  w-full mx-2 bg-transparent rounded-md relative">
+                <div className="flex-grow h-40 mt-16 w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
                             <h1 className="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">

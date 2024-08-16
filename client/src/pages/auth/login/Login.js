@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../services/authContext';
 
 const Login = () => {
-    //const initData = useInitData();
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
@@ -14,15 +13,6 @@ const Login = () => {
         email: '',
         password: '',
     });
-
-    // useEffect(() => {
-    //     if (initData) {
-    //         setFormData({
-    //             email:'',
-    //             password:initData.user?.id || '',
-    //         });
-    //     }
-    // }, [initData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,7 +25,7 @@ const Login = () => {
             .post(
                 'https://xp-earner.onrender.com/api/v1/login',
                 {
-                    email: formData.email,
+                    name: formData.name,
                     password: formData.password,
                 },
                 {
@@ -68,13 +58,13 @@ const Login = () => {
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Username</label>
                     <input
-                        type="email"
+                        type="text"
                         className="form-control"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                        id="name"
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
                         required
                     />
