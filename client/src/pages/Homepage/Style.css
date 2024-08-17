@@ -76,3 +76,6 @@ body::-webkit-scrollbar {
     box-shadow: 0 -7px 25px rgba(255, 162, 0, 0.836);
   }
   
+  .inset{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45) inset;
+  }
