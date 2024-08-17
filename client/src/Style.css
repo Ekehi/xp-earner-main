@@ -157,7 +157,3 @@ div label {
     transform: rotate(360deg);
   }
 }
-
-.progress-bar {
-  transition: width 1s linear; /* Smoothly animate the width */
-}
