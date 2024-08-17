@@ -11,7 +11,7 @@ const AppFooter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const paths = ['/', '/task', '/Boost'];
+        const paths = ['/', '/Tasks', '/Boost'];
         const currentPathIndex = paths.indexOf(location.pathname);
         setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
     }, [location.pathname]);
@@ -38,7 +38,7 @@ const AppFooter = () => {
         <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-yellow-950  bottom-0.5 flex bg-gradient-to-b from-transparent to-slate-900  rounded-md h-fit w-screen ">
             {[
                 {
-                    path: '',
+                    path: '/',
                     name: 'Home',
                     icon: <BsHouse />
                 },

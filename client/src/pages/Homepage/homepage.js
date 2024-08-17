@@ -22,38 +22,52 @@ function App() {
         }
     }, [authState.token]);
 
-    const autoLogin = () => {
-        if (window.Telegram?.WebApp) {
-            window.Telegram.WebApp.expand();
+        useEffect(() => {
+          const container = document.getElementById('animated-text-container');
+          const text = document.getElementById('animated-text');
+      
+          const isOverflowing = text.scrollWidth > container.clientWidth;
+      
+          if (isOverflowing) {
+            text.classList.add('animate-marquee');
+          } else {
+            text.classList.remove('animate-marquee');
+          }
+        }, []);
+      
 
-            const initData = window.Telegram.WebApp.initDataUnsafe;
-            if (initData && initData.user) {
-                const username = initData.user.username || '';
-                const userId = String(initData.user.id);
-
-                axios
-                    .post(
-                        'https://xp-earner.onrender.com/api/v1/login',
-                        { name: username, password: userId },
-                        { withCredentials: true, credentials: 'include' }
-                    )
-                    .then((res) => {
-                        const token = res.data.token;
-                        login(token);
-                        sessionStorage.setItem('JWT', token);
-                        fetchUserData(token);
-                    })
-                    .catch((err) => {
-                        setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));
-                        setLoading(false);
-                    });
-            } else {
-                setError('Failed to retrieve Telegram user data.');
-                setLoading(false);
-            }
-        }
-    };
-
+     const autoLogin = () => {
+         if (window.Telegram?.WebApp) {
+             window.Telegram.WebApp.expand();
+ 
+             const initData = window.Telegram.WebApp.initDataUnsafe;
+             if (initData && initData.user) {
+                 const username = initData.user.username || '';
+                 const userId = String(initData.user.id);
+ 
+                 axios
+                     .post(
+                         'https://xp-earner.onrender.com/api/v1/login',
+                         { name: username, password: userId },
+                         { withCredentials: true, credentials: 'include' }
+                     )
+                     .then((res) => {
+                         const token = res.data.token;
+                         login(token);
+                         sessionStorage.setItem('JWT', token);
+                         fetchUserData(token);
+                     })
+                     .catch((err) => {
+                         setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));
+                         setLoading(false);
+                     });
+             } else {
+                 setError('Failed to retrieve Telegram user data.');
+                 setLoading(false);
+             }
+         }
+     };
+ 
     const fetchUserData = (token) => {
         axios
             .get('https://xp-earner.onrender.com/api/v1/users/me', {
@@ -105,12 +119,14 @@ function App() {
     }
 
     return (
-        <AppRoot>
-            <div className="bg-black flex flex-col h-fit items-center justify-center">
+        
+            <div className="container bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
-                    <div className="flex items-center justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-bold text-base text-white">
-                            {user.name}
+                    <div id="animated-text-container"
+                    className="flex items-center overflow-hidden justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                        <p id="animated-text"
+                        className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-white animate-marquee">
+                           {user.name}
                         </p>
                     </div>
                 </div>
@@ -142,11 +158,12 @@ function App() {
                     </div>
                 </div>
 
-                <div className="container absolute mt-3 mx-auto p-4 bottom-4">
+
+                <div className="container  mx-auto p-4 bottom-4">
                     <Reward user={user} />
                 </div>
             </div>
-        </AppRoot>
+        
     );
 }
 

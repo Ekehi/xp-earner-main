@@ -100,10 +100,10 @@ const Reward = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col items-center h-fit w-full mb-5 mt-4 mx-5">
+    <div className="relative flex flex-col items-center h-fit w-full   mx-5">
       <div className="w-full rounded-2xl h-fit relative mt-1 border-2 border-slate-900">
         <div
-          className="relative h-9 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
+          className="relative h-9 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 progress-bar"
           style={{ width: `${(timeLeft / 43200) * 100}%` }}
         ></div>
         <span className="absolute inset-0 flex justify-center items-center text-white font-bold">
@@ -112,7 +112,7 @@ const Reward = ({ user }) => {
       </div>
       <div className="relative w-full flex flex-row justify-between">
       <button
-  className="text-white font-medium text-xs px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
+  className="text-white inset font-medium text-xs px-4 rounded-full mt-4  bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95"
   onClick={claimDailyReward}
   disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
 >
@@ -124,7 +124,7 @@ const Reward = ({ user }) => {
   )}
 </button>
 <button
-  className="text-white font-medium text-xs py-2 px-4 rounded-full mt-4 border-solid border-white bg-yellow-500 hover:bg-transparent border-s-2"
+  className="text-white inset font-medium text-xs py-2 px-4 rounded-full mt-4 bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95"
   onClick={claim12HourReward}
   disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
 >
