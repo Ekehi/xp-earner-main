@@ -22,6 +22,21 @@ function App() {
         }
     }, [authState.token]);
 
+
+    useEffect(() => {
+        const container = document.getElementById('animated-text-container');
+        const text = document.getElementById('animated-text');
+
+        const isOverflowing = text.scrollWidth > container.clientWidth;
+
+        if (isOverflowing) {
+            text.classList.add('animate-marquee');
+        } else {
+            text.classList.remove('animate-marquee');
+        }
+    }, []);
+
+
     const autoLogin = () => {
         if (window.Telegram?.WebApp) {
             window.Telegram.WebApp.expand();
@@ -108,11 +123,14 @@ function App() {
         <AppRoot>
             <div className="container bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
-                    <div className="flex items-center justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                        <p className="w-fit h-full px-4 m-auto flex flex-row font-bold text-base text-white">
-                            {user.name}
-                        </p>
-                    </div>
+                <div id="animated-text-container"
+                    className="flex items-center overflow-hidden justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                    <p id="animated-text"
+                        className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-white animate-marquee">
+                        {user.name}
+                    </p>
+                </div>
+
                 </div>
 
                 <div className="relative w-fit h-fit top-[10px] mx-auto mb-1 flex flex-col align-middle justify-center">
@@ -127,7 +145,7 @@ function App() {
                     />
                 </div>
 
-                <div className="flex-grow h-40 mt-14 w-full mx-2 bg-transparent rounded-md relative">
+                <div className="flex-grow h-40 mt-10 w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
                             <h1 className="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
