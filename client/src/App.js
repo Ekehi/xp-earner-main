@@ -68,6 +68,14 @@ function App() {
             });
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 5000); // 5000ms = 5 seconds
+
+        return () => clearTimeout(timer); // Cleanup the timer on unmount
+    }, []);
+
     if (loading) {
         return (
             <div className="flex flex-row container w-screen h-screen m-auto justify-items-center">
@@ -87,9 +95,9 @@ function App() {
 
     return (
         <AppRoot>
-            <div className="bg-black flex flex-col h-fit items-center justify-center">
+            <div className="container bg-black flex flex-col h-fit items-center justify-center">
                 <AuthProvider>
-                    <div className="App d-flex flex-row w-fit bg-black">
+                    <div className="container App d-flex flex-row w-fit bg-black">
                         <div className="h-screen flex-grow w-screen">
                             <Outlet />
                             <Toaster />
