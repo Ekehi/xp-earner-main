@@ -95,9 +95,9 @@ function App() {
 
     return (
         <AppRoot>
-            <div className="container bg-black flex flex-col h-fit items-center justify-center">
+            <div className="bg-black flex flex-col h-fit items-center justify-center">
                 <AuthProvider>
-                    <div className="container App d-flex flex-row w-fit bg-black">
+                    <div className="App d-flex flex-row w-fit bg-black">
                         <div className="h-screen flex-grow w-screen">
                             <Outlet />
                             <Toaster />
