@@ -14,66 +14,66 @@ function App() {
     const [loading, setLoading] = useState(false);
     const location = useLocation();
 
-    useEffect(() => {
-        if (window.Telegram?.WebApp) {
-            window.Telegram.WebApp.expand();
+    // useEffect(() => {
+    //     if (window.Telegram?.WebApp) {
+    //         window.Telegram.WebApp.expand();
 
-            const initData = window.Telegram.WebApp.initDataUnsafe;
-            if (initData && initData.user) {
-                const username = initData.user.username || '';
-                const userId = initData.user.id || '';
+    //         const initData = window.Telegram.WebApp.initDataUnsafe;
+    //         if (initData && initData.user) {
+    //             const username = initData.user.username || '';
+    //             const userId = initData.user.id || '';
 
-                if (username && userId) {
-                    handleAutoLogin(username, userId);
-                } else {
-                    toast.error('Failed to retrieve Telegram user data.');
-                    navigate('/login');
-                }
-            } else {
-                toast.error('Telegram WebApp data not available.');
-                navigate('/login');
-            }
-        }
-    }, [navigate]);
+    //             if (username && userId) {
+    //                 handleAutoLogin(username, userId);
+    //             } else {
+    //                 toast.error('Failed to retrieve Telegram user data.');
+    //                 navigate('/login');
+    //             }
+    //         } else {
+    //             toast.error('Telegram WebApp data not available.');
+    //             navigate('/login');
+    //         }
+    //     }
+    // }, [navigate]);
 
-    const handleAutoLogin = (username, userId) => {
-        setLoading(true);
-        const password = String(userId);
-        axios
-            .post(
-                'https://xp-earner.onrender.com/api/v1/login',
-                {
-                    name: username,
-                    password: password,
-                },
-                {
-                    withCredentials: true,
-                    credentials: 'include',
-                },
-            )
-            .then((res) => {
-                const token = res.data.token;
-                sessionStorage.setItem('JWT', token);
-                console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
-                toast.success('Login Successful');
-                navigate('/');
-            })
-            .catch((err) => {
-                console.log(err);
-                toast.error(err.response?.data?.message || 'Login failed');
-                navigate('/register');
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    };
+    // const handleAutoLogin = (username, userId) => {
+    //     setLoading(true);
+    //     const password = String(userId);
+    //     axios
+    //         .post(
+    //             'https://xp-earner.onrender.com/api/v1/login',
+    //             {
+    //                 name: username,
+    //                 password: password,
+    //             },
+    //             {
+    //                 withCredentials: true,
+    //                 credentials: 'include',
+    //             },
+    //         )
+    //         .then((res) => {
+    //             const token = res.data.token;
+    //             sessionStorage.setItem('JWT', token);
+    //             console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
+    //             toast.success('Login Successful');
+    //             navigate('/');
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //             toast.error(err.response?.data?.message || 'Login failed');
+    //             navigate('/register');
+    //         })
+    //         .finally(() => {
+    //             setLoading(false);
+    //         });
+    // };
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 5000); // 5000ms = 5 seconds
+        }, 5000);
 
-        return () => clearTimeout(timer); // Cleanup the timer on unmount
+        return () => clearTimeout(timer);
     }, []);
 
     if (loading) {
