@@ -23,7 +23,7 @@ function App() {
     }, [authState.token]);
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         const container = document.getElementById('animated-text-container');
         const text = document.getElementById('animated-text');
 
@@ -34,7 +34,7 @@ function App() {
         } else {
             text.classList.remove('animate-marquee');
         }
-    }, []);
+    }, []); */
 
 
     const autoLogin = () => {
@@ -126,7 +126,7 @@ function App() {
                 <div id="animated-text-container"
                     className="flex items-center overflow-hidden justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
                     <p id="animated-text"
-                        className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-white animate-marquee">
+                        className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-yellow-700 animate-marquee">
                         {user.name}
                     </p>
                 </div>
