@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Toaster, toast } from 'react-hot-toast';
+//import axios from 'axios';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import Footer from './shared/footer/Footer';
@@ -10,7 +10,6 @@ import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
-    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const location = useLocation();
 
