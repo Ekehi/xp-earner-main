@@ -11,7 +11,7 @@ const AppFooter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const paths = ['/', '/task', '/Boost'];
+        const paths = ['/', '/tasks', '/Boost'];
         const currentPathIndex = paths.indexOf(location.pathname);
         setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
     }, [location.pathname]);
@@ -43,8 +43,8 @@ const AppFooter = () => {
                     icon: <BsHouse />
                 },
                 {
-                    path: 'task',
-                    name: 'Task',
+                    path: 'tasks',
+                    name: 'Tasks',
                     icon: <BsListTask />,
                 },
                 {
