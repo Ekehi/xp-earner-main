@@ -147,7 +147,7 @@ function App() {
 
                 <div className="flex-grow h-40 mt-10 w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
-                        <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
+                        <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-500">
                             <h1 className="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
                                 10K USDT{' '}
                                 <span className="text-white">GIVEAWAY</span>
