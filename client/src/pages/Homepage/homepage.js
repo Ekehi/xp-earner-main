@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Style.css';
 import Reward from '../Reward';
@@ -7,6 +8,7 @@ import { AuthContext } from '../../services/authContext';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 
 function App() {
+    const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
@@ -60,7 +62,7 @@ function App() {
                     })
                     .catch((err) => {
                         setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));
-                        setLoading(false);
+                        navigate('/login');
                     });
             } else {
                 setError('Failed to retrieve Telegram user data.');

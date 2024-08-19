@@ -43,8 +43,8 @@ const AppFooter = () => {
                     icon: <BsHouse />
                 },
                 {
-                    path: 'task',
-                    name: 'Task',
+                    path: 'tasks',
+                    name: 'Tasks',
                     icon: <BsListTask />,
                 },
                 {
