@@ -85,21 +85,26 @@ const Reward = ({ user }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (hour12NextClaim) {
-        const diff = Math.floor((hour12NextClaim - new Date()) / 1000);
+    if (hour12NextClaim && claimAmount > 0) {
+      const interval = setInterval(() => {
+        const now = new Date();
+        const diff = Math.floor((hour12NextClaim - now) / 1000);
+
         if (diff > 0) {
           setTimeLeft(diff);
-          setIncrementingAmount((prevAmount) => prevAmount + claimAmount / 43200);
+          setIncrementingAmount((prevAmount) => {
+            const newAmount = prevAmount + claimAmount / 43200;
+            return newAmount;
+          });
         } else {
           setTimeLeft(0);
           setIncrementingAmount(claimAmount); // Set the final amount once time is up
           clearInterval(interval);
         }
-      }
-    }, 1000);
+      }, 1000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [hour12NextClaim, claimAmount]);
 
 
@@ -128,9 +133,9 @@ const Reward = ({ user }) => {
           </div>
 
           <button
-            className={`inset font-medium text-xs py-1 px-3 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
-              ? 'bg-gray-700  text-gray-400 w-fit '
-              : 'text-white border-solid border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
+            className={`inset font-medium text-xs py-1 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
+              ? 'bg-gray-700 px-1 text-gray-400 w-fit '
+              : 'text-white border-solid px-3 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
           >
