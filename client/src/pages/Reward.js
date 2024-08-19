@@ -122,14 +122,14 @@ const Reward = ({ user }) => {
               src="50.png"
               className="flex h-full  my-auto align-middle circle-outer  delay-[10000ms]"
             />
-            <p className="relative flex justify-center items-center text-gray-400 font-bold">
-              {timeLeft === 0 ? ` ${claimAmount}` : `${Math.floor(incrementingAmount)}`}
+            <p className="relative flex justify-center ml-2 items-center text-gray-400 font-bold">
+              {timeLeft === 0 ? ` ${claimAmount}` : `${Math.round(incrementingAmount)}`}
             </p>
           </div>
 
           <button
             className={`inset font-medium text-xs py-1 px-3 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
-              ? 'bg-gray-700  text-gray-400 '
+              ? 'bg-gray-700  text-gray-400 w-fit '
               : 'text-white border-solid border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
@@ -164,7 +164,7 @@ const Reward = ({ user }) => {
           <p className='text-gray-300'>+10K-20K</p>
         </div>
         <button
-          className={`text-white inset font-medium text-xs px-4 rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading
+          className={`inset font-medium text-xs px-4 rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading
           ? `bg-gray-700 text-gray-400`
           : `text-white bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95`}`} 
           onClick={claimDailyReward}
