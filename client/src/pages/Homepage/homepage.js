@@ -25,7 +25,7 @@ function App() {
     }, [authState.token]);
 
 
-    useEffect(() => {
+   /*  useEffect(() => {
         const container = document.getElementById('animated-text-container');
         const text = document.getElementById('animated-text');
     
@@ -38,7 +38,7 @@ function App() {
                 text.classList.remove('animate-marquee');
             }
         }
-    }, [user.name]); // Re-run when user.name changes
+    }, [user.name]); // Re-run when user.name changes */
 
 
     const autoLogin = () => {
