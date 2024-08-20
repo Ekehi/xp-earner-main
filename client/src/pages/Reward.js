@@ -139,7 +139,7 @@ const Reward = ({ user }) => {
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
             className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
-            style={{ width: `${Math.min(1, timeLeft / 43200) * 100}%` }}
+            style={{ width: `${(timeLeft / 43200) * 100}%` }}
           >
           </div>
         </div>
