@@ -347,7 +347,7 @@ div label {
 #stars:after {
   content: '';
   position: absolute;
-  top: 120px;
+  top: 70px;
   width: 1px;
   height: 1px;
   background: transparent;
@@ -591,7 +591,7 @@ div label {
 #stars2:after {
   content: '';
   position: absolute;
-  top: 120px;
+  top: 70px;
   width: 2px;
   height: 2px;
   background: transparent;
@@ -684,7 +684,7 @@ div label {
 #stars3:after {
   content: '';
   position: absolute;
-  top: 120px;
+  top: 70px;
   width: 3px;
   height: 3px;
   background: transparent;
