@@ -38,7 +38,7 @@ function App() {
                 text.classList.remove('animate-marquee');
             }
         }
-    }, [user.name]); // Re-run when user.name changes.
+    }, [user.name]); // Re-run when user.name changes
 
 
     const autoLogin = () => {
