@@ -131,7 +131,7 @@ const Reward = ({ user }) => {
 
           <button
             className={`inset font-medium text-xs py-1 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
-              ? 'bg-gray-700 px-1 text-gray-400  '
+              ? 'bg-gray-700 px-1 text-gray-400 w-fit whitespace-nowrap '
               : 'text-white border-solid px-4 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}

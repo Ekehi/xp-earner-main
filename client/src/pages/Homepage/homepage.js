@@ -14,7 +14,7 @@ function App() {
     const [loading, setLoading] = useState(true);
     const { authState, login } = useContext(AuthContext);
 
-    useEffect(() => {
+    /* useEffect(() => {
         // If not authenticated, perform auto-login
         if (!authState.token) {
             autoLogin();
@@ -23,22 +23,6 @@ function App() {
             fetchUserData(authState.token);
         }
     }, [authState.token]);
-
-
-   /*  useEffect(() => {
-        const container = document.getElementById('animated-text-container');
-        const text = document.getElementById('animated-text');
-    
-        if (container && text) {
-            const isOverflowing = text.scrollWidth > container.clientWidth;
-    
-            if (isOverflowing) {
-                text.classList.add('animate-marquee');
-            } else {
-                text.classList.remove('animate-marquee');
-            }
-        }
-    }, [user.name]); // Re-run when user.name changes */
 
 
     const autoLogin = () => {
@@ -90,6 +74,21 @@ function App() {
             });
     };
 
+    useEffect(() => {
+        const container = document.getElementById('animated-text-container');
+        const text = document.getElementById('animated-text');
+    
+        if (container && text) {
+            const isOverflowing = text.scrollWidth > container.clientWidth;
+    
+            if (isOverflowing) {
+                text.classList.add('animate-marquee');
+            } else {
+                text.classList.remove('animate-marquee');
+            }
+        }
+    }, [user.name]); // Re-run when user.name changes
+
     if (loading) {
         return (
             <div className="flex flex-row container w-screen h-screen m-auto justify-items-center">
@@ -121,7 +120,10 @@ function App() {
                 <h2>{error}</h2>
             </div>
         );
-    }
+    } */
+
+
+    
 
     return (
         <AppRoot>
