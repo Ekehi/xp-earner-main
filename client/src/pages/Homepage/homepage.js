@@ -14,7 +14,7 @@ function App() {
     const [loading, setLoading] = useState(true);
     const { authState, login } = useContext(AuthContext);
 
-    /* useEffect(() => {
+    useEffect(() => {
         // If not authenticated, perform auto-login
         if (!authState.token) {
             autoLogin();
@@ -120,7 +120,7 @@ function App() {
                 <h2>{error}</h2>
             </div>
         );
-    } */
+    }
 
 
     
