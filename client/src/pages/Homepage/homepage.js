@@ -28,15 +28,17 @@ function App() {
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
         const text = document.getElementById('animated-text');
-
-        const isOverflowing = text.scrollWidth > container.clientWidth;
-
-        if (isOverflowing) {
-            text.classList.add('animate-marquee');
-        } else {
-            text.classList.remove('animate-marquee');
+    
+        if (container && text) {
+            const isOverflowing = text.scrollWidth > container.clientWidth;
+    
+            if (isOverflowing) {
+                text.classList.add('animate-marquee');
+            } else {
+                text.classList.remove('animate-marquee');
+            }
         }
-    }, []);
+    }, [user.name]); // Re-run when user.name changes.
 
 
     const autoLogin = () => {
