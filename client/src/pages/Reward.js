@@ -86,7 +86,7 @@ const Reward = ({ user }) => {
 
   useEffect(() => {
     if (hour12NextClaim && claimAmount > 0) {
-      const interval = setInterval(() => {
+      const intervalId = setInterval(() => {
         const now = new Date();
         const diff = Math.floor((hour12NextClaim - now) / 1000);
   
@@ -96,11 +96,11 @@ const Reward = ({ user }) => {
         } else {
           setTimeLeft(0);
           setIncrementingAmount(claimAmount); // Set the final amount once time is up
-          clearInterval(interval);
+          clearInterval(intervalId);
         }
       }, 1000);
   
-      return () => clearInterval(interval);
+      return () => clearInterval(intervalId);
     }
   }, [hour12NextClaim, claimAmount]);
 
@@ -130,9 +130,9 @@ const Reward = ({ user }) => {
           </div>
 
           <button
-            className={`inset font-medium text-xs py-1 px-4 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
-              ? 'bg-gray-700 text-gray-400  '
-              : 'text-white border-solid  border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
+            className={`inset font-medium text-xs py-1 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
+              ? 'bg-gray-700 px-1 text-gray-400  '
+              : 'text-white border-solid px-4 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
           >
@@ -148,7 +148,7 @@ const Reward = ({ user }) => {
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
             className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
-            style={{ width: `${(timeLeft / 43200) * 100}%` }}
+            style={{ width: `${Math.min(1, timeLeft / 43200) * 100}%` }}
           >
           </div>
         </div>
@@ -162,8 +162,8 @@ const Reward = ({ user }) => {
           className="flex h-full  my-auto align-middle circle-outer  delay-[10000ms]"
         />
         <div className='relative flex flex-col'>
-          <p className='text-yellow-700'>Daily Reward</p>
-          <p className='text-gray-300'>+10K-20K</p>
+          <p className='text-yellow-700 font-bold'>Daily Reward</p>
+          <p className='text-gray-300 font-mono'>+10K-20K</p>
         </div>
         <button
           className={`inset font-medium text-xs px-4 rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading

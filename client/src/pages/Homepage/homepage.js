@@ -14,7 +14,7 @@ function App() {
     const [loading, setLoading] = useState(true);
     const { authState, login } = useContext(AuthContext);
 
-    useEffect(() => {
+    /* useEffect(() => {
         // If not authenticated, perform auto-login
         if (!authState.token) {
             autoLogin();
@@ -25,7 +25,7 @@ function App() {
     }, [authState.token]);
 
 
-    /* useEffect(() => {
+    useEffect(() => {
         const container = document.getElementById('animated-text-container');
         const text = document.getElementById('animated-text');
 
@@ -36,7 +36,7 @@ function App() {
         } else {
             text.classList.remove('animate-marquee');
         }
-    }, []); */
+    }, []);
 
 
     const autoLogin = () => {
@@ -112,7 +112,7 @@ function App() {
             </div>
         );
     }
-
+ */
     if (error) {
         return (
             <div className="container mt-5">
@@ -125,13 +125,13 @@ function App() {
         <AppRoot>
             <div className="container bg-black flex flex-col h-fit items-center justify-center">
                 <div className="relative flex items-center justify-center px-3 pt-3 w-full bg-transparent">
-                <div id="animated-text-container"
-                    className="flex items-center overflow-hidden justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
-                    <p id="animated-text"
-                        className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-yellow-700 animate-marquee">
-                        {user.name}
-                    </p>
-                </div>
+                    <div id="animated-text-container"
+                        className="flex items-center overflow-hidden justify-around w-fit border-2 border-yellow-900 rounded-full px-4 py-[2px] bg-transparent max-w-64">
+                        <p id="animated-text"
+                            className="relative w-fit h-full m-auto whitespace-nowrap flex flex-row font-bold text-base text-yellow-700 animate-marquee">
+                            {user.name}
+                        </p>
+                    </div>
 
                 </div>
 
@@ -166,6 +166,12 @@ function App() {
                     <Reward user={user} />
                 </div>
             </div>
+
+            <section class="wrapper">
+                <div id="stars"></div>
+                <div id="stars2"></div>
+                <div id="stars3"></div>
+            </section>
         </AppRoot>
     );
 }

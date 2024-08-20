@@ -102,15 +102,21 @@ function Boost() {
 
             <div className=' relative flex top-32 w-4/5 align-middle justify-center mx-auto'>
                 <div className='relative w-full flex justify-center h-full rounded-xl border-aninmation' >
-                <a className='text-white font-bold text-center w-full m-[3px] p-2 h-full rounded-xl bg-black hover:bg-yellow-500 '
-                   href='https://www.ekehi.network/#presale' 
-                >
-                    Boost
-                    <BsArrowRightCircle className=' relative inline-block left-10 text-yellow-500' />
-                </a>
+                    <a className='text-white font-bold text-center w-full m-[3px] p-2 h-full rounded-xl bg-black hover:bg-yellow-500 '
+                        href='https://www.ekehi.network/#presale'
+                    >
+                        Boost
+                        <BsArrowRightCircle className=' relative inline-block left-10 text-yellow-500' />
+                    </a>
                 </div>
 
             </div>
+
+            <section class="wrapper">
+                <div id="stars"></div>
+                <div id="stars2"></div>
+                <div id="stars3"></div>
+            </section>
 
 
             {/*   <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/70 backdrop-blur-xl shadow-lg'>

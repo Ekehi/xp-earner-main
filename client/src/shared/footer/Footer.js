@@ -11,7 +11,7 @@ const AppFooter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const paths = ['/', '/Task', '/Boost'];
+        const paths = ['/', '/Tasks', '/Boost'];
         const currentPathIndex = paths.indexOf(location.pathname);
         setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
     }, [location.pathname]);
