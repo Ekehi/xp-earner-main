@@ -85,24 +85,15 @@ const Reward = ({ user }) => {
   };
 
   useEffect(() => {
-    if (hour12NextClaim && claimAmount > 0) {
-      const intervalId = setInterval(() => {
-        const now = new Date();
-        const diff = Math.floor((hour12NextClaim - now) / 1000);
-  
-        if (diff > 0) {
-          setTimeLeft(diff);
-          setIncrementingAmount(prevAmount => Math.round(prevAmount + claimAmount / 43200)); // Update using prev state
-        } else {
-          setTimeLeft(0);
-          setIncrementingAmount(claimAmount); // Set the final amount once time is up
-          clearInterval(intervalId);
-        }
-      }, 1000);
-  
-      return () => clearInterval(intervalId);
-    }
-  }, [hour12NextClaim, claimAmount]);
+    const interval = setInterval(() => {
+      if (hour12NextClaim) {
+        const diff = Math.floor((hour12NextClaim - new Date()) / 1000);
+        setTimeLeft(diff > 0 ? diff : 0);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [hour12NextClaim]);
 
 
 
@@ -148,7 +139,7 @@ const Reward = ({ user }) => {
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
             className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
-            style={{ width: `${Math.min(1, timeLeft / 43200) * 100}%` }}
+            style={{ width: `${(timeLeft / 43200) * 100}%` }}
           >
           </div>
         </div>
