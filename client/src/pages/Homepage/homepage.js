@@ -25,22 +25,6 @@ function App() {
     }, [authState.token]);
 
 
-   /*  useEffect(() => {
-        const container = document.getElementById('animated-text-container');
-        const text = document.getElementById('animated-text');
-    
-        if (container && text) {
-            const isOverflowing = text.scrollWidth > container.clientWidth;
-    
-            if (isOverflowing) {
-                text.classList.add('animate-marquee');
-            } else {
-                text.classList.remove('animate-marquee');
-            }
-        }
-    }, [user.name]); // Re-run when user.name changes */
-
-
     const autoLogin = () => {
         if (window.Telegram?.WebApp) {
             window.Telegram.WebApp.expand();
@@ -90,6 +74,21 @@ function App() {
             });
     };
 
+    useEffect(() => {
+        const container = document.getElementById('animated-text-container');
+        const text = document.getElementById('animated-text');
+    
+        if (container && text) {
+            const isOverflowing = text.scrollWidth > container.clientWidth;
+    
+            if (isOverflowing) {
+                text.classList.add('animate-marquee');
+            } else {
+                text.classList.remove('animate-marquee');
+            }
+        }
+    }, [user.name]); // Re-run when user.name changes
+
     if (loading) {
         return (
             <div className="flex flex-row container w-screen h-screen m-auto justify-items-center">
@@ -122,6 +121,9 @@ function App() {
             </div>
         );
     }
+
+
+    
 
     return (
         <AppRoot>
