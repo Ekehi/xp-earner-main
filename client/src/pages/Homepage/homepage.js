@@ -6,6 +6,8 @@ import './Style.css';
 import Reward from '../Reward';
 import { AuthContext } from '../../services/authContext';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import { BsTwitterX, BsTelegram, } from 'react-icons/bs';
+import { TbWorldWww } from "react-icons/tb";
 
 function App() {
     const navigate = useNavigate();
@@ -13,6 +15,7 @@ function App() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const { authState, login } = useContext(AuthContext);
+    const [shouldRefetch, setShouldRefetch] = useState(false);  // State flag to trigger re-fetch
 
     useEffect(() => {
         // If not authenticated, perform auto-login
@@ -22,7 +25,7 @@ function App() {
             // Fetch user data if already logged in
             fetchUserData(authState.token);
         }
-    }, [authState.token]);
+    }, [authState.token, shouldRefetch]);
 
 
     const autoLogin = () => {
@@ -48,7 +51,7 @@ function App() {
                     })
                     .catch((err) => {
                         setError('Login failed: ' + (err.response?.data?.message || 'Unknown error'));
-                        navigate('/login');
+                        navigate('/register');
                     });
             } else {
                 setError('Failed to retrieve Telegram user data.');
@@ -123,7 +126,7 @@ function App() {
     }
 
 
-    
+
 
     return (
         <AppRoot>
@@ -166,8 +169,39 @@ function App() {
                     </div>
                 </div>
 
-                <div className="container relative mt-4 mx-auto p-4 bottom-5">
-                    <Reward user={user} />
+                <div className="container relative mt-4 mx-auto p-4 bottom-">
+                    <Reward user={user} setShouldRefetch={setShouldRefetch} />
+                </div>
+
+                <div className="relative w-full h-fit top-[8px] mx-auto mb-1 flex flex-col align-middle justify-center">
+                    <h1 className="text-2xl font-bold mb-4 text-white justify-center text-center">
+                        Connect With Us
+                    </h1>
+                    <div className=' relative flex flex-row justify-between w-1/2 m-auto'>
+                        <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
+                            <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
+                            <a className='relative flex m-auto w-fit h-fit'>
+                                <BsTwitterX className='text-white w-5 h-5  '/>
+                            </a>
+                            </div>
+                        </div>
+
+                        <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
+                            <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
+                            <a className='relative flex m-auto w-fit h-fit'>
+                                <BsTelegram className='text-white w-5 h-5  '/>
+                            </a>
+                            </div>
+                        </div>
+
+                        <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
+                            <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
+                            <a className='relative flex m-auto w-fit h-fit'>
+                                <TbWorldWww className='text-white w-5 h-5  '/>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

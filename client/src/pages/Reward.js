@@ -4,7 +4,7 @@ import { AuthContext } from '../services/authContext';
 import toast from 'react-hot-toast';
 import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
 
-const Reward = ({ user }) => {
+const Reward = ({ user, setShouldRefetch }) => {
   const { authState } = useContext(AuthContext);
   const [dailyNextClaim, setDailyNextClaim] = useState(null);
   const [hour12NextClaim, set12HourNextClaim] = useState(null);
@@ -38,6 +38,11 @@ const Reward = ({ user }) => {
       if (response.data.success) {
         toast.success(`You have received ${response.data.points} points!`);
         setDailyNextClaim(new Date(response.data.nextDailyClaim));
+
+
+        // Toggle shouldRefetch to trigger re-fetch of user data
+        setShouldRefetch(prev => !prev);
+
       } else {
         toast.error(response.data.message);
       }
@@ -64,6 +69,9 @@ const Reward = ({ user }) => {
         set12HourNextClaim(new Date(response.data.next12HourClaim));
         setClaimAmount(response.data.points);
         setTimeLeft(43200); // Reset timer
+
+        // Toggle shouldRefetch to trigger re-fetch of user data
+        setShouldRefetch(prev => !prev);
       } else {
         toast.error(response.data.message);
       }
@@ -108,7 +116,7 @@ const Reward = ({ user }) => {
     <div className="flex flex-col items-center h-fit w-full mb-5 mx-5">
 
       <div className='relative flex w-full h-fit flex-col rounded-xl p-2 shadow-md shadow-yellow-500'>
-        <div className='relative flex w-full h-fit flex-row justify-between  p-2 ' >
+        <div className='relative flex w-full h-fit flex-row justify-between py-2 px-1' >
           <div className='relative flex w-full h-fit'>
             <Avatar
               size={20}
@@ -121,9 +129,9 @@ const Reward = ({ user }) => {
           </div>
 
           <button
-            className={`inset font-medium text-xs py-1 rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
-              ? 'bg-gray-700 px-1 text-gray-400 w-fit whitespace-nowrap '
-              : 'text-white border-solid px-4 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
+            className={`inset font-medium text-xs  rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
+              ? 'bg-gray-700 px-1 py-[1px] text-gray-400 w-fit whitespace-nowrap '
+              : 'text-white border-solid py-1 px-4 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
           >
@@ -158,8 +166,8 @@ const Reward = ({ user }) => {
         </div>
         <button
           className={`inset font-medium text-xs px-4 rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading
-          ? `bg-gray-700 text-gray-400`
-          : `text-white bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95`}`} 
+            ? `bg-gray-700 text-gray-400`
+            : `text-white bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95`}`}
           onClick={claimDailyReward}
           disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
         >

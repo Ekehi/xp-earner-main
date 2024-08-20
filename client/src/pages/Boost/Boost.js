@@ -88,7 +88,7 @@ function Boost() {
 
             <div className=" relative flex-grow top-24  w-full mx-2 bg-transparent rounded-md">
                 <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
-                    <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-200">
+                    <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-500">
 
                         <h1 class="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-center">
                             BOOST YOUR DAILY <span class="text-white text-center left-5 block">EARNING</span>
@@ -119,12 +119,12 @@ function Boost() {
             </section>
 
 
-            {/*   <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/70 backdrop-blur-xl shadow-lg'>
-                <p className='text-white m-auto absolute top-96 text-3xl font-mono'>
-                    Coming Soon
+              <div className='flex flex-col w-dvw h-dvh absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/90 backdrop-blur-xl shadow-xxl'>
+                <p className='text-yellow-500 m-auto absolute top-96 text-3xl font-mono font-extrabold'>
+                Coming Soon
                 </p>
             </div>
- */}
+
         </div>
     );
 
