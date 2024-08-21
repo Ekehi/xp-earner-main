@@ -99,7 +99,7 @@ function App() {
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
-                                    .typeString("Ekehi: Redefining financial possibilities.")
+                                    .typeString("<strong>EKEHI</strong> Redefining financial possibilities.")
                                     .pauseFor(1500)
                                     .typeString("<br/>")  // Move to the next line
                                     .typeString("Discover a new world of financial freedom with Ekehi.")
