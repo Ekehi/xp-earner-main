@@ -146,7 +146,7 @@ const Reward = ({ user, setShouldRefetch }) => {
 
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
-            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900"
+            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 animate"
             style={{ width: `${(timeLeft / 43200) * 100}%` }}
           >
           </div>
