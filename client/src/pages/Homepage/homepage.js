@@ -180,7 +180,8 @@ function App() {
                     <div className=' relative flex flex-row justify-between w-1/2 m-auto'>
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'>
+                            <a className='relative flex m-auto w-fit h-fit'
+                            href='https://x.com/EkehiOfficial'>
                                 <BsTwitterX className='text-white w-5 h-5  '/>
                             </a>
                             </div>
@@ -188,7 +189,8 @@ function App() {
 
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'>
+                            <a className='relative flex m-auto w-fit h-fit'
+                            href='https://t.me/ekehiOfficial'>
                                 <BsTelegram className='text-white w-5 h-5  '/>
                             </a>
                             </div>
@@ -196,7 +198,8 @@ function App() {
 
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'>
+                            <a className='relative flex m-auto w-fit h-fit'
+                            href='https://www.ekehi.network/'>
                                 <TbWorldWww className='text-white w-5 h-5  '/>
                             </a>
                             </div>

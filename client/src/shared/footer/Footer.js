@@ -35,7 +35,7 @@ const AppFooter = () => {
     }, [activeIndex]);
 
     return (
-        <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-yellow-950  bottom-0.5 flex bg-black  rounded-md h-fit w-screen ">
+        <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-yellow-950  bottom-0.5 flex bg-black  rounded-xl h-fit w-screen ">
             {[
                 {
                     path: '',
