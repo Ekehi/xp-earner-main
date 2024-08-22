@@ -56,12 +56,12 @@ const AppFooter = () => {
                 <Link
                     to={item.path}
                     key={index}
-                    className={`relative flex flex-col no-underline text-yellow-500 justify-center h-1 items-center py-4 px-2 transition ${activeIndex === index ? 'text-yellow-500 bg-black border-t-2 rounded-full border-yellow-500 shadow-xl shadow-yellow-800 motion-safe:scale-125' : 'text-yellow-950'
+                    className={`relative flex flex-col text-yellow-500 justify-center no-underline active:no-underline  focus:no-underline  target:no-underline h-1 items-center py-4 px-2 transition ${activeIndex === index ? 'text-yellow-500 bg-black border-t-2 rounded-full p-1 no-underline border-yellow-500 shadow-xl shadow-yellow-800 motion-safe:scale-125 active:no-underline  focus:no-underline  target:no-underline' : 'text-yellow-950'
                         }`}
                     ref={(el) => (navItemsRef.current[index] = el)}
                 >
-                    <i>{item.icon}</i>
-                    <span className='font-mono text-xs'>{item.name}</span>
+                    <i className='text-xs'>{item.icon}</i>
+                    <span className='font-mono text-[10px]'>{item.name}</span>
                 </Link>
             ))}
         </nav>
