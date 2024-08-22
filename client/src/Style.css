@@ -162,10 +162,10 @@ div label {
 
 .animate {
 	color: #ffa000;
-	animation: animate 4s ease-in-out infinite;
+	animation: animated 4s ease-in-out infinite;
 }
 
-@keyframes animate {
+@keyframes animated {
 	0%,
 	100% {
 		clip-path: polygon(

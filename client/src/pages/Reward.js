@@ -124,7 +124,7 @@ const Reward = ({ user, setShouldRefetch }) => {
               className="flex h-full  my-auto align-middle circle-outer  delay-[10000ms]"
             />
             <p className="relative flex justify-center ml-2 items-center text-gray-400 font-bold">
-              {timeLeft === 0 ? ` ${claimAmount}` : `${Math.round(incrementingAmount)}`}
+              {timeLeft === 0 ? ` ${claimAmount}` : ` ${claimAmount}`}
             </p>
           </div>
 
@@ -146,9 +146,14 @@ const Reward = ({ user, setShouldRefetch }) => {
 
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
-            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 animate"
+            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 animated"
             style={{ width: `${(timeLeft / 43200) * 100}%` }}
           >
+            <div
+            className="relative h-7 rounded-xl bg-yellow-300 animated"
+            style={{ width: `${(timeLeft / 43200) * 100}%` }}
+          >
+          </div>
           </div>
         </div>
       </div>
