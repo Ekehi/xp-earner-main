@@ -160,8 +160,7 @@ div label {
 }
 
 
-.animate {
-	color: #ffa000;
+.animated {
 	animation: animated 4s ease-in-out infinite;
 }
 

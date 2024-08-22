@@ -161,9 +161,11 @@ function App() {
                                 10K USDT{' '}
                                 <span className="text-white">GIVEAWAY</span>
                             </h1>
+                            <ul className='text-sm font-mono text-white/80 leading-tight mb-2 list-disc '>
+                                <li>Invite at least 5 Friends.</li>
+                                <li className='mt-1'>Check in at least 5 consecutive days.</li>
+                            </ul>
                             <p className="text-sm font-mono text-white/80 leading-tight mb-2">
-                                * Invite at least 10 Friends. <br />
-                                * Check in at least 10 consecutive days.
                             </p>
                         </div>
                     </div>
@@ -174,9 +176,10 @@ function App() {
                 </div>
 
                 <div className="relative w-full h-fit top-[8px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-2xl font-bold mb-4 text-white justify-center text-center">
+                    <h1 className="text-2xl font-bold mb- text-white justify-center text-center">
                         Connect With Us
                     </h1>
+                    <p className='relative text-black font-bold text-xs mb-4 text-center bg-slate-700 mx-20 py-1 rounded-xl'>Collaboration & Patnership</p>
                     <div className=' relative flex flex-row justify-between w-1/2 m-auto'>
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
