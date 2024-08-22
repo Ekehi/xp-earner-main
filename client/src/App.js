@@ -95,23 +95,23 @@ function App() {
                 </div>
 
                 <div className='relative flex bottom-60 w-full h-1/4 align-middle justify-center  mt-32'>
-                    <div className="text-yellow-500 font-mono text-xs leading-relaxed text-pretty text-center">
+                    <div className="text-white font-mono text-xs leading-relaxed text-pretty text-center">
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
-                                    .typeString("<strong style='color:white'>E</strong>")
+                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>E </strong>")
                                     .pauseFor(75)
-                                    .typeString("<br/>")
-                                    .typeString("<strong style='color:white'>K</strong>")
+                                    
+                                    .typeString("<strong style='color:white; font-weight:bold; font-size: x-large'>K </strong>")
                                     .pauseFor(75)
-                                    .typeString("<br/>")
-                                    .typeString("<strong style='color:white;'>E</strong>")
+                                    
+                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>E </strong>")
                                     .pauseFor(75)
-                                    .typeString("<br/>")
-                                    .typeString("<strong style='color:white'>H</strong>")
+                                    
+                                    .typeString("<strong style='color:white; font-weight:bold; font-size: x-large'>H </strong>")
                                     .pauseFor(75)
-                                    .typeString("<br/>")
-                                    .typeString("<strong style='color:white'>I</strong>")
+                                    
+                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>I</strong>")
                                     .pauseFor(500)
                                     .typeString("<br/>")
                                     .typeString("<br/>")
