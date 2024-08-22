@@ -8,77 +8,84 @@ import Footer from './shared/footer/Footer';
 import 'tailwindcss/tailwind.css';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import Typewriter from "typewriter-effect";
 
 function App() {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const location = useLocation();
 
-    // useEffect(() => {
-    //     if (window.Telegram?.WebApp) {
-    //         window.Telegram.WebApp.expand();
+    /*  useEffect(() => {
+        if (window.Telegram?.WebApp) {
+            window.Telegram.WebApp.expand();
 
-    //         const initData = window.Telegram.WebApp.initDataUnsafe;
-    //         if (initData && initData.user) {
-    //             const username = initData.user.username || '';
-    //             const userId = initData.user.id || '';
+            const initData = window.Telegram.WebApp.initDataUnsafe;
+            if (initData && initData.user) {
+                const username = initData.user.username || '';
+                const userId = initData.user.id || '';
 
-    //             if (username && userId) {
-    //                 handleAutoLogin(username, userId);
-    //             } else {
-    //                 toast.error('Failed to retrieve Telegram user data.');
-    //                 navigate('/login');
-    //             }
-    //         } else {
-    //             toast.error('Telegram WebApp data not available.');
-    //             navigate('/login');
-    //         }
-    //     }
-    // }, [navigate]);
+                if (username && userId) {
+                    handleAutoLogin(username, userId);
+                } else {
+                     toast.error('Failed to retrieve Telegram user data.');
+                     navigate('/login');
+                }
+             } else {
+                toast.error('Telegram WebApp data not available.');
+                navigate('/login');
+            }
+       }
+     }, [navigate]); */
 
-    // const handleAutoLogin = (username, userId) => {
-    //     setLoading(true);
-    //     const password = String(userId);
-    //     axios
-    //         .post(
-    //             'https://xp-earner.onrender.com/api/v1/login',
-    //             {
-    //                 name: username,
-    //                 password: password,
-    //             },
-    //             {
-    //                 withCredentials: true,
-    //                 credentials: 'include',
-    //             },
-    //         )
-    //         .then((res) => {
-    //             const token = res.data.token;
-    //             sessionStorage.setItem('JWT', token);
-    //             console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
-    //             toast.success('Login Successful');
-    //             navigate('/');
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             toast.error(err.response?.data?.message || 'Login failed');
-    //             navigate('/register');
-    //         })
-    //         .finally(() => {
-    //             setLoading(false);
-    //         });
-    // };
+    const sentences = [
+        "Ekehi: Redefining financial possibilities.",
+        " Discover a new world of financial freedom with Ekehi.",
+        " Your journey starts here."
+    ];
+
+    /*  const handleAutoLogin = (username, userId) => {
+         setLoading(true);
+         const password = String(userId);
+         axios
+             .post(
+                 'https://xp-earner.onrender.com/api/v1/login',
+                 {
+                     name: username,
+                     password: password,
+                 },
+                 {
+                     withCredentials: true,
+                     credentials: 'include',
+                },
+            )
+            .then((res) => {
+                 const token = res.data.token;
+               sessionStorage.setItem('JWT', token);
+                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
+                 toast.success('Login Successful');
+                navigate('/');
+             })
+            .catch((err) => {
+                console.log(err);
+                toast.error(err.response?.data?.message || 'Login failed');
+                navigate('/register');
+             })
+            .finally(() => {
+                 setLoading(false);
+             });
+     }; */
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 5000);
+        }, 20000);
 
         return () => clearTimeout(timer);
     }, []);
 
     if (loading) {
         return (
-            <div className="flex flex-row container w-screen h-screen m-auto justify-items-center">
-                <div className="relative flex self-center m-auto w-full h-full">
+            <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
+                <div className="relative flex self-center  m-auto w-full h-fit">
                     <h1 className="text-xl font-bold flex items-center text-white m-auto">L
                         <img
                             alt="o"
@@ -86,7 +93,31 @@ function App() {
                             src="50.png"
                         />ading</h1>
                 </div>
-            </div>
+
+                <div className='relative flex bottom-60 w-full h-1/4  mt-32'>
+                    <div className="text-yellow-500 font-mono text-xs leading-relaxed text-pretty text-center">
+                        <Typewriter
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString("<strong>EKEHI</strong> Redefining financial possibilities.")
+                                    .pauseFor(1500)
+                                    .typeString("<br/>")  // Move to the next line
+                                    .typeString("Discover a new world of financial freedom with Ekehi.")
+                                    .pauseFor(1500)
+                                    .typeString("<br/>")  // Move to the next line
+                                    .typeString("Your journey starts here.")
+                                    .start();
+                            }}
+                            options={{
+                                autoStart: true,
+                                loop: false,
+                                delay: 75,
+                            }}
+                        />
+                    </div>
+                </div>
+
+            </div >
         );
     }
 
