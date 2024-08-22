@@ -94,24 +94,50 @@ function App() {
                         />ading</h1>
                 </div>
 
-                <div className='relative flex bottom-60 w-full h-1/4  mt-32'>
+                <div className='relative flex bottom-60 w-full h-1/4 align-middle justify-center  mt-32'>
                     <div className="text-yellow-500 font-mono text-xs leading-relaxed text-pretty text-center">
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
-                                    .typeString("<strong>EKEHI</strong> Redefining financial possibilities.")
+                                    .typeString("<strong style='color:white'>E</strong>")
+                                    .pauseFor(75)
+                                    .typeString("<br/>")
+                                    .typeString("<strong style='color:white'>K</strong>")
+                                    .pauseFor(75)
+                                    .typeString("<br/>")
+                                    .typeString("<strong style='color:white;'>E</strong>")
+                                    .pauseFor(75)
+                                    .typeString("<br/>")
+                                    .typeString("<strong style='color:white'>H</strong>")
+                                    .pauseFor(75)
+                                    .typeString("<br/>")
+                                    .typeString("<strong style='color:white'>I</strong>")
+                                    .pauseFor(500)
+                                    .typeString("<br/>")
+                                    .typeString("<br/>")
+                                    .typeString("<br/>")
+                                    .typeString("Redefining financial possibilities.")
                                     .pauseFor(1500)
+                                    .typeString("<br/>")
                                     .typeString("<br/>")  // Move to the next line
                                     .typeString("Discover a new world of financial freedom with Ekehi.")
                                     .pauseFor(1500)
+                                    .typeString("<br/>")
                                     .typeString("<br/>")  // Move to the next line
-                                    .typeString("Your journey starts here.")
+                                    .typeString("Your journey,")
+                                    .pauseFor(1500)
+                                    .typeString(" STARTS,")
+                                    .typeString("<br/>")
+                                    .typeString("<br/>")
+                                    .pauseFor(2000)
+                                    .typeString("<strong style='color:white'>HERE!!!</strong>")
                                     .start();
                             }}
                             options={{
                                 autoStart: true,
                                 loop: false,
-                                delay: 75,
+                                delay: 20,
+                                cursor:""
                             }}
                         />
                     </div>

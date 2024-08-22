@@ -124,7 +124,7 @@ const Reward = ({ user, setShouldRefetch }) => {
               className="flex h-full  my-auto align-middle circle-outer  delay-[10000ms]"
             />
             <p className="relative flex justify-center ml-2 items-center text-gray-400 font-bold">
-              {timeLeft === 0 ? ` ${claimAmount}` : ` ${claimAmount}`}
+              20000
             </p>
           </div>
 
@@ -146,12 +146,11 @@ const Reward = ({ user, setShouldRefetch }) => {
 
         <div className="w-full rounded-xl h-fit relative mt-1 bg-slate-900">
           <div
-            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 animated"
+            className="relative h-7 rounded-xl bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-900 "
             style={{ width: `${(timeLeft / 43200) * 100}%` }}
           >
             <div
-            className="relative h-7 rounded-xl bg-yellow-300 animated"
-            style={{ width: `${(timeLeft / 43200) * 100}%` }}
+            className="relative h-7 rounded-xl bg-yellow-700 animated w-full" 
           >
           </div>
           </div>
@@ -167,11 +166,11 @@ const Reward = ({ user, setShouldRefetch }) => {
         />
         <div className='relative flex flex-col'>
           <p className='text-yellow-700 font-bold'>Daily Reward</p>
-          <p className='text-gray-300 font-mono'>+10K-20K</p>
+          <p className='text-gray-300 font-mono text-sm'>+10K-20K</p>
         </div>
         <button
-          className={`inset font-medium text-xs px-4 rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading
-            ? `bg-gray-700 text-gray-400`
+          className={`inset font-medium text-xs px-2 w-fit rounded-lg mt-4 ${(dailyNextClaim && dailyNextClaim > new Date()) || isLoading
+            ? `bg-gray-700 text-gray-400 `
             : `text-white bg-yellow-500 border-solid border-yellow-800 border-[1px] transition-transform transform active:scale-95`}`}
           onClick={claimDailyReward}
           disabled={(dailyNextClaim && dailyNextClaim > new Date()) || isLoading}
