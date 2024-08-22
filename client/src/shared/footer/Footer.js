@@ -11,8 +11,8 @@ const AppFooter = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const paths = ['/', '/Tasks', '/Boost'];
-        const currentPathIndex = paths.indexOf(location.pathname);
+        const paths = ['/', '/tasks', '/boost'];
+        const currentPathIndex = paths.indexOf(location.pathname.toLowerCase());
         setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
     }, [location.pathname]);
 
@@ -35,37 +35,35 @@ const AppFooter = () => {
     }, [activeIndex]);
 
     return (
-        <nav className="absolute  justify-around pb-2 border-1 border-t-2 border-yellow-950  bottom-0.5 flex bg-black  rounded-xl h-fit w-screen ">
+        <nav className="absolute justify-around pb-2  bottom-0.5 flex bg-black rounded-xl h-fit w-screen">
             {[
                 {
-                    path: '',
+                    path: '/',
                     name: 'Home',
                     icon: <BsHouse />
                 },
                 {
-                    path: 'tasks',
+                    path: '/tasks',
                     name: 'Tasks',
-                    icon: <BsListTask />,
+                    icon: <BsListTask />
                 },
                 {
-                    path: 'Boost',
+                    path: '/boost',
                     name: 'Boost',
                     icon: <BsRocket />
                 },
             ].map((item, index) => (
                 <Link
-                    to={`/${item.path.toLowerCase()}`}
+                    to={item.path}
                     key={index}
-                    className={`relative flex flex-col no-underline  text-yellow-500 justify-center h-1  items-center active:no-underline focus:text-yellow-500 focus:no-underline active:text-yellow-500 target:no-underline target:text-yellow-500  p-4 transition  ${activeIndex === index ? 'text-yellow-500 focus:text-yellow-500 focus active:text-yellow-500 motion-safe:scale-125' : 'text-yellow-950'
+                    className={`relative flex flex-col no-underline text-yellow-500 justify-center h-1 items-center py-4 px-2 transition ${activeIndex === index ? 'text-yellow-500 bg-black border-t-2 rounded-full border-yellow-500 shadow-xl shadow-yellow-800 motion-safe:scale-125' : 'text-yellow-950'
                         }`}
-                    onClick={() => setActiveIndex(index)}
                     ref={(el) => (navItemsRef.current[index] = el)}
                 >
                     <i>{item.icon}</i>
-                    <span className='font-mono text-xs '>{item.name}</span>
+                    <span className='font-mono text-xs'>{item.name}</span>
                 </Link>
             ))}
-
         </nav>
     );
 };
