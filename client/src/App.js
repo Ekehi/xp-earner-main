@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-//import axios from 'axios';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './services/authContext';
@@ -8,84 +7,56 @@ import Footer from './shared/footer/Footer';
 import 'tailwindcss/tailwind.css';
 import './Style.css';
 import '@telegram-apps/telegram-ui/dist/styles.css';
+import { loadFont } from 'react-font-loader';
 import Typewriter from "typewriter-effect";
 
+
 function App() {
+    const [initialDisplay, setInitialDisplay] = useState(true);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
 
-    /*  useEffect(() => {
-        if (window.Telegram?.WebApp) {
-            window.Telegram.WebApp.expand();
-
-            const initData = window.Telegram.WebApp.initDataUnsafe;
-            if (initData && initData.user) {
-                const username = initData.user.username || '';
-                const userId = initData.user.id || '';
-
-                if (username && userId) {
-                    handleAutoLogin(username, userId);
-                } else {
-                     toast.error('Failed to retrieve Telegram user data.');
-                     navigate('/login');
-                }
-             } else {
-                toast.error('Telegram WebApp data not available.');
-                navigate('/login');
-            }
-       }
-     }, [navigate]); */
-
-    const sentences = [
-        "Ekehi: Redefining financial possibilities.",
-        " Discover a new world of financial freedom with Ekehi.",
-        " Your journey starts here."
-    ];
-
-    /*  const handleAutoLogin = (username, userId) => {
-         setLoading(true);
-         const password = String(userId);
-         axios
-             .post(
-                 'https://xp-earner.onrender.com/api/v1/login',
-                 {
-                     name: username,
-                     password: password,
-                 },
-                 {
-                     withCredentials: true,
-                     credentials: 'include',
-                },
-            )
-            .then((res) => {
-                 const token = res.data.token;
-               sessionStorage.setItem('JWT', token);
-                 console.log('Token set in sessionStorage:', sessionStorage.getItem('JWT'));
-                 toast.success('Login Successful');
-                navigate('/');
-             })
-            .catch((err) => {
-                console.log(err);
-                toast.error(err.response?.data?.message || 'Login failed');
-                navigate('/register');
-             })
-            .finally(() => {
-                 setLoading(false);
-             });
-     }; */
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 20000);
+        const initialTimer = setTimeout(() => {
+            setInitialDisplay(false);
+        }, 2000); // Display initial screen for 2 seconds
 
-        return () => clearTimeout(timer);
+        const loadingTimer = setTimeout(() => {
+            setLoading(false);
+        }, 20000); // Display loading screen for 20 seconds
+
+        return () => {
+            clearTimeout(initialTimer);
+            clearTimeout(loadingTimer);
+        };
     }, []);
+
+    if (initialDisplay) {
+        return (
+            <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
+                <img
+                    className=" "
+                    src="start.png"
+                />
+
+            </div>
+        );
+    }
 
     if (loading) {
         return (
             <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
-                <div className="relative flex self-center  m-auto w-full h-fit">
+                <div className='relative flex w-full h-1/4 align-bottom justify-center mt-32'>
+                    <p
+                        className=' relative text-white text-2xl tracking-wider'
+                        style={{ fontFamily: 'unibold' }}>EKEHI 
+                        <span claassName=''>Network</span>
+                    </p>
+
+                </div>
+
+                <div className="relative flex self-center m-auto w-full h-fit">
                     <h1 className="text-xl font-bold flex items-center text-white m-auto">L
                         <img
                             alt="o"
@@ -94,39 +65,18 @@ function App() {
                         />ading</h1>
                 </div>
 
-                <div className='relative flex bottom-60 w-full h-1/4 align-middle justify-center  mt-32'>
+                <div className='relative flex bottom-32 w-full h-1/4 align-middle justify-center mt-32'>
                     <div className="text-white font-mono text-xs leading-relaxed text-pretty text-center">
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
-                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>E </strong>")
-                                    .pauseFor(75)
-                                    
-                                    .typeString("<strong style='color:white; font-weight:bold; font-size: x-large'>K </strong>")
-                                    .pauseFor(75)
-                                    
-                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>E </strong>")
-                                    .pauseFor(75)
-                                    
-                                    .typeString("<strong style='color:white; font-weight:bold; font-size: x-large'>H </strong>")
-                                    .pauseFor(75)
-                                    
-                                    .typeString("<strong style='color:orange; font-weight:bold; font-size: x-large'>I</strong>")
-                                    .pauseFor(500)
-                                    .typeString("<br/>")
-                                    .typeString("<br/>")
-                                    .typeString("<br/>")
                                     .typeString("Redefining financial possibilities.")
                                     .pauseFor(1500)
                                     .typeString("<br/>")
-                                    .typeString("<br/>")  // Move to the next line
                                     .typeString("Discover a new world of financial freedom with Ekehi.")
                                     .pauseFor(1500)
                                     .typeString("<br/>")
-                                    .typeString("<br/>")  // Move to the next line
-                                    .typeString("Your journey,")
-                                    .pauseFor(1500)
-                                    .typeString(" STARTS,")
+                                    .typeString("Your journey, starts,")
                                     .typeString("<br/>")
                                     .typeString("<br/>")
                                     .pauseFor(2000)
@@ -137,13 +87,12 @@ function App() {
                                 autoStart: true,
                                 loop: false,
                                 delay: 20,
-                                cursor:""
+                                cursor: ""
                             }}
                         />
                     </div>
                 </div>
-
-            </div >
+            </div>
         );
     }
 
