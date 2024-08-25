@@ -17,7 +17,7 @@ function App() {
     const { authState, login } = useContext(AuthContext);
     const [shouldRefetch, setShouldRefetch] = useState(false);  // State flag to trigger re-fetch
 
-    useEffect(() => {
+  /*   useEffect(() => {
         // If not authenticated, perform auto-login
         if (!authState.token) {
             autoLogin();
@@ -124,7 +124,7 @@ function App() {
             </div>
         );
     }
-
+ */
 
 
 
@@ -176,10 +176,10 @@ function App() {
                 </div>
 
                 <div className="relative w-full h-fit top-[8px] mx-auto mb-1 flex flex-col align-middle justify-center">
-                    <h1 className="text-2xl font-bold mb- text-white justify-center text-center">
+                    <h1 className="text-2xl font-bold mb- text-yellow-500 justify-center text-center">
                         Connect With Us
                     </h1>
-                    <p className='relative text-black font-bold text-xs mb-4 text-center bg-slate-700 mx-20 py-1 rounded-xl'>Collaboration & Patnership</p>
+                    <p className='relative text-white/70 font-bold text-xs mb-4 text-center bg-slate-700/30 mx-20 py-1 rounded-xl'>Collaboration & Patnership</p>
                     <div className=' relative flex flex-row justify-between w-1/2 m-auto'>
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
