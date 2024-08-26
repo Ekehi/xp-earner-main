@@ -131,7 +131,7 @@ const Reward = ({ user, setShouldRefetch }) => {
           <button
             className={`inset font-medium text-xs  rounded-lg  ${(hour12NextClaim && hour12NextClaim > new Date()) || isLoading
               ? 'bg-gray-700 px-1 py-[1px] text-gray-400 w-fit whitespace-nowrap '
-              : 'text-white border-solid py-1 px-4 border-yellow-800 border-[1px] shadow-inner shadow-yellow-500 transition-transform transform active:scale-95'}`}
+              : 'text-white cb py-1 px-4 '}`}
             onClick={claim12HourReward}
             disabled={(hour12NextClaim && hour12NextClaim > new Date()) || isLoading}
           >
