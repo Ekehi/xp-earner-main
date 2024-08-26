@@ -17,7 +17,7 @@ function App() {
     const { authState, login } = useContext(AuthContext);
     const [shouldRefetch, setShouldRefetch] = useState(false);  // State flag to trigger re-fetch
 
-  /*   useEffect(() => {
+    useEffect(() => {
         // If not authenticated, perform auto-login
         if (!authState.token) {
             autoLogin();
@@ -124,7 +124,7 @@ function App() {
             </div>
         );
     }
- */
+
 
 
 

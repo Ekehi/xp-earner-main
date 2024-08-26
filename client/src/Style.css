@@ -156,10 +156,7 @@ div label {
   will-change: box-shadow,transform;
 }
 
-.button-29:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
-  transform: translateY(2px);
-}
+
 
 
 @font-face {

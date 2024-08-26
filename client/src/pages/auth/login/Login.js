@@ -81,11 +81,11 @@ const Login = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary bg-yellow-500 border-0">
                     Login
                 </button>
-                <p className="mt-3">
-                    Don't have an account? <a href="/register">Register</a>
+                <p className="mt-3 text-white">
+                    Don't have an account? <a href="/register" className='text-yellow-500'>Register</a>
                 </p>
             </form>
         </div>
