@@ -49,9 +49,9 @@ function App() {
             <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
                 <div className='relative flex w-full h-1/4 align-bottom justify-center mt-32'>
                     <p
-                        className=' relative text-white text-2xl tracking-wider'
-                        style={{ fontFamily: 'unibold' }}>EKEHI 
-                        <span claassName=''>Network</span>
+                        className=' relative w-fit h-fit flex flex-col m-auto text-center align-bottom justify-center text-white  tracking-wider '
+                        style={{ fontFamily: 'unibold' }}><span className='block text-5xl'>EKEHI</span>
+                        <span className='block text-2xl text-yellow-400'>Network</span>
                     </p>
 
                 </div>
@@ -70,17 +70,23 @@ function App() {
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
-                                    .typeString("Redefining financial possibilities.")
-                                    .pauseFor(1500)
+                                    .typeString("Redefining financial possibilities. ")
+                                    .pauseFor(500)
+                                    .typeString("<span style='color:green'>✔</span>")
+                                    .pauseFor(2000)
                                     .typeString("<br/>")
-                                    .typeString("Discover a new world of financial freedom with Ekehi.")
-                                    .pauseFor(1500)
+                                    .typeString("Discover a new world of financial freedom with Ekehi. ")
+                                    .pauseFor(500)
+                                    .typeString("<span style='color:green'>✔</span>")
+                                    .pauseFor(2000)
                                     .typeString("<br/>")
                                     .typeString("Your journey, starts,")
                                     .typeString("<br/>")
                                     .typeString("<br/>")
                                     .pauseFor(2000)
-                                    .typeString("<strong style='color:white'>HERE!!!</strong>")
+                                    .typeString("<strong style='color:orange; font-size:25px'>HERE </strong>")
+                                    .pauseFor(500)
+                                    .typeString("<span style='color:green; font-size:25px; display:inline-block; background-color:white; width:40px; height:40px; border-radius:100%'>✔</span>")
                                     .start();
                             }}
                             options={{
