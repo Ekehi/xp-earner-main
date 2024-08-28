@@ -74,18 +74,19 @@ const Tasks = () => {
                 {tasks &&
                     tasks.length > 0 &&
                     tasks.map((task, i) => (
-                        <div key={task.id} className="col-lg-4 mb-3">
-                            <Card>
-                                <Card.Body>
-                                    <div className='cardBody'>
-                                    <div className='cardLeft'>
-                                    <Card.Title>{task.name}</Card.Title>
-                                    <Card.Text>
+                        <div key={task.id} className="col-lg-4 mb-3 ">
+                            <Card className="relative w-full flex flex-row justify-between bg-transparent  rounded-xl mt-4 p-2 shadow-sm-light shadow-yellow-500">
+                                <Card.Body >
+                                    <div className='cardBody '>
+                                    <div className='cardLeft '>
+                                    <Card.Title className='text-white'>{task.name}</Card.Title>
+                                    <Card.Text className='text-white'>
                                         Reward: {task.xp_points} Points
                                     </Card.Text>
                                     </div>
                                     <div className='cardRight'>
                                     <Button
+                                    className='bg-yellow-500 border-0'
                                         onClick={() => {
                                             navigate(`/task/${task.slug}`);
                                         }}
