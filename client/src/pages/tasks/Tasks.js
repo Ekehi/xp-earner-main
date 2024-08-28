@@ -101,11 +101,11 @@ const Tasks = () => {
                     ))}
             </div>
 
-            <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/90 backdrop-blur-xl shadow-lg'>
+            {/* <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/90 backdrop-blur-xl shadow-lg'>
                 <p className='text-yellow-500 m-auto absolute top-96 text-3xl font-mono font-extrabold'>
                 Coming Soon
                 </p>
-            </div>
+            </div> */}
         </div>
     );
 };
