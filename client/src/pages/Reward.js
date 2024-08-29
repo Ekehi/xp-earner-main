@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../services/authContext';
 import toast from 'react-hot-toast';
-import { AppRoot, Avatar } from '@telegram-apps/telegram-ui';
+import { Avatar } from '@telegram-apps/telegram-ui';
 
 const Reward = ({ user, setShouldRefetch }) => {
   const { authState } = useContext(AuthContext);

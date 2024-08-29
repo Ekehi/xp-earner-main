@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useLocation } from 'react-router-dom';
 import './footer.css';
 import React, { useState, useEffect, useRef } from 'react';
-import { BsHouse, BsListTask, BsRocket } from 'react-icons/bs';
+import { BsHouse, BsListTask, BsRocket, BsPersonAdd } from 'react-icons/bs';
 
 const AppFooter = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -50,7 +50,7 @@ const AppFooter = () => {
                 {
                     path: '/friends',
                     name: 'Friends',
-                    icon: <BsListTask />
+                    icon: <BsPersonAdd />
                 },
                 {
                     path: '/boost',
