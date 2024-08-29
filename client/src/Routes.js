@@ -9,6 +9,7 @@ import Tasks from './pages/tasks/Tasks';
 import AuthGuard from './guards/Guard';
 import Homepage from './pages/Homepage/homepage';
 import Boost from './pages/Boost/Boost';
+import Friends from './pages/Friends';
 
 export const routes = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/Boost',
                 element: <Boost />,
+            },
+            {
+                path: '/Friends',
+                element: <Friends />,
             },
             {
                 path: '/Login',
@@ -46,12 +51,17 @@ export const routes = createBrowserRouter([
                         path: '/tasks',
                         element: <Tasks />,
                     },
+                    {
+                        path: '/task/:taskSlug',
+                        element: <Navigate to= "Task" />,
+                    },
                 ],
             },
             {
                 path: '*',
                 element: <Navigate to="/" />,
             },
+            
         ],
     },
 ]);
