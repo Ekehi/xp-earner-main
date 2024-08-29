@@ -4,7 +4,7 @@ import { BsCopy, BsPersonAdd } from 'react-icons/bs';
 import { Avatar } from '@telegram-apps/telegram-ui';
 
 const Friends = () => {
-    const [referralLink, setReferralLink] = useState('');
+    /* const [referralLink, setReferralLink] = useState('');
     const [friends, setFriends] = useState([]);
     const [bonuses, setBonuses] = useState({});
 
@@ -37,7 +37,7 @@ const Friends = () => {
         fetchReferralLink();
         fetchFriendsAndBonuses();
     }, []);
-
+ */
     return (
         <div className="container mt-5">
             <h1 className=" text-yellow-700 font-bold text-4xl">Invite Friends</h1>
@@ -45,13 +45,12 @@ const Friends = () => {
             <div className="relative flex flex-row w-full mt-4     ">
                 <button
                     className="relative flex font-semibold text-medium justify-center text-center  w-2/3 bg-yellow-500 border-2 border-yellow-500 rounded-xl text-white m-auto py-3 shadow-inner transform transition-transform duration-150 ease-in-out"
-                    onClick={referralLink}> Invite Friends <BsPersonAdd className='text-white ml-3  text-xl font-bold ' />
+                    on/* Click={referralLink} */> Invite Friends <BsPersonAdd className='text-white ml-3  text-xl font-bold ' />
                 </button>
                 <button
                     className="relative flex font-semibold text-medium justify-center text-center  w-fit bg-transparent border-2 border-yellow-500 rounded-xl text-white m-auto  p-3 transform transition-transform duration-150 ease-in-out"
                 > Copy <BsCopy className='text-yellow-500 ml-2 mt-1 ' />
                 </button>
-                <p className=" ">{referralLink}</p>
 
             </div>
 
@@ -70,14 +69,14 @@ const Friends = () => {
 
             <div className="flex flex-col  w-full relative mt-5 p-2  ">
                 <h2 className="relative text-white font-bold ">Your Friends List :</h2>
-                <ul className="relative flex w-full mt-3 border-2 border-b-0 rounded-xl border-yellow-500">
+                {/* <ul className="relative flex w-full mt-3 border-2 border-b-0 rounded-xl border-yellow-500">
                     {friends.map((friend) => (
                         <li className="relative flex text-white justify-between p-2 "
                             key={friend.id}>
                             <span className='block'>{friend.name}</span> <span className='block'>{friend.status}</span>  <span className='block'>{bonuses[friend.id] || 0}</span>
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         </div>
     );
