@@ -55,6 +55,8 @@ const Friends = () => {
 
             </div>
 
+            <h2 className="relative text-white font-bold mt-4 ml-2 text-start w-full ">Your Refferal Bonus :</h2>
+
             <div className='relative flex w-full h-fit border-2 mt-3 rounded-xl p-3 border-b-0 shadow-yellow-500 shadow-xl border-yellow-500'>
                 <Avatar
                     size={50}
@@ -74,7 +76,7 @@ const Friends = () => {
                             key={friend.id}>
                             <span className='block'>{friend.name}</span> <span className='block'>{friend.status}</span>  <span className='block'>{bonuses[friend.id] || 0}</span>
                         </li>
-                     ))} 
+                    ))}
                 </ul>
             </div>
         </div>
