@@ -71,6 +71,8 @@ function Homepage() {
             .then((res) => {
                 setUser(res.data.data.data);
                 setLoading(false);
+
+                sessionStorage.setItem('user', JSON.stringify(user));
             })
             .catch((err) => {
                 setError(err.response?.data?.message || 'Failed to fetch user data');

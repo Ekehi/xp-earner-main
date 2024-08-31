@@ -69,7 +69,7 @@ const Tasks = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Complete Tasks to Earn XP</h2>
+            <h2 className='text-white font-bold text-xl '>Complete Tasks to Earn More Points</h2>
             <div className="row">
                 {tasks &&
                     tasks.length > 0 &&
