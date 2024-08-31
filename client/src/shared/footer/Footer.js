@@ -49,7 +49,7 @@ const AppFooter = () => {
                 },
                 {
                     path: '/friends',
-                    name: 'Friends',
+                    name: 'Invite',
                     icon: <BsPersonAdd />
                 },
                 {

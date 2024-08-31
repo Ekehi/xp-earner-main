@@ -3,10 +3,16 @@ import axios from 'axios';
 import { BsCopy, BsPersonAdd } from 'react-icons/bs';
 import { Avatar } from '@telegram-apps/telegram-ui';
 
-const Friends = ({ referralLink }) => {
+const Friends = () => {
     const [bonus, setBonus] = useState(0);
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
+
+    // Retrieve user from sessionStorage
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    // Generate the referral link using the user ID
+    const referralLink = `https://t.me/EkehiBot?start=${user.id}`;
 
     useEffect(() => {
         // Fetch referral bonus and friend count
