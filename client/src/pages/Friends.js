@@ -8,11 +8,13 @@ const Friends = () => {
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
 
+    const userFromStorage = JSON.parse(sessionStorage.getItem('user'));
+    const userId = userFromStorage ? userFromStorage.user.id : null;
     // Retrieve user from sessionStorage
     const user = JSON.parse(sessionStorage.getItem('user'));
 
     // Generate the referral link using the user ID
-    const referralLink = `https://t.me/EkehiBot?start=${user.id}`;
+    const referralLink = `https://t.me/EkehiBot?start=${userId}`;
 
     useEffect(() => {
         // Fetch referral bonus and friend count
