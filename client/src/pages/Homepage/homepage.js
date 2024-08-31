@@ -10,7 +10,7 @@ import { BsTwitterX, BsTelegram, } from 'react-icons/bs';
 import { TbWorldWww } from "react-icons/tb";
 import Friends from "../Friends"
 
-function App() {
+function Homepage() {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
@@ -78,13 +78,16 @@ function App() {
             });
     };
 
+
+    const userFromStorage = JSON.parse(sessionStorage.getItem('user'));
+
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
         const text = document.getElementById('animated-text');
-    
+
         if (container && text) {
             const isOverflowing = text.scrollWidth > container.clientWidth;
-    
+
             if (isOverflowing) {
                 text.classList.add('animate-marquee');
             } else {
@@ -184,35 +187,34 @@ function App() {
                     <div className=' relative flex flex-row justify-between w-1/2 m-auto'>
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'
-                            href='https://x.com/EkehiOfficial'>
-                                <BsTwitterX className='text-white w-5 h-5  '/>
-                            </a>
+                                <a className='relative flex m-auto w-fit h-fit'
+                                    href='https://x.com/EkehiOfficial'>
+                                    <BsTwitterX className='text-white w-5 h-5  ' />
+                                </a>
                             </div>
                         </div>
 
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'
-                            href='https://t.me/ekehiOfficial'>
-                                <BsTelegram className='text-white w-5 h-5  '/>
-                            </a>
+                                <a className='relative flex m-auto w-fit h-fit'
+                                    href='https://t.me/ekehiOfficial'>
+                                    <BsTelegram className='text-white w-5 h-5  ' />
+                                </a>
                             </div>
                         </div>
 
                         <div className="relative flex w-10 h-10 rounded-[50%] border-aninmation">
                             <div className='relative flex m-auto w-[35px] h-[35px] bg-black rounded-[50%]'>
-                            <a className='relative flex m-auto w-fit h-fit'
-                            href='https://www.ekehi.network/'>
-                                <TbWorldWww className='text-white w-5 h-5  '/>
-                            </a>
+                                <a className='relative flex m-auto w-fit h-fit'
+                                    href='https://www.ekehi.network/'>
+                                    <TbWorldWww className='text-white w-5 h-5  ' />
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {user.id && <Friends userId={user.id} />}
 
             <section class="wrapper">
                 <div id="stars"></div>
@@ -223,4 +225,4 @@ function App() {
     );
 }
 
-export default App;
+export default Homepage;
