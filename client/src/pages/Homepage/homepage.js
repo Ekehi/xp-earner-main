@@ -8,6 +8,7 @@ import { AuthContext } from '../../services/authContext';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import { BsTwitterX, BsTelegram, } from 'react-icons/bs';
 import { TbWorldWww } from "react-icons/tb";
+import Friends from "../Friends"
 
 function App() {
     const navigate = useNavigate();
@@ -210,6 +211,8 @@ function App() {
                     </div>
                 </div>
             </div>
+
+            {user.id && <Friends userId={user.id} />}
 
             <section class="wrapper">
                 <div id="stars"></div>

@@ -32,6 +32,9 @@ function App() {
         };
     }, []);
 
+
+    
+
     if (initialDisplay) {
         return (
             <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
