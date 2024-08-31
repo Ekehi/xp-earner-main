@@ -35,6 +35,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/Register',
                 element: <Register />,
+                
+            },
+            {
+                path: '/tasks',
+                element: <Tasks />,
             },
             {
                 element: <AuthGuard />,
@@ -47,10 +52,10 @@ export const routes = createBrowserRouter([
                         path: '/task/:taskSlug',
                         element: <Task />,
                     },
-                    {
+                   /*  {
                         path: '/tasks',
                         element: <Tasks />,
-                    },
+                    }, */
                     {
                         path: '/task/:taskSlug',
                         element: <Navigate to= "Task" />,
