@@ -9,7 +9,6 @@ import '@telegram-apps/telegram-ui/dist/styles.css';
 import { BsTwitterX, BsTelegram, } from 'react-icons/bs';
 import { TbWorldWww } from "react-icons/tb";
 import Friends from "../Friends";
-import { sessionStorage } from '@react/react-dom';
 
 function Homepage() {
     const navigate = useNavigate();
@@ -38,7 +37,6 @@ function Homepage() {
             if (initData && initData.user) {
                 const username = initData.user.username || '';
                 const userId = String(initData.user.id);
-                console.log (userId);
 
                 axios
                     .post(
