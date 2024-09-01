@@ -7,6 +7,14 @@ const Friends = () => {
     const [bonus, setBonus] = useState(0);
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        const storedUserId = sessionStorage.getItem('userId');
+        if (storedUserId) {
+            setUserId(storedUserId);
+        }
+    }, []);
 
     // Retrieve the userId directly from sessionStorage, using optional chaining
     const userId = sessionStorage.getItem('userId');
