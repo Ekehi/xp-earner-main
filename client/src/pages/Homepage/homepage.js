@@ -69,6 +69,7 @@ function Homepage() {
                 },
             })
             .then((res) => {
+                const userData = res.data.data.data;
                 setUser(res.data.data.data);
                 setLoading(false);
 
