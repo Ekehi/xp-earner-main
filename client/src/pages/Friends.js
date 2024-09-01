@@ -62,7 +62,7 @@ const Friends = () => {
                     Copy <BsCopy className='text-yellow-500 ml-2 mt-1' />
                 </button>
             </div>
-            {copySuccess && <p className="text-green-500 text-center mt-2">{copySuccess}</p>}
+            {copySuccess && <p className="text-green-500 text-center text-lg font-bold mt-2">{copySuccess}</p>}
 
             <h2 className="relative text-white font-bold mt-4 ml-2 text-start w-full">Your Referral Bonus:</h2>
             <div className='relative flex w-full h-fit border-2 mt-3 rounded-xl p-3 border-b-0 shadow-yellow-500 shadow-xl border-yellow-500'>
