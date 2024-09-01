@@ -8,7 +8,8 @@ import { AuthContext } from '../../services/authContext';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import { BsTwitterX, BsTelegram, } from 'react-icons/bs';
 import { TbWorldWww } from "react-icons/tb";
-import Friends from "../Friends"
+import Friends from "../Friends";
+import { sessionStorage } from '@react/react-dom';
 
 function Homepage() {
     const navigate = useNavigate();
@@ -74,6 +75,7 @@ function Homepage() {
                 setLoading(false);
 
                 sessionStorage.setItem('user', JSON.stringify(user));
+                sessionStorage.setItem('userId', user.id || user._id);
             })
             .catch((err) => {
                 setError(err.response?.data?.message || 'Failed to fetch user data');
@@ -82,7 +84,8 @@ function Homepage() {
     };
 
 
-    const userFromStorage = JSON.parse(sessionStorage.getItem('user'));
+    //const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
+    //console.log(userFromStorage);
 
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
