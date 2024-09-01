@@ -82,7 +82,7 @@ function Homepage() {
     };
 
 
-    const userFromStorage = JSON.parse(sessionStorage.getItem('user'));
+    const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
 
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
