@@ -16,9 +16,6 @@ const Friends = () => {
         }
     }, []);
 
-    // Retrieve the userId directly from sessionStorage, using optional chaining
-    const userId = sessionStorage.getItem('userId');
-
     // Generate the referral link using the retrieved user ID
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
 
