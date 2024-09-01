@@ -74,6 +74,7 @@ function Homepage() {
 
                 sessionStorage.setItem('user', JSON.stringify(user));
                 sessionStorage.setItem('userId', user.id || user._id);
+                console.log(user,userId);
             })
             .catch((err) => {
                 setError(err.response?.data?.message || 'Failed to fetch user data');
