@@ -8,12 +8,13 @@ const Friends = () => {
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
 
-    const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
-    const userId = userFromStorage ? userFromStorage.user.id : null;
+    const storedUserId = sessionStorage.getItem('userId');
+    //const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
+    //const userId = userFromStorage ? userFromStorage.user.id : null;
     console.log(userId);
     // Retrieve user from sessionStorage
-    const user = JSON.parse(sessionStorage.getItem('userId'));
-    console.log(user)
+    //const user = JSON.parse(sessionStorage.getItem('userId'));
+    //console.log(user)
 
     // Generate the referral link using the user ID
     const referralLink = `https://t.me/EkehiBot?start=${userId}`;
