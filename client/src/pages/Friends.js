@@ -8,32 +8,29 @@ const Friends = () => {
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
 
-    const storedUserId = sessionStorage.getItem('userId');
-    //const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
-    //const userId = userFromStorage ? userFromStorage.user.id : null;
-    console.log(userId);
-    // Retrieve user from sessionStorage
-    //const user = JSON.parse(sessionStorage.getItem('userId'));
-    //console.log(user)
+    // Retrieve the userId directly from sessionStorage, using optional chaining
+    const userId = sessionStorage.getItem('userId');
 
-    // Generate the referral link using the user ID
-    const referralLink = `https://t.me/EkehiBot?start=${userId}`;
+    // Generate the referral link using the retrieved user ID
+    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
 
     useEffect(() => {
-        // Fetch referral bonus and friend count
-        axios.get('https://xp-earner.onrender.com/api/v1/referrals', {
-            headers: {
-                Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
-            },
-        })
-        .then(response => {
-            setBonus(response.data.bonus);
-            setFriendCount(response.data.friends.length); // Update to get the count of friends
-        })
-        .catch(error => {
-            console.error("Failed to fetch referral data:", error);
-        });
-    }, []);
+        // Fetch referral bonus and friend count, but only if userId exists
+        if (userId) {
+            axios.get('https://xp-earner.onrender.com/api/v1/referrals', {
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
+                },
+            })
+            .then(response => {
+                setBonus(response.data.bonus);
+                setFriendCount(response.data.friends.length); // Update to get the count of friends
+            })
+            .catch(error => {
+                console.error("Failed to fetch referral data:", error);
+            });
+        }
+    }, [userId]);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(referralLink).then(() => {
