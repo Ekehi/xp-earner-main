@@ -37,7 +37,6 @@ function Homepage() {
             if (initData && initData.user) {
                 const username = initData.user.username || '';
                 const userId = String(initData.user.id);
-                console.log(userId);
 
                 axios
                     .post(
@@ -83,6 +82,7 @@ function Homepage() {
 
 
     const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
+    console.log(userFromStorage);
 
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
