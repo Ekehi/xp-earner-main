@@ -37,7 +37,6 @@ function Homepage() {
             if (initData && initData.user) {
                 const username = initData.user.username || '';
                 const userId = String(initData.user.id);
-                
 
                 axios
                     .post(
@@ -71,11 +70,13 @@ function Homepage() {
             })
             .then((res) => {
                 const userData = res.data.data.data;
+                const userId = res.data.data.data;
                 setUser(res.data.data.data);
                 setLoading(false);
 
                 sessionStorage.setItem('user', JSON.stringify(user));
                 sessionStorage.setItem('userId', user.id || user._id);
+                console.log(user,userId);
             })
             .catch((err) => {
                 setError(err.response?.data?.message || 'Failed to fetch user data');
