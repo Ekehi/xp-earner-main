@@ -42,24 +42,25 @@ export const routes = createBrowserRouter([
                 element: <Tasks />,
             },
             {
+                path: '/task/:taskSlug',
+                element: <Task />,
+            },
+            {
                 element: <AuthGuard />,
                 children: [
                     {
                         path: '/profile',
                         element: <Profile />,
                     },
-                    {
+                   /*  {
                         path: '/task/:taskSlug',
                         element: <Task />,
-                    },
+                    }, */
                    /*  {
                         path: '/tasks',
                         element: <Tasks />,
                     }, */
-                    {
-                        path: '/task/:taskSlug',
-                        element: <Navigate to= "Task" />,
-                    },
+                   
                 ],
             },
             {
