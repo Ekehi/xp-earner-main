@@ -8,13 +8,36 @@ const Friends = () => {
     const [friendCount, setFriendCount] = useState(0);
     const [copySuccess, setCopySuccess] = useState('');
     const [userId, setUserId] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const storedUserId = sessionStorage.getItem('userId');
-        if (storedUserId) {
-            setUserId(storedUserId);
+        const token = sessionStorage.getItem('JWT');
+        if (token) {
+            fetchUserData(token);
+        } else {
+            setLoading(false);
+            setError('User is not authenticated');
         }
     }, []);
+
+    const fetchUserData = (token) => {
+        axios
+            .get('https://xp-earner.onrender.com/api/v1/users/me', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((res) => {
+                const userData = res.data.data.data;
+                setUserId(userData.id || userData._id);
+                setLoading(false);
+            })
+            .catch((err) => {
+                setError(err.response?.data?.message || 'Failed to fetch user data');
+                setLoading(false);
+            });
+    };
 
     // Generate the referral link using the retrieved user ID
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
@@ -27,22 +50,36 @@ const Friends = () => {
                     Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
                 },
             })
-            .then(response => {
-                setBonus(response.data.bonus);
-                setFriendCount(response.data.friends.length); // Update to get the count of friends
-            })
-            .catch(error => {
-                console.error("Failed to fetch referral data:", error);
-            });
+                .then(response => {
+                    setBonus(response.data.bonus);
+                    setFriendCount(response.data.friends.length); // Update to get the count of friends
+                })
+                .catch(error => {
+                    console.error("Failed to fetch referral data:", error);
+                });
         }
     }, [userId]);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(referralLink).then(() => {
-            setCopySuccess('Copied!');
-            setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
-        });
+        navigator.clipboard.writeText(referralLink)
+            .then(() => {
+                setCopySuccess('Copied Successfully 😊');
+                setTimeout(() => {
+                    setCopySuccess('');
+                }, 2000);
+            })
+            .catch((error) => {
+                console.error('Failed to copy text: ', error);
+            });
     };
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
 
     return (
         <div className="container mt-5">
@@ -62,7 +99,7 @@ const Friends = () => {
                     Copy <BsCopy className='text-yellow-500 ml-2 mt-1' />
                 </button>
             </div>
-            {copySuccess && <p className="text-green-500 text-center text-lg font-bold mt-2">{copySuccess}</p>}
+            {copySuccess && <p className="text-yellow-500 text-center text-lg font-bold mt-2">{copySuccess}</p>}
 
             <h2 className="relative text-white font-bold mt-4 ml-2 text-start w-full">Your Referral Bonus:</h2>
             <div className='relative flex w-full h-fit border-2 mt-3 rounded-xl p-3 border-b-0 shadow-yellow-500 shadow-xl border-yellow-500'>

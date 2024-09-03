@@ -69,13 +69,12 @@ function Homepage() {
                 },
             })
             .then((res) => {
-                const userId = res.data.data.data;
-                setUser(res.data.data.data);
+                const userData = res.data.data.data;
+                setUser(userData);
                 setLoading(false);
 
                 sessionStorage.setItem('user', JSON.stringify(user));
                 sessionStorage.setItem('userId', user.id || user._id);
-                console.log(user,userId);
             })
             .catch((err) => {
                 setError(err.response?.data?.message || 'Failed to fetch user data');
@@ -84,8 +83,6 @@ function Homepage() {
     };
 
 
-    //const userFromStorage = JSON.parse(sessionStorage.getItem('userId'));
-    //console.log(userFromStorage);
 
     useEffect(() => {
         const container = document.getElementById('animated-text-container');
