@@ -40,7 +40,8 @@ const Friends = () => {
     };
 
     // Generate the referral link using the retrieved user ID
-    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
+    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
+    console.log(userId);
 
     useEffect(() => {
         // Fetch referral bonus and friend count, but only if userId exists
