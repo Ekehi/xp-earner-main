@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../services/authContext';
-import { Avatar } from '@telegram-apps/telegram-ui';
 
 const Task = ({ }) => {
     const [task, setTask] = useState(null);
@@ -155,7 +154,7 @@ const Task = ({ }) => {
     return (
         <div className="container relative flex flex-col content-between  h-full w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg">
 
-            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-full h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl shadow-inner shadow-yellow-500'>
+            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl'>
                 <Card.Body className='flex flex-col p-4 items-center w-full'>
                 <a
                 href='#tasks'
@@ -172,33 +171,33 @@ const Task = ({ }) => {
                             <li key={index}
                                 className='my-3 w-full content-center justify-center flex   '>
                                 <a href={link} target='_blank' rel='noopener noreferrer' onClick={() => handleLinkClick(index)}
-                                    className='bg-yellow-500 text-white rounded-lg w-1/2 py-2 flex justify-center '>
+                                    className='bg-transparent border-2 border-yellow-500 text-white rounded-xl w-1/2 py-2 flex justify-center '>
                                     Visit Link {index + 1}
                                 </a>
                             </li>
                         ))}
                     </ul>
-                    <div className='flex flex-row h-fit justify-end align-middle text-center'>
-                        <Avatar
-                            size={20}
-                            src="50.png"
-                            className="inline h-full my-auto align-middle circle-outer"
+                    <div className='flex flex-row h-fit justify-end align-middle text-center w-fit'>
+                        <img
+                            src="/50.png"
+                            className="inline  my-auto align-middle w-[20px] h-[20px]"
                         />
-                        <Card.Subtitle className='text-yellow-500 ml-2 pt-1'>
+                        <Card.Subtitle className='text-yellow-500 ml-2 pt-1 text-lg font-bold'>
                             {task.xp_points} points</Card.Subtitle>
                     </div>
 
                     <br />
 
                     <br />
-                    <div className='absolute w-full bottom-10 flex justify-center'>
+                    <div className='relative mt-20 w-full bottom-10 flex justify-center'>
                     {!checkCompleted() ? (
                         <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
-                            className=' bg-yellow-600 text-white font-bold  rounded-full border-[3px] border-yellow-500 w-2/3 p-3 '>
+                            className=' bg-yellow-500 text-white font-bold  rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 '>
                             {allLinkVisited ? 'Claim Reward' : 'Complete Task'}
                         </Button>
                     ) : (
-                        <Button variant="success" disabled>
+                        <Button variant=" "
+                        className=' bg-yellow-500 text-white font-bold rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 ' disabled>
                             Reward Claimed
                         </Button>
                     )}

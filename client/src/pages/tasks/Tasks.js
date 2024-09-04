@@ -78,14 +78,14 @@ const Tasks = () => {
             />
 
             <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
-            <div className="row">
+            <div className="row  pb-24" >
                 {tasks &&
                     tasks.length > 0 &&
                     tasks.map((task, i) => (
-                        <div key={task.id} className="col-lg-4 mb-2 ">
+                        <div key={task.id} className="col-lg-4 mb-2  ">
                             <Card className="relative w-full flex flex-row justify-between bg-transparent  rounded-xl mt-4  shadow-sm-light shadow-yellow-500">
                                 <Card.Body >
-                                    <div className='cardBody '>
+                                    <div className='cardBody  '>
                                         <div className='cardLeft '>
                                             <Card.Title className='text-white text-sm'>{task.name}</Card.Title>
                                             <div className='flex flex-row'> <Avatar
