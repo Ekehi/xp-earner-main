@@ -3,7 +3,9 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
-const { useNavigate } = require('react-router-dom');
+import { Avatar } from '@telegram-apps/telegram-ui';
+import { useNavigate } from 'react-router-dom';
+
 
 const Tasks = () => {
     const navigate = useNavigate();
@@ -68,33 +70,45 @@ const Tasks = () => {
     }
 
     return (
-        <div className="container mt-5">
-            <h2 className='text-white font-bold text-xl '>Complete Tasks to Earn More Points</h2>
+        <div className="container mt-5"
+            id='tasks'>
+            <img
+                className="w-2/3  h-2/3 tp "
+                src="start.png"
+            />
+
+            <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
             <div className="row">
                 {tasks &&
                     tasks.length > 0 &&
                     tasks.map((task, i) => (
-                        <div key={task.id} className="col-lg-4 mb-3 ">
-                            <Card className="relative w-full flex flex-row justify-between bg-transparent  rounded-xl mt-4 p-2 shadow-sm-light shadow-yellow-500">
+                        <div key={task.id} className="col-lg-4 mb-2 ">
+                            <Card className="relative w-full flex flex-row justify-between bg-transparent  rounded-xl mt-4  shadow-sm-light shadow-yellow-500">
                                 <Card.Body >
                                     <div className='cardBody '>
-                                    <div className='cardLeft '>
-                                    <Card.Title className='text-white'>{task.name}</Card.Title>
-                                    <Card.Text className='text-white'>
-                                        Reward: {task.xp_points} Points
-                                    </Card.Text>
-                                    </div>
-                                    <div className='cardRight'>
-                                    <Button
-                                    className='bg-yellow-500 border-0'
-                                        onClick={() => {
-                                            navigate(`/task/${task.slug}`);
-                                        }}
-                                        variant="primary"
-                                    >
-                                       <BsArrowRight />
-                                    </Button>
-                                    </div>
+                                        <div className='cardLeft '>
+                                            <Card.Title className='text-white text-sm'>{task.name}</Card.Title>
+                                            <div className='flex flex-row'> <Avatar
+                                                size={15}
+                                                src="50.png"
+                                                className="inline h-full my-auto align-middle circle-outer delay-[10000ms]"
+                                            />
+                                                <Card.Text className='text-white text-xs ml-1 font-semibold'>
+                                                    {task.xp_points}
+                                                </Card.Text></div>
+
+                                        </div>
+                                        <div className='cardRight'>
+                                            <Button
+                                                className='bg-yellow-500 border-0'
+                                                onClick={() => {
+                                                    navigate(`/task/${task.slug}`);
+                                                }}
+                                                variant="primary"
+                                            >
+                                                <BsArrowRight />
+                                            </Button>
+                                        </div>
                                     </div>
                                 </Card.Body>
                             </Card>
