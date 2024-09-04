@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../services/authContext';
 import { Avatar } from '@telegram-apps/telegram-ui';
 
-const Task = ({ isOpen, onClose }) => {
+const Task = ({ }) => {
     const [task, setTask] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -123,6 +123,10 @@ const Task = ({ isOpen, onClose }) => {
         );
     };
 
+    const handleClose = () => {
+        navigate('/tasks'); 
+    };
+
     if (loading) {
         return (
             <div className="container mt-5">
@@ -147,20 +151,19 @@ const Task = ({ isOpen, onClose }) => {
         );
     }
 
-     if (!isOpen) return null;
 
     return (
-        <div className="container absolute h-full w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg">
-            <a
-        href='#tasks'
-          className="mt-4 bg-black/50 text-yellow-500 font-bold p-2 rounded-full"
-          onClick={onClose}
-        >
-          X
-        </a>
+        <div className="container relative flex flex-col content-between  h-full w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg">
 
-            <Card className=' absolute flex flex-col justify-center items-center bottom-0 z-20 w-full h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl shadow-inner shadow-yellow-500'>
-                <Card.Body className='flex flex-col  items-center w-full'>
+            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-full h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl shadow-inner shadow-yellow-500'>
+                <Card.Body className='flex flex-col p-4 items-center w-full'>
+                <a
+                href='#tasks'
+                className="absolute top-1 right-1  flex  w-10 h-10 text-xl text-yellow-700 font-bold p-2 justify-center rounded-full"
+                onClick={handleClose}
+            >
+                X
+            </a>
                     <Card.Title className='text-yellow-500 font-bold text-xl'>{task.name}</Card.Title>
                     <div className='text-white my-3 h-fit'>{task.description}</div>
                     <ul className='text-white w-full flex content-center justify-center flex-col '>
@@ -176,18 +179,19 @@ const Task = ({ isOpen, onClose }) => {
                         ))}
                     </ul>
                     <div className='flex flex-row h-fit justify-end align-middle text-center'>
-                    <Avatar
+                        <Avatar
                             size={20}
                             src="50.png"
                             className="inline h-full my-auto align-middle circle-outer"
                         />
-                    <Card.Subtitle className='text-yellow-500 ml-2 pt-1'>
-                        {task.xp_points} points</Card.Subtitle>
+                        <Card.Subtitle className='text-yellow-500 ml-2 pt-1'>
+                            {task.xp_points} points</Card.Subtitle>
                     </div>
-                    
+
                     <br />
 
                     <br />
+                    <div className='absolute w-full bottom-10 flex justify-center'>
                     {!checkCompleted() ? (
                         <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
                             className=' bg-yellow-600 text-white font-bold  rounded-full border-[3px] border-yellow-500 w-2/3 p-3 '>
@@ -198,6 +202,8 @@ const Task = ({ isOpen, onClose }) => {
                             Reward Claimed
                         </Button>
                     )}
+                    </div>
+                   
                 </Card.Body>
             </Card>
         </div>
