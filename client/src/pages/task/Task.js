@@ -189,7 +189,7 @@ const Task = ({ }) => {
                     <br />
 
                     <br />
-                    <div className='relative mt-20 w-full bottom-10 flex justify-center'>
+                    <div className='relative mt-10 w-full flex justify-center'>
                     {!checkCompleted() ? (
                         <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
                             className=' bg-yellow-500 text-white font-bold  rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 '>
