@@ -82,7 +82,8 @@ const Friends = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div id='Friends'
+        className="container mt-5">
             <h1 className="text-yellow-700 font-bold text-4xl">Invite Friends</h1>
             <p className='text-white mt-3 text-l font-mono'>Invite friends to earn more points</p>
             <div className="relative flex flex-row w-full mt-4">

@@ -165,7 +165,7 @@ function Homepage() {
                 <div className="flex-grow h-40 mt-10 w-full mx-2 bg-transparent rounded-md relative">
                     <div className="relative flex h-full w-full mx-auto bottom-0 px-3 bg-cover bg-transparent rounded-xl">
                         <div className="container my-auto p-4 flex justify-between gap-1 h-32 w-full rounded-xl bg-gradient-to-tr from-transparent via-transparent to-yellow-500 border-s-2 border-b-2 border-yellow-500">
-                            <h1 className="text-xl w-full font-extrabold text-yellow-500 leading-none mb-2 text-start">
+                            <h1 className="text-xl w-full font-extrabold text-yellow-500 leading-none my-2  text-center">
                                 10K USDT{' '}
                                 <span className="text-white">GIVEAWAY</span>
                             </h1>
@@ -173,8 +173,14 @@ function Homepage() {
                                 <li>Invite at least 5 Friends.</li>
                                 <li className='mt-1'>Check in at least 5 consecutive days.</li>
                             </ul>
-                            <p className="text-sm font-mono text-white/80 leading-tight mb-2">
-                            </p>
+                            <div className='absolute w-full -mt-4 flex justify-end bottom-0 '>
+                            <a 
+                            href='#Friends'
+                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500  '>
+                            Join
+                           </a>
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
