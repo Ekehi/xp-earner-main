@@ -212,6 +212,7 @@ const Task = ({ }) => {
                                 Reward Claimed
                             </Button>
                         )}
+                        </div>
                     
 
                 </Card.Body>
