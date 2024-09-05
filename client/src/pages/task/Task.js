@@ -199,6 +199,7 @@ const Task = ({ }) => {
                             +{task.xp_points} points</Card.Subtitle>
                     </div>
 
+
                     <div className='absolute  w-full bottom-4 flex justify-center'>
                         {!checkCompleted() ? (
                             <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
@@ -211,7 +212,7 @@ const Task = ({ }) => {
                                 Reward Claimed
                             </Button>
                         )}
-                    </div>
+                    
 
                 </Card.Body>
             </Card>
