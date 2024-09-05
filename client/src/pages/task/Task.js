@@ -190,14 +190,14 @@ const Task = ({ }) => {
                             </li>
                         ))}
                     </ul>
-                    <div className='flex flex-row h-fit mb-3 justify-end align-middle text-center w-fit'>
-                        <img
-                            src="/50.png"
-                            className="inline  my-auto align-middle w-[20px] h-[20px]"
-                        />
-                        <Card.Subtitle className='text-yellow-500 ml-2 pt-1 text-lg font-bold'>
-                            +{task.xp_points} points</Card.Subtitle>
-                    </div>
+                   // <div className='flex flex-row h-fit mb-3 justify-end align-middle text-center w-fit'>
+                      //  <img
+                        //    src="/50.png"
+                          //  className="inline  my-auto align-middle w-[20px] h-[20px]"
+                    //    />
+                      //  <Card.Subtitle className='text-yellow-500 ml-2 pt-1 text-lg font-bold'>
+                         //   +{task.xp_points} points</Card.Subtitle>
+                 //   </div>
 
 
                     <div className='absolute  w-full bottom-4 flex justify-center'>
