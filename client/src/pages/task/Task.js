@@ -123,7 +123,7 @@ const Task = ({ }) => {
     };
 
     const handleClose = () => {
-        navigate('/tasks'); 
+        navigate('/tasks');
     };
 
     if (loading) {
@@ -152,19 +152,32 @@ const Task = ({ }) => {
 
 
     return (
-        <div className="container relative flex flex-col content-between  h-full w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg">
+        <div className="container absolute flex flex-col content-between h-svh w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg">
 
-            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl'>
+
+            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl '>
                 <Card.Body className='flex flex-col p-4 items-center w-full'>
-                <a
-                href='#tasks'
-                className="absolute top-1 right-1  flex  w-10 h-10 text-xl text-yellow-700 font-bold p-2 justify-center rounded-full"
-                onClick={handleClose}
-            >
-                X
-            </a>
+                    <div className='relative -mt-36 mb-4 p-1 border-aninmation w-fit h-fit rounded-t-full'>
+                        <div className='relative bg-black p-2 rounded-t-full'>
+                            <div className=' relative  h-[130px] w-[130px] border-[3px] bg-black border-yellow-500 p-2 rounded-t-full shadow-sm-light shadow-yellow-500 '
+                            >
+                                <img
+                                    src='/200.png'
+                                    className=' circle-inner top-glow shadow-sm-light shadow-yellow-500 rounded-full bg-transparent animate-pulse delay-[999ms]' />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a
+                        href='#tasks'
+                        className="absolute top-1 right-1  flex  w-10 h-10 text-xl text-yellow-700 font-bold p-2 justify-center rounded-full"
+                        onClick={handleClose}
+                    >
+                        X
+                    </a>
                     <Card.Title className='text-yellow-500 font-bold text-xl'>{task.name}</Card.Title>
-                    <div className='text-white my-3 h-fit'>{task.description}</div>
+                    <div className='text-white my-[2px] h-fit'>{task.description}</div>
                     <ul className='text-white w-full flex content-center justify-center flex-col '>
                         {task.links && task.links.map((link, index) =>
                         (
@@ -177,32 +190,29 @@ const Task = ({ }) => {
                             </li>
                         ))}
                     </ul>
-                    <div className='flex flex-row h-fit justify-end align-middle text-center w-fit'>
+                    <div className='flex flex-row h-fit mb-3 justify-end align-middle text-center w-fit'>
                         <img
                             src="/50.png"
                             className="inline  my-auto align-middle w-[20px] h-[20px]"
                         />
                         <Card.Subtitle className='text-yellow-500 ml-2 pt-1 text-lg font-bold'>
-                            {task.xp_points} points</Card.Subtitle>
+                            +{task.xp_points} points</Card.Subtitle>
                     </div>
 
-                    <br />
-
-                    <br />
-                    <div className='relative mt-20 w-full bottom-10 flex justify-center'>
-                    {!checkCompleted() ? (
-                        <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
-                            className=' bg-yellow-500 text-white font-bold  rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 '>
-                            {allLinkVisited ? 'Claim Reward' : 'Complete Task'}
-                        </Button>
-                    ) : (
-                        <Button variant=" "
-                        className=' bg-yellow-500 text-white font-bold rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 ' disabled>
-                            Reward Claimed
-                        </Button>
-                    )}
+                    <div className='absolute  w-full bottom-4 flex justify-center'>
+                        {!checkCompleted() ? (
+                            <Button variant="" onClick={handleClickComplete} disabled={!allLinkVisited}
+                                className=' bg-yellow-500 text-white font-bold  rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 '>
+                                {allLinkVisited ? 'Claim Reward' : 'Complete Task'}
+                            </Button>
+                        ) : (
+                            <Button variant=" "
+                                className=' bg-yellow-500 text-white font-bold rounded-2xl border-[3px] border-yellow-500 w-2/3 p-3 ' disabled>
+                                Reward Claimed
+                            </Button>
+                        )}
                     </div>
-                   
+
                 </Card.Body>
             </Card>
         </div>
