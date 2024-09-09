@@ -52,7 +52,8 @@ const Friends = () => {
     }, []);
 
     // Generate the referral link using the retrieved user ID
-    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
+    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
+    console.log(userId);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(referralLink)
