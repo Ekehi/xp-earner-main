@@ -30,7 +30,6 @@ const Friends = () => {
             })
             .then((res) => {
                 const userData = res.data.data.data;
-                setUserId(userData.id || userData._id);
                 setLoading(false);
             })
             .catch((err) => {
@@ -39,26 +38,22 @@ const Friends = () => {
             });
     };
 
-    // Generate the referral link using the retrieved user ID
-    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}` : '';
-
+    
     useEffect(() => {
-        // Fetch referral bonus and friend count, but only if userId exists
-        if (userId) {
-            axios.get('https://xp-earner.onrender.com/api/v1/referrals', {
-                headers: {
-                    Authorization: `Bearer ${sessionStorage.getItem('JWT')}`,
-                },
-            })
-                .then(response => {
-                    setBonus(response.data.bonus);
-                    setFriendCount(response.data.friends.length); // Update to get the count of friends
-                })
-                .catch(error => {
-                    console.error("Failed to fetch referral data:", error);
-                });
+        if (window.Telegram?.WebApp) {
+            const initData = window.Telegram.WebApp.initDataUnsafe;
+
+            if (initData && initData.user) {
+                setUserId(
+                    initData.user.id.toString() || '',
+                );
+            }
         }
-    }, [userId]);
+    }, []);
+
+    // Generate the referral link using the retrieved user ID
+    const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
+    console.log(userId);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(referralLink)

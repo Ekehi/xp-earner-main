@@ -49,10 +49,10 @@ function App() {
 
     if (loading) {
         return (
-            <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center">
+            <div className="flex flex-col container w-screen h-screen m-auto items-center justify-center justify-items-center bg-start-bg bg-cover">
                 <div className='relative flex w-full h-1/4 align-bottom justify-center mt-32'>
                     <p
-                        className=' relative w-fit h-fit flex flex-col m-auto text-center align-bottom justify-center text-white  tracking-wider '
+                        className=' relative w-fit h-fit flex flex-col m-auto text-center align-bottom justify-center text-white tracking-wider '
                         style={{ fontFamily: 'unibold' }}><span className='block text-5xl'>EKEHI</span>
                         <span className='block text-2xl text-yellow-400'>Network</span>
                     </p>
