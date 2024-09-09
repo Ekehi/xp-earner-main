@@ -133,6 +133,10 @@ function Homepage() {
         );
     }
 
+    const handleRef = () => {
+        navigate('/friends');
+    };
+
 
 
 
@@ -176,7 +180,8 @@ function Homepage() {
                             <div className='absolute w-full -mt-4 flex justify-end bottom-0 '>
                             <a 
                             href='#Friends'
-                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500  '>
+                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500' 
+                                onClick={handleRef}>
                             Join
                            </a>
                             </div>
