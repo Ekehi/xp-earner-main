@@ -17,12 +17,11 @@ module.exports = {
       wider: '.05em',
       widest: '6.4px',
     },
-    extend: {
+   /*  extend: {
       backgroundImage: {
-       'reg-section': "url('/public/images/8.jpg')",
        'start-bg': "url('/public/images/eks.jpg')",
       }
-    }
+    } */
   },
 
   variants: {
