@@ -176,6 +176,8 @@ function Homepage() {
                             <ul className='text-sm font-mono text-white/80 leading-tight mb-2 list-disc '>
                                 <li>Invite at least 5 Friends.</li>
                                 <li className='mt-1'>Check in at least 5 consecutive days.</li>
+                                    <li className='mt-1'>Follow out official X page (formally Twitter).</li>
+                                    <li className='mt-1'>Join our telegram channel.</li>
                             </ul>
                             <div className='absolute w-full -mt-4 flex justify-end bottom-0 '>
                             <a 
