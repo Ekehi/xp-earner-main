@@ -56,7 +56,7 @@ const Friends = () => {
     console.log(userId);
 
     const handleShare = () => {
-        const shareText = `Join me on Ekehi Bot! Use my referral code: ${referralCode}`;
+        const shareText = `Join me on Ekehi Bot! Use my referral code: ${referralLink}`;
         if (window.Telegram?.WebApp?.openTelegramLink) {
             window.Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(shareText)}`);
         } else {
