@@ -55,53 +55,32 @@ const Friends = () => {
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
     console.log(userId);
 
-    const handleCopy = async () => {
+    const handleCopy = () => {
         if (!referralLink) {
             setCopySuccess('No link to copy');
             return;
         }
 
-        if (!navigator.clipboard) {
-            fallbackCopyTextToClipboard(referralLink);
-            return;
-        }
-
-        try {
-            await navigator.clipboard.writeText(referralLink);
+        if (window.Telegram?.WebApp?.copyTextToClipboard) {
+            window.Telegram.WebApp.copyTextToClipboard(referralLink);
             setCopySuccess('Copied Successfully 😊');
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            setCopySuccess('Failed to copy');
+        } else if (window.Telegram?.WebApp?.showPopup) {
+            // If direct copy is not available, show the link in a popup
+            window.Telegram.WebApp.showPopup({
+                title: 'Your Referral Link',
+                message: referralLink,
+                buttons: [{ type: 'close' }]
+            });
+            setCopySuccess('Link shown in popup');
+        } else {
+            setCopySuccess('Copy not supported');
         }
 
         setTimeout(() => {
             setCopySuccess('');
         }, 2000);
     };
-
-    const fallbackCopyTextToClipboard = (text) => {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        
-        textArea.style.top = "0";
-        textArea.style.left = "0";
-        textArea.style.position = "fixed";
-
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-        try {
-            const successful = document.execCommand('copy');
-            const msg = successful ? 'Copied Successfully 😊' : 'Unable to copy';
-            setCopySuccess(msg);
-        } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
-            setCopySuccess('Failed to copy');
-        }
-
-        document.body.removeChild(textArea);
-    };
+    
 
     if (loading) {
         return <p>Loading...</p>;
