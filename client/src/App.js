@@ -33,7 +33,7 @@ function App() {
     }, []);
 
 
-    
+
 
     if (initialDisplay) {
         return (
@@ -51,60 +51,60 @@ function App() {
         return (
             <div className="flex flex-col container w-screen h-screen m-auto items-end justify-center justify-items-center bg-start-bg bg-contain bg-no-repeat">
                 <div className='relative flex flex-col top-56 h-1/2 w-fit content-between'>
-                <div className='relative flex w-full h-1/4 align-bottom justify-center'>
-                    <p
-                        className=' relative w-fit h-fit flex flex-col m-auto text-center align-bottom justify-center text-white tracking-wider '
-                        style={{ fontFamily: 'unibold' }}><span className='block text-5xl'>EKEHI</span>
-                        <span className='block text-2xl text-yellow-400'>Network</span>
-                    </p>
+                    <div className='relative flex w-full h-1/4 align-bottom justify-center'>
+                        <p
+                            className=' relative w-fit h-fit flex flex-col m-auto text-center align-bottom justify-center text-white tracking-wider '
+                            style={{ fontFamily: 'unibold' }}><span className='block text-5xl'>EKEHI</span>
+                            <span className='block text-2xl text-yellow-400'>Network</span>
+                        </p>
 
-                </div>
-
-                <div className="relative flex self-center m-auto w-full h-fit">
-                    <h1 className="text-xl font-bold flex items-center text-white m-auto">L
-                        <img
-                            alt="o"
-                            className="w-5 h-5 mx-[2px] animate-bounce"
-                            src="50.png"
-                        />ading</h1>
-                </div>
-
-                <div className='relative flex bottom-32 w-full h-1/4 align-middle justify-center mt-32'>
-                    <div className="text-white font-mono text-xs leading-relaxed text-pretty text-center">
-                        <Typewriter
-                            onInit={(typewriter) => {
-                                typewriter
-                                    .typeString("Redefining financial possibilities. ")
-                                    .pauseFor(500)
-                                    .typeString("<span style='color:green'>✔</span>")
-                                    .pauseFor(2000)
-                                    .typeString("<br/>")
-                                    .typeString("Discover a new world of financial freedom with Ekehi. ")
-                                    .pauseFor(500)
-                                    .typeString("<span style='color:green'>✔</span>")
-                                    .pauseFor(2000)
-                                    .typeString("<br/>")
-                                    .typeString("Your journey, starts,")
-                                    .typeString("<br/>")
-                                    .typeString("<br/>")
-                                    .pauseFor(2000)
-                                    .typeString("<strong style='color:orange; font-size:25px'>HERE </strong>")
-                                    .pauseFor(500)
-                                    .typeString("<span style='color:green; font-size:25px; display:inline-block; background-color:white; width:40px; height:40px; border-radius:100%'>✔</span>")
-                                    .start();
-                            }}
-                            options={{
-                                autoStart: true,
-                                loop: false,
-                                delay: 20,
-                                cursor: ""
-                            }}
-                        />
                     </div>
-                </div>
+
+                    <div className="relative flex self-center m-auto w-full h-fit">
+                        <h1 className="text-xl font-bold flex items-center text-white m-auto">L
+                            <img
+                                alt="o"
+                                className="w-5 h-5 mx-[2px] animate-bounce"
+                                src="50.png"
+                            />ading</h1>
+                    </div>
+
+                    <div className='relative flex bottom-32 w-full h-1/4 align-middle justify-center mt-32'>
+                        <div className="text-white font-mono text-xs leading-relaxed text-pretty text-center">
+                            <Typewriter
+                                onInit={(typewriter) => {
+                                    typewriter
+                                        .typeString("Redefining financial possibilities. ")
+                                        .pauseFor(500)
+                                        .typeString("<span style='color:green'>✔</span>")
+                                        .pauseFor(2000)
+                                        .typeString("<br/>")
+                                        .typeString("Discover a new world of financial freedom with Ekehi. ")
+                                        .pauseFor(500)
+                                        .typeString("<span style='color:green'>✔</span>")
+                                        .pauseFor(2000)
+                                        .typeString("<br/>")
+                                        .typeString("Your journey, starts,")
+                                        .typeString("<br/>")
+                                        .typeString("<br/>")
+                                        .pauseFor(2000)
+                                        .typeString("<strong style='color:orange; font-size:25px'>HERE </strong>")
+                                        .pauseFor(500)
+                                        .typeString("<span style='color:green; font-size:25px; display:inline-block; background-color:white; width:40px; height:40px; border-radius:100%'>✔</span>")
+                                        .start();
+                                }}
+                                options={{
+                                    autoStart: true,
+                                    loop: false,
+                                    delay: 20,
+                                    cursor: ""
+                                }}
+                            />
+                        </div>
+                    </div>
 
                 </div>
-               
+
             </div>
         );
     }

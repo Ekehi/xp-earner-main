@@ -28,6 +28,23 @@ function Homepage() {
         }
     }, [authState.token, shouldRefetch]);
 
+    useEffect(() => {
+        // Access the Telegram WebApp object
+        const tg = window.Telegram.WebApp;
+    
+        // Set the header color
+        tg.setHeaderColor('#ffa000');
+    
+        // Set the background color
+        tg.setBackgroundColor('#ffa000');
+    
+        // You can also use TG theme params
+        // tg.setHeaderColor(tg.themeParams.bg_color);
+        // tg.setBackgroundColor(tg.themeParams.secondary_bg_color);
+    
+        // Other initialization code...
+      }, []);
+
 
     const autoLogin = () => {
         if (window.Telegram?.WebApp) {
@@ -37,7 +54,7 @@ function Homepage() {
             if (initData && initData.user) {
                 const username = initData.user.username || '';
                 const userId = String(initData.user.id);
-                console.log (userId);
+                console.log(userId);
 
                 axios
                     .post(
@@ -176,18 +193,18 @@ function Homepage() {
                             <ul className='text-xs font-mono text-white/80 leading-tight mb-2 list-disc '>
                                 <li>Invite at least 5 Friends.</li>
                                 <li className='mt-1'>Check in at least 5 consecutive days.</li>
-                                    <li className='mt-1'>Follow our official Twitter page.</li>
-                                    <li className='mt-1'>Join our Telegram channel.</li>
+                                <li className='mt-1'>Follow our official Twitter page.</li>
+                                <li className='mt-1'>Join our Telegram channel.</li>
                             </ul>
                             <div className='absolute w-full -mt-4 flex justify-end bottom-0 '>
-                            <a 
-                            href='#Friends'
-                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500 active:translate-y-1 active:shadow-inner active:shadow-black transition-transform duration-100'
-                                onClick={handleRef}>
-                            Join
-                           </a>
+                                <a
+                                    href='#Friends'
+                                    className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500 active:translate-y-1 active:shadow-inner active:shadow-black transition-transform duration-100'
+                                    onClick={handleRef}>
+                                    Join
+                                </a>
                             </div>
-                          
+
                         </div>
                     </div>
                 </div>
