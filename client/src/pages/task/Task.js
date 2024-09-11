@@ -157,7 +157,7 @@ const Task = ({ }) => {
 
             <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl '>
                 <Card.Body className='flex flex-col p-4 items-center w-full'>
-                    <div className='relative -mt-36 mb-4 p-1 border-aninmation w-fit h-fit rounded-t-full'>
+                    <div className='relative -mt-32 mb-4 p-1 border-aninmation w-fit h-fit rounded-t-full'>
                         <div className='relative bg-black p-2 rounded-t-full'>
                             <div className=' relative  h-[100px] w-[100px] border-[3px] bg-black border-yellow-500 p-2 rounded-t-full shadow-sm-light shadow-yellow-500 '
                             >
@@ -190,7 +190,7 @@ const Task = ({ }) => {
                             </li>
                         ))}
                     </ul>
-                    <div className='hidden flex flex-row h-fit mb-3 justify-end align-middle text-center w-fit'>
+                    <div className='flex flex-row h-fit mb-3 justify-end align-middle text-center w-fit'>
                        <img
                           src="/50.png"
                            className="inline  my-auto align-middle w-[20px] h-[20px]"
