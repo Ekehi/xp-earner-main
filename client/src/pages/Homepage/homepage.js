@@ -176,13 +176,13 @@ function Homepage() {
                             <ul className='text-sm font-mono text-white/80 leading-tight mb-2 list-disc '>
                                 <li>Invite at least 5 Friends.</li>
                                 <li className='mt-1'>Check in at least 5 consecutive days.</li>
-                                    <li className='mt-1'>Follow out official X page (formally Twitter).</li>
-                                    <li className='mt-1'>Join our telegram channel.</li>
+                                    <li className='mt-1'>Follow our official Twitter page.</li>
+                                    <li className='mt-1'>Join our Telegram channel.</li>
                             </ul>
                             <div className='absolute w-full -mt-4 flex justify-end bottom-0 '>
                             <a 
                             href='#Friends'
-                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500' 
+                            className='relative  text-xs px-2 py-[13px] w-12 h-12 rounded-full text-center align-middle text-white font-bold  bg-yellow-500 shadow-inner shadow-black border-[4px] border-yellow-500 active:translate-y-1 active:shadow-none transition-transform duration-100'
                                 onClick={handleRef}>
                             Join
                            </a>
