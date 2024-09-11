@@ -79,6 +79,30 @@ const Friends = () => {
         }, 2000);
     };
 
+    const fallbackCopyTextToClipboard = (text) => {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            const successful = document.execCommand('copy');
+            const msg = successful ? 'Copied Successfully 😊' : 'Unable to copy';
+            setCopySuccess(msg);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+            setCopySuccess('Failed to copy');
+        }
+
+        document.body.removeChild(textArea);
+    };
+
     if (loading) {
         return <p>Loading...</p>;
     }
