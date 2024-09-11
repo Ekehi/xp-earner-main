@@ -55,17 +55,28 @@ const Friends = () => {
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
     console.log(userId);
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(referralLink)
-            .then(() => {
-                setCopySuccess('Copied Successfully 😊');
-                setTimeout(() => {
-                    setCopySuccess('');
-                }, 2000);
-            })
-            .catch((error) => {
-                console.error('Failed to copy text: ', error);
-            });
+    const handleCopy = async () => {
+        if (!referralLink) {
+            setCopySuccess('No link to copy');
+            return;
+        }
+
+        if (!navigator.clipboard) {
+            fallbackCopyTextToClipboard(referralLink);
+            return;
+        }
+
+        try {
+            await navigator.clipboard.writeText(referralLink);
+            setCopySuccess('Copied Successfully 😊');
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            setCopySuccess('Failed to copy');
+        }
+
+        setTimeout(() => {
+            setCopySuccess('');
+        }, 2000);
     };
 
     if (loading) {
