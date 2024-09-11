@@ -173,7 +173,7 @@ function Homepage() {
                                 10K USDT{' '}
                                 <span className="text-white">GIVEAWAY</span>
                             </h1>
-                            <ul className='text-xm font-mono text-white/80 leading-tight mb-2 list-disc '>
+                            <ul className='text-xs font-mono text-white/80 leading-tight mb-2 list-disc '>
                                 <li>Invite at least 5 Friends.</li>
                                 <li className='mt-1'>Check in at least 5 consecutive days.</li>
                                     <li className='mt-1'>Follow our official Twitter page.</li>
