@@ -159,7 +159,7 @@ const Task = ({ }) => {
                 <Card.Body className='flex flex-col p-4 items-center w-full'>
                     <div className='relative -mt-36 mb-4 p-1 border-aninmation w-fit h-fit rounded-t-full'>
                         <div className='relative bg-black p-2 rounded-t-full'>
-                            <div className=' relative  h-[130px] w-[130px] border-[3px] bg-black border-yellow-500 p-2 rounded-t-full shadow-sm-light shadow-yellow-500 '
+                            <div className=' relative  h-[100px] w-[100px] border-[3px] bg-black border-yellow-500 p-2 rounded-t-full shadow-sm-light shadow-yellow-500 '
                             >
                                 <img
                                     src='/200.png'
