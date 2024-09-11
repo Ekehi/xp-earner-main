@@ -98,7 +98,7 @@ const Friends = () => {
             <div className="relative flex flex-row w-full mt-4">
                 <button
                     className="relative flex font-semibold text-medium justify-center text-center w-2/3 bg-yellow-500 border-2 border-yellow-500 rounded-xl text-white m-auto py-3 shadow-inner transform transition-transform duration-150 ease-in-out"
-                    onClick={() => window.open(`https://t.me/share/url?url=${referralLink}&text=Join%20me%20on%20Ekehi%20Bot`, '_blank')}
+                    onClick={() => window.Telegram?.WebApp?.openLink(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent('Join me on Ekehi Network')}`)}
                 >
                     Invite Friends <BsPersonAdd className='text-white ml-3 text-xl font-bold' />
                 </button>
