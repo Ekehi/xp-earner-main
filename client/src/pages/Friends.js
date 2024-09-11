@@ -55,6 +55,15 @@ const Friends = () => {
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
     console.log(userId);
 
+    const handleShare = () => {
+        const shareText = `Join me on Ekehi Bot! Use my referral code: ${referralCode}`;
+        if (window.Telegram?.WebApp?.openTelegramLink) {
+            window.Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(shareText)}`);
+        } else {
+            console.error('share not available, use "copy" option');
+        }
+    };
+
     const handleCopy = () => {
         if (!referralLink) {
             setCopySuccess('No link to copy');
@@ -98,7 +107,7 @@ const Friends = () => {
             <div className="relative flex flex-row w-full mt-4">
                 <button
                     className="relative flex font-semibold text-medium justify-center text-center w-2/3 bg-yellow-500 border-2 border-yellow-500 rounded-xl text-white m-auto py-3 shadow-inner transform transition-transform duration-150 ease-in-out"
-                    onClick={() => window.Telegram?.WebApp?.openLink(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent('Join me on Ekehi Network')}`)}
+                    onClick={handleShare}
                 >
                     Invite Friends <BsPersonAdd className='text-white ml-3 text-xl font-bold' />
                 </button>
