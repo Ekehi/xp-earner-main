@@ -55,41 +55,18 @@ const Friends = () => {
     const referralLink = userId ? `https://t.me/EkehiBot?start=${userId}`: '';
     console.log(userId);
 
-    const handleShare = () => {
-        const shareText = `Join me on Ekehi Bot! Use my referral code: ${referralLink}`;
-        if (window.Telegram?.WebApp?.openTelegramLink) {
-            window.Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(shareText)}`);
-        } else {
-            console.error('share not available, use "copy" option');
-        }
-    };
-
     const handleCopy = () => {
-        if (!referralLink) {
-            setCopySuccess('No link to copy');
-            return;
-        }
-
-        if (window.Telegram?.WebApp?.copyTextToClipboard) {
-            window.Telegram.WebApp.copyTextToClipboard(referralLink);
-            setCopySuccess('Copied Successfully 😊');
-        } else if (window.Telegram?.WebApp?.showPopup) {
-            // If direct copy is not available, show the link in a popup
-            window.Telegram.WebApp.showPopup({
-                title: 'Your Referral Link',
-                message: referralLink,
-                buttons: [{ type: 'close' }]
+        navigator.clipboard.writeText(referralLink)
+            .then(() => {
+                setCopySuccess('Copied Successfully 😊');
+                setTimeout(() => {
+                    setCopySuccess('');
+                }, 2000);
+            })
+            .catch((error) => {
+                console.error('Failed to copy text: ', error);
             });
-            setCopySuccess('Link shown in popup');
-        } else {
-            setCopySuccess('Copy not supported');
-        }
-
-        setTimeout(() => {
-            setCopySuccess('');
-        }, 2000);
     };
-    
 
     if (loading) {
         return <p>Loading...</p>;
@@ -107,7 +84,7 @@ const Friends = () => {
             <div className="relative flex flex-row w-full mt-4">
                 <button
                     className="relative flex font-semibold text-medium justify-center text-center w-2/3 bg-yellow-500 border-2 border-yellow-500 rounded-xl text-white m-auto py-3 shadow-inner transform transition-transform duration-150 ease-in-out"
-                    onClick={handleShare}
+                    onClick={() => window.open(`https://t.me/share/url?url=${referralLink}&text=Join%20me%20on%20Ekehi%20Bot`, '_blank')}
                 >
                     Invite Friends <BsPersonAdd className='text-white ml-3 text-xl font-bold' />
                 </button>
