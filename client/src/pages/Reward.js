@@ -36,7 +36,22 @@ const Reward = ({ user, setShouldRefetch }) => {
         },
       );
       if (response.data.success) {
-        toast.success(`You have received ${response.data.points} points!`);
+        toast.success(`You have received ${response.data.points} points!`, {
+          position: "top-center",
+          autoClose: 5000, 
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined, // You can customize the progress bar
+          style: {
+            backgroundColor: "#fff", // Success green color
+            color: "#ffa000",              // Text color
+            fontWeight: "bold",         // Customize font weight
+            fontSize: "16px",           // Customize font size
+          }
+
+        });
         setDailyNextClaim(new Date(response.data.nextDailyClaim));
 
 

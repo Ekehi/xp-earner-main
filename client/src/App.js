@@ -32,6 +32,20 @@ function App() {
         };
     }, []);
 
+    useEffect(() => {
+        const tg = window.Telegram.WebApp;
+    
+        // Set the header color
+        tg.setHeaderColor('rgba(255, 162, 0, 0.808)');
+    
+        // Set the background color
+        tg.setBackgroundColor('rgba(255, 162, 0, 0.808)');
+
+        tg.setTextColor('#000000');
+    
+        // Other initialization code...
+      }, []);
+
 
 
 

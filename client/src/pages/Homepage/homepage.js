@@ -28,22 +28,7 @@ function Homepage() {
         }
     }, [authState.token, shouldRefetch]);
 
-    useEffect(() => {
-        // Access the Telegram WebApp object
-        const tg = window.Telegram.WebApp;
     
-        // Set the header color
-        tg.setHeaderColor('#ffa000');
-    
-        // Set the background color
-        tg.setBackgroundColor('#ffa000');
-    
-        // You can also use TG theme params
-        // tg.setHeaderColor(tg.themeParams.bg_color);
-        // tg.setBackgroundColor(tg.themeParams.secondary_bg_color);
-    
-        // Other initialization code...
-      }, []);
 
 
     const autoLogin = () => {
