@@ -40,8 +40,6 @@ function App() {
     
         // Set the background color
         tg.setBackgroundColor('rgba(255, 162, 0, 0.808)');
-
-        tg.setTextColor('#000000');
     
         // Other initialization code...
       }, []);
