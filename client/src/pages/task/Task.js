@@ -155,7 +155,7 @@ const Task = ({ }) => {
         <div className="container flex flex-col content-between h-fit w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg overflow-auto">
 
 
-            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-2/3 bg-black border-t-2 border-yellow-500 rounded-t-3xl '>
+            <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-fit bg-black border-t-2 border-yellow-500 rounded-t-3xl '>
                 <Card.Body className='flex flex-col p-4 items-center w-full'>
                     <div className='relative -mt-32 mb-4 p-1 border-aninmation w-fit h-fit rounded-t-full'>
                         <div className='relative bg-black p-2 rounded-t-full'>
