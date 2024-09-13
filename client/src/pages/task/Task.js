@@ -152,7 +152,7 @@ const Task = ({ }) => {
 
 
     return (
-        <div className="container flex flex-col content-between h-fit w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg overflow-auto">
+        <div className="container flex flex-col content-between h-full w-full z-20 aspect-video  bg-black/90 backdrop-blur-xl shadow-lg overflow-auto">
 
 
             <Card className=' absolute flex flex-col justify-center items-center m-auto bottom-0 z-20 w-dvw h-fit bg-black border-t-2 border-yellow-500 rounded-t-3xl '>
