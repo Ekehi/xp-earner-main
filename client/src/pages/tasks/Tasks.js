@@ -6,6 +6,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import { Avatar } from '@telegram-apps/telegram-ui';
 import { useNavigate } from 'react-router-dom';
 import LearnToEarn from '../Learn/Learn';
+import './CustomTabs.css';  // Add this import
 
 const Tasks = () => {
     const navigate = useNavigate();
@@ -78,7 +79,8 @@ const Tasks = () => {
                 onSelect={(k) => setActiveTab(k)}
                 className="mb-3 flex bg-transparent border-0 justify-around  "
             >
-                <Tab eventKey="tasks" title="Tasks">
+                <Tab eventKey="tasks" title="Tasks"
+                    tabClassName="custom-tab-button">
                     <div id='tasks'>
 
                         <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
@@ -123,7 +125,7 @@ const Tasks = () => {
                     </div>
                 </Tab>
                 <Tab eventKey="learnToEarn" title="Learn2Earn"
-                    className='w-1/2'>
+                    tabClassName="custom-tab-button">
                     <LearnToEarn />
                 </Tab>
             </Tabs>
