@@ -10,10 +10,16 @@ const AppFooter = () => {
     const navItemsRef = useRef([]);
     const location = useLocation();
 
-    useEffect(() => {
-        const paths = ['/', '/tasks', '/friends', '/boost'];
-        const currentPathIndex = paths.indexOf(location.pathname.toLowerCase());
-        setActiveIndex(currentPathIndex !== -1 ? currentPathIndex : 0);
+ useEffect(() => {
+        const getActiveIndex = (path) => {
+            if (path === '/') return 0;
+            if (path.startsWith('/task') || path === '/tasks') return 1;
+            if (path === '/friends') return 2;
+            if (path === '/boost') return 3;
+            return 0; // Default to home if no match
+        };
+
+        setActiveIndex(getActiveIndex(location.pathname.toLowerCase()));
     }, [location.pathname]);
 
     useEffect(() => {
@@ -34,7 +40,7 @@ const AppFooter = () => {
         };
     }, [activeIndex]);
 
-    return (
+     return (
         <nav className="absolute justify-around pb-2  bottom-0.5 flex bg-black rounded-xl h-fit w-screen">
             {[
                 {
@@ -61,7 +67,7 @@ const AppFooter = () => {
                 <Link
                     to={item.path}
                     key={index}
-                    className={`relative flex flex-col text-yellow-500 justify-center no-underline active:no-underline active:text-yellow-500 target:text-yellow-500 focus:text-yellow-500  focus:no-underline  target:no-underline h-1 items-center py-4 px-2 transition ${activeIndex === index ? 'text-yellow-500 bg-black border-t-2 rounded-full p-1 no-underline border-yellow-500 shadow-xl shadow-yellow-800 motion-safe:scale-125 active:no-underline  focus:no-underline  target:no-underline' : 'text-yellow-950'
+                    className={`relative flex flex-col text-yellow-500 justify-center no-underline active:no-underline active:text-yellow-500 target:text-yellow-500 focus:text-yellow-500  focus:no-underline  target:no-underline h-1 items-center py-4 px-2 transition ${activeIndex === index ? 'text-yellow-500 bg-black  no-underline border-yellow-500  motion-safe:scale-125 active:no-underline  focus:no-underline  target:no-underline' : 'text-yellow-950'
                         }`}
                     ref={(el) => (navItemsRef.current[index] = el)}
                 >
