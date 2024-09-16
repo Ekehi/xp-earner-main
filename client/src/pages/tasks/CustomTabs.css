@@ -1,0 +1,30 @@
+.custom-tabs .nav-tabs {
+    border-bottom: none;
+}
+
+.custom-tabs .nav-item {
+    margin-bottom: 0;
+}
+
+.custom-tab-button {
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffc107;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-tab-button:hover,
+.custom-tab-button:focus {
+    color: #000000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.custom-tab-button.active {
+    color: #000000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
