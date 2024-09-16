@@ -1,22 +1,23 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Tabs, Tab } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
 import { Avatar } from '@telegram-apps/telegram-ui';
 import { useNavigate } from 'react-router-dom';
-
+import LearnToEarn from '../Learn/Learn';
 
 const Tasks = () => {
     const navigate = useNavigate();
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [activeTab, setActiveTab] = useState('tasks');
 
     useEffect(() => {
         setLoading(true);
         axios
-            .get('https://xp-earner.onrender.com/api/v1/tasks', {
+            .get('https://task-api.ekehi.network/api/v1/tasks', {
                 withCredentials: true,
                 credentials: 'include',
             })
@@ -31,8 +32,6 @@ const Tasks = () => {
                 console.log(err);
             });
     }, []);
-
-    // spinner while loading functionality
 
     if (loading) {
         return (
@@ -59,8 +58,6 @@ const Tasks = () => {
         );
     }
 
-    // error handling functionality
-
     if (error) {
         return (
             <div className="container mt-5">
@@ -70,57 +67,66 @@ const Tasks = () => {
     }
 
     return (
-        <div className="container mt-5"
-            id='tasks'>
+        <div className="container mt-5">
+
             <img
-                className="w-2/3  h-2/3 tp "
+                className="w-2/3 h-2/3 tp"
                 src="start.png"
             />
+            <Tabs
+                activeKey={activeTab}
+                onSelect={(k) => setActiveTab(k)}
+                className="mb-3 flex bg-transparent border-0 justify-around  "
+            >
+                <Tab eventKey="tasks" title="Tasks">
+                    <div id='tasks'>
 
-            <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
-            <div className="row  pb-24 px-4" >
-                {tasks &&
-                    tasks.length > 0 &&
-                    tasks.map((task, i) => (
-                        <div key={task.id} className="col-lg-4 mb-2  ">
-                            <Card className="relative w-full flex flex-row justify-between bg-transparent  rounded-xl mt-4  shadow-sm-light shadow-yellow-500">
-                                <Card.Body >
-                                    <div className='cardBody  '>
-                                        <div className='cardLeft '>
-                                            <Card.Title className='text-white text-sm'>{task.name}</Card.Title>
-                                            <div className='flex flex-row'> <Avatar
-                                                size={15}
-                                                src="50.png"
-                                                className="inline h-full my-auto align-middle circle-outer delay-[10000ms]"
-                                            />
-                                                <Card.Text className='text-white text-xs ml-1 font-semibold'>
-                                                    {task.xp_points}
-                                                </Card.Text></div>
-
-                                        </div>
-                                        <div className='cardRight'>
-                                            <Button
-                                                className='bg-yellow-500 border-0'
-                                                onClick={() => {
-                                                    navigate(`/task/${task.slug}`);
-                                                }}
-                                                variant="primary"
-                                            >
-                                                <BsArrowRight />
-                                            </Button>
-                                        </div>
+                        <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
+                        <div className="row pb-24 px-4" >
+                            {tasks &&
+                                tasks.length > 0 &&
+                                tasks.map((task) => (
+                                    <div key={task.id} className="col-lg-4 mb-2">
+                                        <Card className="relative w-full flex flex-row justify-between bg-transparent rounded-xl mt-4 shadow-sm-light shadow-yellow-500">
+                                            <Card.Body>
+                                                <div className='cardBody'>
+                                                    <div className='cardLeft'>
+                                                        <Card.Title className='text-white m-2 whitespace-nowrap text-sm w-fit'>{task.name}</Card.Title>
+                                                        <div className='flex flex-row'>
+                                                            <Avatar
+                                                                size={15}
+                                                                src="50.png"
+                                                                className="inline h-full my-auto align-middle circle-outer delay-[10000ms]"
+                                                            />
+                                                            <Card.Text className='text-white text-xs ml-1 font-semibold'>
+                                                                {task.xp_points}
+                                                            </Card.Text>
+                                                        </div>
+                                                    </div>
+                                                    <div className='cardRight'>
+                                                        <Button
+                                                            className='bg-yellow-500 border-0'
+                                                            onClick={() => {
+                                                                navigate(`/task/${task.slug}`);
+                                                            }}
+                                                            variant="primary"
+                                                        >
+                                                            <BsArrowRight />
+                                                        </Button>
+                                                    </div>
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
                                     </div>
-                                </Card.Body>
-                            </Card>
+                                ))}
                         </div>
-                    ))}
-            </div>
-
-            {/* <div className='flex flex-col w-dvw h-screen  absolute  items-center justify-center isolate aspect-video  rounded-xl bg-black/90 backdrop-blur-xl shadow-lg'>
-                <p className='text-yellow-500 m-auto absolute top-96 text-3xl font-mono font-extrabold'>
-                Coming Soon
-                </p>
-            </div> */}
+                    </div>
+                </Tab>
+                <Tab eventKey="learnToEarn" title="Learn2Earn"
+                    className='w-1/2'>
+                    <LearnToEarn />
+                </Tab>
+            </Tabs>
         </div>
     );
 };
