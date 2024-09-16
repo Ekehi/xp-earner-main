@@ -7,24 +7,24 @@
 }
 
 .custom-tab-button {
-    color: #ffffff;
-    background-color: transparent;
-    border: 2px solid #ffc107;
-    border-radius: 20px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    transition: all 0.3s ease;
+    color: #ffffff !important;
+    background-color: transparent !important;
+    border: 2px solid #ffc107 !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    margin: 0 10px !important;
+    transition: all 0.3s ease !important;
 }
 
 .custom-tab-button:hover,
 .custom-tab-button:focus {
-    color: #000000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    color: #000000 !important;
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
 }
 
 .custom-tab-button.active {
-    color: #000000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    color: #000000 !important;
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
 }
