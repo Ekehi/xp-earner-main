@@ -22,7 +22,7 @@ const Task = ({ }) => {
         setLoading(true);
 
         axios
-            .get(`https://xp-earner.onrender.com/api/v1/tasks/${taskSlug}`)
+            .get(`https://task-api.ekehi.network/api/v1/tasks/${taskSlug}`)
             .then((res) => {
                 setTask(res.data.data.data);
                 setLoading(false);
@@ -37,7 +37,7 @@ const Task = ({ }) => {
             setLoading(true);
 
             axios
-                .get('https://xp-earner.onrender.com/api/v1/users/me', {
+                .get('https://task-api.ekehi.network/api/v1/users/me', {
                     headers: {
                         Authorization: `Bearer ${authState.token}`,
                     },
