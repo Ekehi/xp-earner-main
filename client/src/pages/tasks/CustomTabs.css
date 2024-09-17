@@ -16,13 +16,6 @@
     transition: all 0.3s ease;
 }
 
-.custom-tab-button:hover,
-.custom-tab-button:focus {
-    color: #000000;
-    background-color: #ffc107;
-    border-color: #ffc107;
-}
-
 .custom-tab-button.active {
     color: #000000;
     background-color: #ffc107;
