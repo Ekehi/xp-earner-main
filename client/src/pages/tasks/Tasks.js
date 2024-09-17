@@ -18,7 +18,7 @@ const Tasks = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get('https://task-api.ekehi.network/api/v1/tasks', {
+            .get('https://xp-earner.onrender.com/api/v1/tasks', {
                 withCredentials: true,
                 credentials: 'include',
             })
@@ -89,8 +89,8 @@ const Tasks = () => {
                                 tasks.length > 0 &&
                                 tasks.map((task) => (
                                     <div key={task.id} className="col-lg-4 mb-2">
-                                        <Card className="relative w-full flex flex-row justify-between bg-transparent rounded-xl mt-4 shadow-sm-light shadow-yellow-500">
-                                            <Card.Body>
+                                        <Card className="relative w-[90dvw] flex flex-row justify-between bg-transparent rounded-xl mt-4 mx-5 shadow-sm-light shadow-yellow-500">
+                                            <Card.Body className=''>
                                                 <div className='cardBody'>
                                                     <div className='cardLeft'>
                                                         <Card.Title className='text-white m-2 whitespace-nowrap text-sm w-fit'>{task.name}</Card.Title>
