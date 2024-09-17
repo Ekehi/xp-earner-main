@@ -1,5 +1,6 @@
 .custom-tabs .nav-tabs {
     border-bottom: none;
+    width:100%
 }
 
 .custom-tabs .nav-item {
@@ -7,17 +8,18 @@
 }
 
 .custom-tab-button {
-    color: #ffffff;
-    background-color: transparent;
-    border: 2px solid #ffc107;
-    border-radius: 20px;
+    color: #ffa000 ;
+    background-color: transparent !important;
+    border-radius: 20px !important;
     padding: 10px 20px;
     margin: 0 10px;
-    transition: all 0.3s ease;
+    width: 45dvw !important;
+    transition: all 0.2s linear;
 }
 
 .custom-tab-button.active {
-    color: #000000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    color: #000000 !important;
+    font: bold !important;
+    background-color: #ffa000 !important;
+    border: 2px solid #ffa000 !important;
 }
