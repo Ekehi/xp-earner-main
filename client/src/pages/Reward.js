@@ -43,12 +43,12 @@ const Reward = ({ user, setShouldRefetch }) => {
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          progress: undefined, // You can customize the progress bar
+          progress: undefined, 
           style: {
-            backgroundColor: "#fff", // Success green color
-            color: "#ffa000",              // Text color
-            fontWeight: "bold",         // Customize font weight
-            fontSize: "16px",           // Customize font size
+            backgroundColor: "#fff",
+            color: "#ffa000", 
+            fontWeight: "bold",
+            fontSize: "16px",
           }
 
         });
