@@ -41,7 +41,7 @@ const Friends = () => {
 
     const fetchUserStats = (token) => {
         axios
-            .get('https://xp-earner.onrender.com/api/v1/users/user-stats', {
+            .get('https://xp-earner.onrender.com/api/v1/user-stats/{userId}', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
