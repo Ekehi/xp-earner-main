@@ -39,9 +39,9 @@ const Friends = () => {
             });
     };
 
-    const fetchUserStats = (token) => {
+    const fetchUserStats = (token, userId) => {
         axios
-            .get('https://xp-earner.onrender.com/api/v1/user-stats/{userId}', {
+            .get(`https://xp-earner.onrender.com/api/v1/user-stats/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -53,7 +53,6 @@ const Friends = () => {
             })
             .catch((err) => {
                 console.error('Failed to fetch user stats:', err);
-                // Optionally set an error state here if you want to display it
             });
     };
 
