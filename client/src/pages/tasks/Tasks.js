@@ -83,7 +83,7 @@ const Tasks = () => {
                     tabClassName="custom-tab-button">
                     <div id='tasks'>
 
-                        <h2 className='flex text-white font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
+                        <h2 className='flex text-white/90 font-mono text-lg text-center w-full justify-center'>Complete Tasks For More Rewards</h2>
                         <div className="row pb-24 px-4" >
                             {tasks &&
                                 tasks.length > 0 &&
