@@ -17,6 +17,7 @@ const Task = ({ }) => {
     const { taskSlug } = useParams();
     const [linkStatus, setLinkStatus] = useState([]);
     const [allLinkVisited, setAllLinkVisited] = useState(false);
+    const [logoUrl, setLogoUrl] = useState('');
 
     useEffect(() => {
         setLoading(true);
@@ -57,6 +58,14 @@ const Task = ({ }) => {
     useEffect(() => {
         if (task && task.links) {
             setLinkStatus(Array(task.links.length).fill(false));
+        }
+    }, [task]);
+
+    useEffect(() => {
+        if (task && task.links && task.links.length > 0) {
+            const link = new URL(task.links[0]);
+            const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${link.hostname}`;
+            setLogoUrl(faviconUrl);
         }
     }, [task]);
 
@@ -161,9 +170,15 @@ const Task = ({ }) => {
                         <div className='relative bg-black p-2 rounded-t-full'>
                             <div className=' relative  h-[100px] w-[100px] border-[3px] bg-black border-yellow-500 p-2 rounded-t-full shadow-sm-light shadow-yellow-500 '
                             >
-                                <img
-                                    src='/200.png'
-                                    className=' circle-inner top-glow shadow-sm-light shadow-yellow-500 rounded-full bg-transparent animate-pulse delay-[999ms]' />
+                                 {logoUrl ? (
+                                    <img
+                                        src={logoUrl}
+                                        alt="Task logo"
+                                        className='w-full h-full object-contain circle-inner top-glow shadow-sm-light shadow-yellow-500 rounded-full bg-transparent animate-pulse delay-[999ms]'
+                                    />
+                                ) : (
+                                    <div className='w-full h-full bg-yellow-500 rounded-full animate-pulse'></div>
+                                )}
                             </div>
                         </div>
                     </div>
