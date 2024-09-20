@@ -174,7 +174,7 @@ const Task = ({ }) => {
                                     <img
                                         src={logoUrl}
                                         alt="Task logo"
-                                        className='w-full h-full object-contain circle-inner top-glow shadow-sm-light shadow-yellow-500 rounded-full bg-transparent animate-pulse delay-[999ms]'
+                                        className='w-full h-full object-contain p-2 circle-inner top-glow shadow-sm-light shadow-yellow-500 rounded-full bg-transparent animate-pulse delay-[999ms]'
                                     />
                                 ) : (
                                     <div className='w-full h-full bg-yellow-500 rounded-full animate-pulse'></div>
