@@ -38,7 +38,7 @@ const Task = ({ }) => {
             setLoading(true);
 
             axios
-                .get('https://task-api.ekehi.network/api/v1/users/me', {
+                .get('https://xp-earner.onrender.com/api/v1/users/me', {
                     headers: {
                         Authorization: `Bearer ${authState.token}`,
                     },
